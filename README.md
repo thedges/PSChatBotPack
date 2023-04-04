@@ -52,13 +52,13 @@ function receiveMessage(event) {
 6. Apply the ChatStyle Static Resource to your embedded Chat in your Salesforce Community (or hosting site).
     1. Navigate to the home page of the community (or wherever the chat will take place).
     2. Add/Edit the Embedded Service Chat Component on the community home page, and set to the relevant embedded service deployment .
-       1. Under the “External Styles” Section, put CLWCP__ChatStyle
+       a. Under the “External Styles” Section, put CLWCP__ChatStyle
     3. Add a new standard community page (for utilizing the flow LWC)
-        1. Click the page dropdown, and click + New Page.
-        2. Select Standard Page, and choose Full width or Flexible Layout.
-        3. Give the page a name and URL of “flowcomponent”. Click Create.
-        4. Remove all headers/components/chat from the new page.
-        5. Add the Chat LWC Pack - Run Flow component to the page full width. Ensure input “FlowName” is set to {!flowName}
+        a. Click the page dropdown, and click + New Page.
+        b. Select Standard Page, and choose Full width or Flexible Layout.
+        c. Give the page a name and URL of “flowcomponent”. Click Create.
+        d. Remove all headers/components/chat from the new page.
+        e. Add the Chat LWC Pack - Run Flow component to the page full width. Ensure input “FlowName” is set to {!flowName}
     4. Publish the community.
 
 
