@@ -72,20 +72,20 @@ function receiveMessage(event) {
 9. Activate the bot.
 
 
-Usage
+# Usage
 
 Each lightning component as part of this pack can be activated by agent/bot message text that starts with a reserved “Prefix Syntax”, which identifies the component, and it’s parameters. Below, each component is outlined, and it's syntax. 
 
 Note that if curly brackets are shown in the syntax below, that is to indicate a variable can be inserted; however, if you are hardcoding values please omit said brackets as that will cause the component to not work correctly. 
 
 
-DatePicker
+## DatePicker
 
 Chat Prefix Syntax: lwc:datepicker
 
 Provide a selectable calendar control to the customer in a chat. When the user then clicks on a date, the date response will be sent back. If using with an Einstein Bot, use a question block with return type “System.Date”, as shown below:
 
-Record Tile
+## Record Tile
 
 Chat Prefix Syntax: lwc:recordtile:{objectName}:{recordId}:{field1,field2,field3,....}
 
@@ -99,7 +99,7 @@ Parameters
 
 
 
-HTML
+## HTML
 
 Chat Prefix Syntax: lwc:html:{htmlText}
 
@@ -111,7 +111,7 @@ Parameters
 
 
 
-Google Map
+## Google Map
 
 Chat Prefix Syntax: lwc:gmap:{mapAPIkey}:{searchTerm}:{mapWidth}:{mapHeight}
 
@@ -126,7 +126,7 @@ Parameters
 
 
 
-File Upload
+## File Upload
 
 Chat Prefix Syntax: lwc:fileupload:{relatedRecordId}
 
@@ -141,7 +141,7 @@ Parameters
 
 
 
-Flow
+## Flow
 
 Chat Prefix Syntax: lwc:flow:{flowURL}:{height}
 
@@ -154,7 +154,7 @@ Parameters
 
 
 
-Navigate
+## Navigate
 
 Chat Prefix Syntax: lwc:navigate:{type}:{sessionId}:{path}
 
@@ -171,7 +171,7 @@ Parameters
 
 
 
-Carousel
+## Carousel
 
 Chat Prefix Syntax: lwc:carousel:{tile1Title;tile1Description;tile1ImagePath|tile2Title;tile2Description;tile2ImagePath|...}
 
@@ -189,7 +189,7 @@ Carousel tiles are provided as input parameters in a bar seperated “|” list 
 
 
 
-Survey
+## Survey
 
 Chat Prefix Syntax: lwc:survey:{type}:{additionalparams}
 
@@ -209,24 +209,24 @@ Parameters
 
 
 
-Hide
+# Hide
 
 If you’d like to hide either agent or customer text in a chat window, you can prefix any chat message with lwc:hide: to not display this message in the chat window. This is mostly used when developing additional lightning components that post back responses to the chat when the customer clicks/selects something in the custom UI. For example, they are used in the response message in the File Upload and Carousel component.
 
 
 
 
-Troubleshooting
+# Troubleshooting
 
-Carousel Images
+## Carousel Images
 
 If your carousel component is just displaying the image titles and descriptions, but not the image, confirm that your static resource package just contains the images, not a folder. i.e. when packaging your images, select all the images you’d like to upload, right click, and click “Compress" - do not compress the folder the images are contained in. 
 
-File Upload Error
+## File Upload Error
 
 When hardcoding a Salesforce record ID into the File Upload component do not include curly brackets {}, e.g. “lwc:fileupload:0033h000008a0KPAAY“. Failure to do this will prompt users to select a record type and present an error message after the initial upload screen. 
 
-Note
+## Note
 
 While this package can be installed in any org and used as is, it was intended as a foundation for customization. Due to the nature of the components, we’re unable to host the unmanaged package on the AppExchange. If you’d like to customize any of the components, you' will need to install using this Github package instead. 
 
