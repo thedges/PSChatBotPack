@@ -47,9 +47,7 @@ function receiveMessage(event) {
 };
 </script>
 ```
-
-        3. Click Save
-
+  3. Click Save
 6. Apply the ChatStyle Static Resource to your embedded Chat in your Salesforce Community (or hosting site).
     1. Navigate to the home page of the community (or wherever the chat will take place).
     2. Add/Edit the Embedded Service Chat Component on the community home page, and set to the relevant embedded service deployment .
