@@ -15,14 +15,14 @@ This repo provides various demo LWCs and Apex actions for Salesforce chatbot dem
     4. Change the “Chat Messages (Text)” dropdown to lwcchatpack, and click Save.
 4. Create a Static Resource named CLWCP_Assets for all carousel images (Optional)
     1. Navigate to Setup → Custom Code → Static Resources. Click New.
-        1. Name: CLWCP_Assets
-        2. Upload your zip file
-        3. Select either private or public depending on your use case.
-        4. Click Save.
+    2. Name: CLWCP_Assets
+    3. Upload your zip file
+    4. Select either private or public depending on your use case.
+    5. Click Save.
 
 5. Update Community pages in Community Builder
-    a. Navigate to Setup → Feature Settings → Communities → All Communities. Click Builder on the relevant Community.
-    b. Add js snippet to header
+    1. Navigate to Setup → Feature Settings → Communities → All Communities. Click Builder on the relevant Community.
+    2. Add js snippet to header
         1. Click the Gear on the left hand panel (Settings). Choose Advanced, and then click Edit Head Markup.
         2. Paste the following in the head code
 ```
@@ -48,30 +48,30 @@ function receiveMessage(event) {
 </script>
 ```
 
-Click Save
+        3. Click Save
 
-    1. Apply the ChatStyle Static Resource to your embedded Chat in your Salesforce Community (or hosting site).
-        1. Navigate to the home page of the community (or wherever the chat will take place).
-        2. Add/Edit the Embedded Service Chat Component on the community home page, and set to the relevant embedded service deployment .
-            1. Under the “External Styles” Section, put CLWCP__ChatStyle
-    2. Add a new standard community page (for utilizing the flow LWC)
+6. Apply the ChatStyle Static Resource to your embedded Chat in your Salesforce Community (or hosting site).
+    1. Navigate to the home page of the community (or wherever the chat will take place).
+    2. Add/Edit the Embedded Service Chat Component on the community home page, and set to the relevant embedded service deployment .
+       1. Under the “External Styles” Section, put CLWCP__ChatStyle
+    3. Add a new standard community page (for utilizing the flow LWC)
         1. Click the page dropdown, and click + New Page.
         2. Select Standard Page, and choose Full width or Flexible Layout.
         3. Give the page a name and URL of “flowcomponent”. Click Create.
         4. Remove all headers/components/chat from the new page.
         5. Add the Chat LWC Pack - Run Flow component to the page full width. Ensure input “FlowName” is set to {!flowName}
-    3. Publish the community.
+    4. Publish the community.
 
 
-1. Give your bot user permission to relevant objects and classes (Optional). If using the demo bot packaged with the package, the following permissions will need to be added to the permission set: sfdc.chatbot.service.permset
+7. Give your bot user permission to relevant objects and classes (Optional). If using the demo bot packaged with the package, the following permissions will need to be added to the permission set: sfdc.chatbot.service.permset
     1. Object Permissions
         1. Case: READ (fields: Subject, Status, Priority)
         2. Chat Transcript: READ (fields: Contact Name)
     2. Apex Classes
         1. CLWCP.ApplyRegExToString
         2. CLWCP.GetFlowOutputValue
-2. Connect your bot to the relevant embedded service deployment.
-3. Activate the bot.
+8. Connect your bot to the relevant embedded service deployment.
+9. Activate the bot.
 
 
 Usage
