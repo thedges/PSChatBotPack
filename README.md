@@ -9,10 +9,10 @@ This repo provides various demo LWCs and Apex actions for Salesforce chatbot dem
 1. Ensure that you have an existing Embedded Service Deployment configured for Salesforce Chat.
 2. Install this repo to your target demo org.
 3. Customize the Embedded Service Deployment
-    * Navigate to Setup → Feature Settings → Service → Embedded Service → Embedded Service Deployments. Click View on the relevant Deployment.
-    * In Chat Settings, Click Edit.
-    * Under the section “Customize with Lightning Components”, click Edit.
-    * Change the “Chat Messages (Text)” dropdown to lwcchatpack, and click Save.
+    1. Navigate to Setup → Feature Settings → Service → Embedded Service → Embedded Service Deployments. Click View on the relevant Deployment.
+    2. In Chat Settings, Click Edit.
+    3. Under the section “Customize with Lightning Components”, click Edit.
+    4. Change the “Chat Messages (Text)” dropdown to lwcchatpack, and click Save.
 4. Create a Static Resource named CLWCP_Assets for all carousel images (Optional)
     * Navigate to Setup → Custom Code → Static Resources. Click New.
         1. Name: CLWCP_Assets
