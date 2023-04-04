@@ -220,6 +220,16 @@ If you’d like to hide either agent or customer text in a chat window, you can 
 
 # Troubleshooting
 
+## Map
+
+If the map does not render and has an error message like "This content cannot be displayed. ...". You need to create an CSP Trusted Site entry for Google.
+* Go to Settings > CSP Trusted Sites
+* Create an entry and name it something like "Google"
+* Provide URL of https://*.google.com
+* Check boxes for following:
+  *  Allow site for frame-src
+  *  Allow site for img-src
+
 ## Carousel Images
 
 If your carousel component is just displaying the image titles and descriptions, but not the image, confirm that your static resource package just contains the images, not a folder. i.e. when packaging your images, select all the images you’d like to upload, right click, and click “Compress" - do not compress the folder the images are contained in. 
