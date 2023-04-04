@@ -23,9 +23,9 @@ This repo provides various demo LWCs and Apex actions for Salesforce chatbot dem
 5. Update Community pages in Community Builder
     1. Navigate to Setup → Feature Settings → Communities → All Communities. Click Builder on the relevant Community.
     2. Add js snippet to header
-        a. Click the Gear on the left hand panel (Settings). Choose Advanced, and then click Edit Head Markup.
-        b. Paste the code below in the head code
-        c. Click Save
+        1. Click the Gear on the left hand panel (Settings). Choose Advanced, and then click Edit Head Markup.
+        2. Paste the code below in the head code
+        3. Click Save
          
 ```
 <style>
