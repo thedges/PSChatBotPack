@@ -26,6 +26,7 @@ This repo provides various demo LWCs and Apex actions for Salesforce chatbot dem
         a. Click the Gear on the left hand panel (Settings). Choose Advanced, and then click Edit Head Markup.
         b. Paste the code below in the head code
         c. Click Save
+        
 ```
 <style>
     ul.slds-carousel__indicators{
