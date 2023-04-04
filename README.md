@@ -14,7 +14,7 @@ This repo provides various demo LWCs and Apex actions for Salesforce chatbot dem
     * Under the section “Customize with Lightning Components”, click Edit.
     * Change the “Chat Messages (Text)” dropdown to lwcchatpack, and click Save.
 4. Create a Static Resource named CLWCP_Assets for all carousel images (Optional)
-    1. Navigate to Setup → Custom Code → Static Resources. Click New.
+    * Navigate to Setup → Custom Code → Static Resources. Click New.
         1. Name: CLWCP_Assets
         2. Upload your zip file
         3. Select either private or public depending on your use case.
