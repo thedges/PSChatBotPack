@@ -1,5 +1,8 @@
 # PSChatBotPack
-Salesforce chatbot pack for demo LWCs and Apex actions
+This repo provides various demo LWCs and Apex actions for Salesforce chatbot demos. Since a chatbot can only be configured for one "uber" LWC to interpret chat markup and display various LWCs, this repo is an aggregation of custom LWCs and other 3rd party github repos.
+
+# 3rd Party Sites Utilized for this Repo
+* [Chat-Lightning-Web-Component-Pack](https://github.com/Colatabajonies/Chat-Lightning-Web-Component-Pack) - this is a repo created by Chris Gilmore for various LWCs to be used in chatbots. I've repackaged and even altered his originals in some cases. Details provided in [this Quip doc](https://salesforce.quip.com/WM7AA3tXRsaf).
 
 
 Installation
