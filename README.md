@@ -12,13 +12,14 @@ This repo provides various demo LWCs and Apex actions for Salesforce chatbot dem
     1. Navigate to Setup → Feature Settings → Service → Embedded Service → Embedded Service Deployments. Click View on the relevant Deployment.
     2. In Chat Settings, Click Edit.
     3. Under the section “Customize with Lightning Components”, click Edit.
-    4. Change the “Chat Messages (Text)” dropdown to lwcchatpack, and click Save.
-4. Create a Static Resource named CLWCP_Assets for all carousel images (Optional)
-    1. Navigate to Setup → Custom Code → Static Resources. Click New.
-    2. Name: CLWCP_Assets
-    3. Upload your zip file
-    4. Select either private or public depending on your use case.
-    5. Click Save.
+    4. Change the “Chat Messages (Text)” dropdown to __psChatBot__, and click Save.
+4. Create a Static Resource named PSChatBotPack_Images for all carousel images (Optional)
+    1. Create a zip file that only includes the images you need for your carousel component. DO NOT INCLUDE the base directory for your images.
+    2. Navigate to Setup → Custom Code → Static Resources. Click New.
+    3. Name: PSChatBotPack_Images
+    4. Upload your zip file
+    5. Select either private or public depending on your use case.
+    6. Click Save.
 
 5. Update Community pages in Community Builder
     1. Navigate to Setup → Feature Settings → Communities → All Communities. Click Builder on the relevant Community.
@@ -50,16 +51,16 @@ function receiveMessage(event) {
 </script>
 ```
 
-6. Apply the ChatStyle Static Resource to your embedded Chat in your Salesforce Community (or hosting site).
+6. Apply the ChatStyle Static Resource to your embedded Chat in your Salesforce Experience Site (or hosting site).
     1. Navigate to the home page of the community (or wherever the chat will take place).
     2. Add/Edit the Embedded Service Chat Component on the community home page, and set to the relevant embedded service deployment .
-       a. Under the “External Styles” Section, put CLWCP__ChatStyle
+       a. Under the “External Styles” Section, put PSChatBotPack_CSS
     3. Add a new standard community page (for utilizing the flow LWC)
         a. Click the page dropdown, and click + New Page.
         b. Select Standard Page, and choose Full width or Flexible Layout.
         c. Give the page a name and URL of “flowcomponent”. Click Create.
         d. Remove all headers/components/chat from the new page.
-        e. Add the Chat LWC Pack - Run Flow component to the page full width. Ensure input “FlowName” is set to {!flowName}
+        e. Add the __PSChatBotPack - Run Flow__ component to the page full width. Ensure input “FlowName” is set to {!flowName}
     4. Publish the community.
 
 
