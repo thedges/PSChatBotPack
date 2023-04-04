@@ -23,8 +23,8 @@ This repo provides various demo LWCs and Apex actions for Salesforce chatbot dem
 5. Update Community pages in Community Builder
     1. Navigate to Setup → Feature Settings → Communities → All Communities. Click Builder on the relevant Community.
     2. Add js snippet to header
-        1. Click the Gear on the left hand panel (Settings). Choose Advanced, and then click Edit Head Markup.
-        2. Paste the following in the head code
+        a. Click the Gear on the left hand panel (Settings). Choose Advanced, and then click Edit Head Markup.
+        b. Paste the following in the head code
 ```
 <style>
     ul.slds-carousel__indicators{
@@ -47,7 +47,7 @@ function receiveMessage(event) {
 };
 </script>
 ```
-   3. Click Save
+   c. Click Save
 6. Apply the ChatStyle Static Resource to your embedded Chat in your Salesforce Community (or hosting site).
     1. Navigate to the home page of the community (or wherever the chat will take place).
     2. Add/Edit the Embedded Service Chat Component on the community home page, and set to the relevant embedded service deployment .
