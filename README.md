@@ -1,4 +1,6 @@
 # PSChatBotPack
+THIS SOFTWARE IS COVERED BY [THIS DISCLAIMER](https://raw.githubusercontent.com/thedges/Disclaimer/master/disclaimer.txt).
+
 This repo provides various demo LWCs and Apex actions for Salesforce chatbot demos. Since a chatbot can only be configured for one "uber" LWC to interpret chat markup and display various LWCs, this repo is an aggregation of custom LWCs and other 3rd party github repos.
 
 # 3rd Party Sites Utilized for this Repo
@@ -8,6 +10,12 @@ This repo provides various demo LWCs and Apex actions for Salesforce chatbot dem
 # Installation
 1. Ensure that you have an existing Embedded Service Deployment configured for Salesforce Chat.
 2. Install this repo to your target demo org.
+
+<a href="https://githubsfdeploy.herokuapp.com?owner=thedges&repo=PSChatBotPack&ref=main">
+  <img alt="Deploy to Salesforce"
+       src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png">
+</a>
+
 3. Customize the Embedded Service Deployment
     1. Navigate to Setup → Feature Settings → Service → Embedded Service → Embedded Service Deployments. Click View on the relevant Deployment.
     2. In Chat Settings, Click Edit.
