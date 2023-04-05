@@ -92,6 +92,8 @@ Note that if curly brackets are shown in the syntax below, that is to indicate a
 
 ## DatePicker
 
+<img src="https://github.com/thedges/PSChatBotPack/blob/653165ac7ab1ca1d3b103ffb0a86accc777617d6/images/DatePicker.png" alt="DatePicker" height="600">
+
 ![alt text](https://github.com/thedges/PSChatBotPack/blob/653165ac7ab1ca1d3b103ffb0a86accc777617d6/images/DatePicker.png "Sample Image")
 
 Chat Prefix Syntax: lwc:datepicker
