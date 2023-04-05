@@ -34,7 +34,7 @@ Carousel tiles are provided as input parameters in a bar seperated “|” list 
 
 ## DatePicker
 
-<img src="/images/datepicker.png" alt="DatePicker" style="max-height:500px">
+<img src="/images/datepicker.png" alt="DatePicker" style="max-height:400px">
 
 
 Chat Prefix Syntax: lwc:datepicker
