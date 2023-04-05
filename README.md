@@ -13,6 +13,23 @@ Each lightning component as part of this pack can be activated by agent/bot mess
 Note that if curly brackets are shown in the syntax below, that is to indicate a variable can be inserted; however, if you are hardcoding values please omit said brackets as that will cause the component to not work correctly. 
 
 
+## Carousel
+
+<img src="/images/carousel.png" alt="Carousel" height="500">
+
+Chat Prefix Syntax: lwc:carousel:{tile1Title;tile1Description;tile1ImagePath|tile2Title;tile2Description;tile2ImagePath|...}
+
+Display a revolving carousel of content tiles in the chat window, and allow the customer to select one. When the customer clicks on a tile, a hidden response is provided automatically by the customer in the syntax: lwc:hide:{tileTitle} where tileTile denotes the title of the tile that was selected. Therefore, it is best to use the carousel component in a Question block if using a chatbot, to save the selected tile response to a slot. Also, see “lwc:hide” for more information about hiding text.
+
+Images displayed in the carousel MUST be pre-loaded in a static resource named “CLWCP_Assets”. This must be created ahead of time. See installation instructions.
+
+Parameters
+Carousel tiles are provided as input parameters in a bar seperated “|” list of items. Each property in a given tile is semi-colon “;” seperated. Carousel is limited to a max of 5 tiles. Each tile contains the following properties
+
+* tileTitle: The header text for the tile
+* tileDescription: Description text for the tile
+* tileImagePath: The path to the image inside of the CLWCP_Assets static resource.
+
 ## DatePicker
 
 <img src="/images/datepicker.png" alt="DatePicker" height="500">
@@ -22,34 +39,33 @@ Chat Prefix Syntax: lwc:datepicker
 
 Provide a selectable calendar control to the customer in a chat. When the user then clicks on a date, the date response will be sent back. If using with an Einstein Bot, use a question block with return type “System.Date”, as shown below:
 
-## Record Tile
+## File Upload
 
-<img src="/images/datepicker.png" alt="RecordTile" height="500">
+<img src="/images/fileupload.png" alt="File Upload" height="500">
 
-Chat Prefix Syntax: lwc:recordtile:{objectName}:{recordId}:{field1,field2,field3,....}
+Chat Prefix Syntax: lwc:fileupload:{relatedRecordId}
 
-Present a formatted “Compact View” of an object record in chat.
-
-Parameters
-
-* objectName: The API name of the standard or custom object that will be displayed.
-* recordId: The Id of the record that will be displayed.
-* fields: A comma separated list of the field API names that will be displayed. The first field in the list will serve as the tile title.
-
-
-
-## HTML
-
-<img src="/images/html.png" alt="HTML" height="500">
-
-Chat Prefix Syntax: lwc:html:{htmlText}
-
-Present unescaped HTML markup in the chat.
+Allow the customer to upload a file in the chat window, and have it attached to a designated record. Once the file is uploaded, a hidden response is provided automatically by the customer in the syntax: lwc:hide:{relatedRecordId} where relatedRecordId is again confirming the recordId that the file was attached to. Therefore, it is best to use the file upload component in a Question block if using a chatbot, to save the response to a slot. Also, see “lwc:hide” for more information about hiding text.
 
 Parameters
 
-* htmlText: The HTML to be displayed.
+* mapAPIkey: Your Google map API key to use the Google Map Embed API.
+* searchTerm: The address or point of interest to show on the map.
+* mapWidth: The width of the map component (Optional).
+* mapHeight: The height of the map component (Optional).
 
+## Flow
+
+<img src="/images/flow.png" alt="Flow" height="500">
+
+Chat Prefix Syntax: lwc:flow:{flowURL}:{height}
+
+Allow the customer to step through a screen flow. Once the flow is finished, a hidden response is provided automatically by the customer in the syntax: lwc:hide:{flowOutputParams} where flowOutputParams is JSON containing any output provided by the flow. Therefore, it is best to use the flow component in a Question block if using a chatbot, to save the output to a slot. Also, see “lwc:hide” for more information about hiding text. Ensure that you followed the community page steps above to have your flowcomponent page setup prior to using the flow component.
+
+Parameters
+
+* flowURL: the API name of your flow, with URL params to set input (ie “myFlowName&param1=val1&param2=val2)
+* height: the height in pixels that you want the iFrame to be
 
 
 ## Google Map
@@ -68,37 +84,17 @@ Parameters
 * mapHeight: The height of the map component (Optional).
 
 
+## HTML
 
-## File Upload
+<img src="/images/html.png" alt="HTML" height="500">
 
-<img src="/images/fileupload.png" alt="File Upload" height="500">
+Chat Prefix Syntax: lwc:html:{htmlText}
 
-Chat Prefix Syntax: lwc:fileupload:{relatedRecordId}
-
-Allow the customer to upload a file in the chat window, and have it attached to a designated record. Once the file is uploaded, a hidden response is provided automatically by the customer in the syntax: lwc:hide:{relatedRecordId} where relatedRecordId is again confirming the recordId that the file was attached to. Therefore, it is best to use the file upload component in a Question block if using a chatbot, to save the response to a slot. Also, see “lwc:hide” for more information about hiding text.
-
-Parameters
-
-* mapAPIkey: Your Google map API key to use the Google Map Embed API.
-* searchTerm: The address or point of interest to show on the map.
-* mapWidth: The width of the map component (Optional).
-* mapHeight: The height of the map component (Optional).
-
-
-
-## Flow
-
-<img src="/images/flow.png" alt="Flow" height="500">
-
-Chat Prefix Syntax: lwc:flow:{flowURL}:{height}
-
-Allow the customer to step through a screen flow. Once the flow is finished, a hidden response is provided automatically by the customer in the syntax: lwc:hide:{flowOutputParams} where flowOutputParams is JSON containing any output provided by the flow. Therefore, it is best to use the flow component in a Question block if using a chatbot, to save the output to a slot. Also, see “lwc:hide” for more information about hiding text. Ensure that you followed the community page steps above to have your flowcomponent page setup prior to using the flow component.
+Present unescaped HTML markup in the chat.
 
 Parameters
 
-* flowURL: the API name of your flow, with URL params to set input (ie “myFlowName&param1=val1&param2=val2)
-* height: the height in pixels that you want the iFrame to be
-
+* htmlText: The HTML to be displayed.
 
 
 ## Navigate
@@ -119,25 +115,19 @@ Parameters
     * page: When type==page, path will be equal to the page relative URL.
 
 
+## Record Tile
 
-## Carousel
+<img src="/images/recordtile.png" alt="RecordTile" height="500">
 
-<img src="/images/carousel.png" alt="Carousel" height="500">
+Chat Prefix Syntax: lwc:recordtile:{objectName}:{recordId}:{field1,field2,field3,....}
 
-Chat Prefix Syntax: lwc:carousel:{tile1Title;tile1Description;tile1ImagePath|tile2Title;tile2Description;tile2ImagePath|...}
-
-Display a revolving carousel of content tiles in the chat window, and allow the customer to select one. When the customer clicks on a tile, a hidden response is provided automatically by the customer in the syntax: lwc:hide:{tileTitle} where tileTile denotes the title of the tile that was selected. Therefore, it is best to use the carousel component in a Question block if using a chatbot, to save the selected tile response to a slot. Also, see “lwc:hide” for more information about hiding text.
-
-Images displayed in the carousel MUST be pre-loaded in a static resource named “CLWCP_Assets”. This must be created ahead of time. See installation instructions.
+Present a formatted “Compact View” of an object record in chat.
 
 Parameters
-Carousel tiles are provided as input parameters in a bar seperated “|” list of items. Each property in a given tile is semi-colon “;” seperated. Carousel is limited to a max of 5 tiles. Each tile contains the following properties
 
-* tileTitle: The header text for the tile
-* tileDescription: Description text for the tile
-* tileImagePath: The path to the image inside of the CLWCP_Assets static resource.
-
-
+* objectName: The API name of the standard or custom object that will be displayed.
+* recordId: The Id of the record that will be displayed.
+* fields: A comma separated list of the field API names that will be displayed. The first field in the list will serve as the tile title.
 
 
 ## Survey
@@ -158,8 +148,6 @@ Parameters
         * Example: lwc:survey:nps
     * When type = checkbox, semi-colon list of values
         * Example: lwc:survey:checkbox:Sales Cloud;Service Cloud;Marketing Cloud; IoT;Quip;Heroku;Tableau
-
-
 
 
 # Hide
