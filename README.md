@@ -6,6 +6,8 @@ This repo provides various demo LWCs and Apex actions for Salesforce chatbot dem
 # 3rd Party Sites Utilized for this Repo
 * [Chat-Lightning-Web-Component-Pack](https://github.com/Colatabajonies/Chat-Lightning-Web-Component-Pack) - this is a repo created by Chris Gilmore for various LWCs to be used in chatbots. I've repackaged and even altered his originals in some cases. Details provided in [this Quip doc](https://salesforce.quip.com/WM7AA3tXRsaf).
 
+---
+
 # Usage
 
 Each lightning component as part of this pack can be activated by agent/bot message text that starts with a reserved “Prefix Syntax”, which identifies the component, and it’s parameters. Below, each component is outlined, and it's syntax. 
@@ -155,7 +157,7 @@ Parameters
 If you’d like to hide either agent or customer text in a chat window, you can prefix any chat message with lwc:hide: to not display this message in the chat window. This is mostly used when developing additional lightning components that post back responses to the chat when the customer clicks/selects something in the custom UI. For example, they are used in the response message in the File Upload and Carousel component.
 
 
-
+---
 
 # Troubleshooting
 
@@ -181,6 +183,7 @@ When hardcoding a Salesforce record ID into the File Upload component do not inc
 
 While this package can be installed in any org and used as is, it was intended as a foundation for customization. Due to the nature of the components, we’re unable to host the unmanaged package on the AppExchange. If you’d like to customize any of the components, you' will need to install using this Github package instead. 
 
+---
 
 # Installation
 1. Ensure that you have an existing Embedded Service Deployment configured for Salesforce Chat.
