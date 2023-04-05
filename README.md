@@ -34,7 +34,7 @@ Carousel tiles are provided as input parameters in a bar seperated “|” list 
 
 ## DatePicker
 
-<img src="/images/datepicker.png" alt="DatePicker" height="500">
+<img src="/images/datepicker.png" alt="DatePicker" style="max-height:500px">
 
 
 Chat Prefix Syntax: lwc:datepicker
@@ -43,7 +43,7 @@ Provide a selectable calendar control to the customer in a chat. When the user t
 
 ## File Upload
 
-<img src="/images/fileupload.png" alt="File Upload" height="500">
+<img src="/images/fileupload.png" alt="File Upload" style="max-height:500px">
 
 Chat Prefix Syntax: lwc:fileupload:{relatedRecordId}
 
@@ -58,7 +58,7 @@ Parameters
 
 ## Flow
 
-<img src="/images/flow.png" alt="Flow" height="500">
+<img src="/images/flow.png" alt="Flow" style="max-height:500px">
 
 Chat Prefix Syntax: lwc:flow:{flowURL}:{height}
 
@@ -72,7 +72,7 @@ Parameters
 
 ## Google Map
 
-<img src="/images/gmap.png" alt="Google Map" height="500">
+<img src="/images/gmap.png" alt="Google Map" style="max-height:500px">
 
 Chat Prefix Syntax: lwc:gmap:{mapAPIkey}:{searchTerm}:{mapWidth}:{mapHeight}
 
@@ -88,7 +88,7 @@ Parameters
 
 ## HTML
 
-<img src="/images/html.png" alt="HTML" height="500">
+<img src="/images/html.png" alt="HTML" style="max-height:500px">
 
 Chat Prefix Syntax: lwc:html:{htmlText}
 
@@ -101,7 +101,7 @@ Parameters
 
 ## Navigate
 
-<img src="/images/navigate.png" alt="Navigate" height="500">
+<img src="/images/navigate.png" alt="Navigate" style="max-height:500px">
 
 Chat Prefix Syntax: lwc:navigate:{type}:{sessionId}:{path}
 
@@ -119,7 +119,7 @@ Parameters
 
 ## Record Tile
 
-<img src="/images/recordtile.png" alt="RecordTile" height="500">
+<img src="/images/recordtile.png" alt="RecordTile" style="max-height:500px">
 
 Chat Prefix Syntax: lwc:recordtile:{objectName}:{recordId}:{field1,field2,field3,....}
 
@@ -134,7 +134,7 @@ Parameters
 
 ## Survey
 
-<img src="/images/survey.png" alt="Survey" height="500">
+<img src="/images/survey.png" alt="Survey" style="max-height:500px">
 
 Chat Prefix Syntax: lwc:survey:{type}:{additionalparams}
 
