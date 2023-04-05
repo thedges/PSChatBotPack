@@ -77,8 +77,8 @@ function receiveMessage(event) {
         1. Case: READ (fields: Subject, Status, Priority)
         2. Chat Transcript: READ (fields: Contact Name)
     2. Apex Classes
-        1. CLWCP.ApplyRegExToString
-        2. CLWCP.GetFlowOutputValue
+        1. PSChatBotPack_ApplyRegExToString
+        2. PSChatBotPack_GetFlowOutputValue
 8. Connect your bot to the relevant embedded service deployment.
 9. Activate the bot.
 
