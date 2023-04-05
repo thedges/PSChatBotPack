@@ -6,83 +6,6 @@ This repo provides various demo LWCs and Apex actions for Salesforce chatbot dem
 # 3rd Party Sites Utilized for this Repo
 * [Chat-Lightning-Web-Component-Pack](https://github.com/Colatabajonies/Chat-Lightning-Web-Component-Pack) - this is a repo created by Chris Gilmore for various LWCs to be used in chatbots. I've repackaged and even altered his originals in some cases. Details provided in [this Quip doc](https://salesforce.quip.com/WM7AA3tXRsaf).
 
-
-# Installation
-1. Ensure that you have an existing Embedded Service Deployment configured for Salesforce Chat.
-2. Install this repo to your target demo org.
-
-<a href="https://githubsfdeploy.herokuapp.com?owner=thedges&repo=PSChatBotPack&ref=main">
-  <img alt="Deploy to Salesforce"
-       src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png">
-</a>
-
-3. Customize the Embedded Service Deployment
-    1. Navigate to Setup → Feature Settings → Service → Embedded Service → Embedded Service Deployments. Click View on the relevant Deployment.
-    2. In Chat Settings, Click Edit.
-    3. Under the section “Customize with Lightning Components”, click Edit.
-    4. Change the “Chat Messages (Text)” dropdown to __psChatBot__, and click Save.
-4. Create a Static Resource named PSChatBotPack_Images for all carousel images (Optional)
-    1. Create a zip file that only includes the images you need for your carousel component. DO NOT INCLUDE the base directory for your images.
-    2. Navigate to Setup → Custom Code → Static Resources. Click New.
-    3. Name: PSChatBotPack_Images
-    4. Upload your zip file
-    5. Select either private or public depending on your use case.
-    6. Click Save.
-
-5. Update Community pages in Community Builder
-    1. Navigate to Setup → Feature Settings → Communities → All Communities. Click Builder on the relevant Community.
-    2. Add js snippet to header
-        1. Click the Gear on the left hand panel (Settings). Choose Advanced, and then click Edit Head Markup.
-        2. Paste the code below in the head code
-        3. Click Save
-         
-```
-<style>
-    ul.slds-carousel__indicators{
-  display:flex;
-  margin:0.5rem 0px;
-}
-li.slds-carousel__indicator{
-  display:flex;
-  margin:0px 0.25rem;
-}
-</style>
-<script>
-window.addEventListener("message", receiveMessage, false);
-function receiveMessage(event) {
-    var payload = event.data;
-
-    if(payload && payload.type === "chasitor.sendMessage") {
-        embedded_svc.postMessage("chasitor.sendMessage", payload.message);
-    }
-};
-</script>
-```
-
-6. Apply the ChatStyle Static Resource to your embedded Chat in your Salesforce Experience Site (or hosting site).
-    1. Navigate to the home page of the community (or wherever the chat will take place).
-    2. Add/Edit the Embedded Service Chat Component on the community home page, and set to the relevant embedded service deployment .
-       a. Under the “External Styles” Section, put PSChatBotPack_CSS
-    3. Add a new standard community page (for utilizing the flow LWC)
-        a. Click the page dropdown, and click + New Page.
-        b. Select Standard Page, and choose Full width or Flexible Layout.
-        c. Give the page a name and URL of “flowcomponent”. Click Create.
-        d. Remove all headers/components/chat from the new page.
-        e. Add the __PSChatBotPack - Run Flow__ component to the page full width. Ensure input “FlowName” is set to {!flowName}
-    4. Publish the community.
-
-
-7. Give your bot user permission to relevant objects and classes (Optional). If using the demo bot packaged with the package, the following permissions will need to be added to the permission set: sfdc.chatbot.service.permset
-    1. Object Permissions
-        1. Case: READ (fields: Subject, Status, Priority)
-        2. Chat Transcript: READ (fields: Contact Name)
-    2. Apex Classes
-        1. PSChatBotPack_ApplyRegExToString
-        2. PSChatBotPack_GetFlowOutputValue
-8. Connect your bot to the relevant embedded service deployment.
-9. Activate the bot.
-
-
 # Usage
 
 Each lightning component as part of this pack can be activated by agent/bot message text that starts with a reserved “Prefix Syntax”, which identifies the component, and it’s parameters. Below, each component is outlined, and it's syntax. 
@@ -269,6 +192,85 @@ When hardcoding a Salesforce record ID into the File Upload component do not inc
 ## Note
 
 While this package can be installed in any org and used as is, it was intended as a foundation for customization. Due to the nature of the components, we’re unable to host the unmanaged package on the AppExchange. If you’d like to customize any of the components, you' will need to install using this Github package instead. 
+
+
+# Installation
+1. Ensure that you have an existing Embedded Service Deployment configured for Salesforce Chat.
+2. Install this repo to your target demo org.
+
+<a href="https://githubsfdeploy.herokuapp.com?owner=thedges&repo=PSChatBotPack&ref=main">
+  <img alt="Deploy to Salesforce"
+       src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png">
+</a>
+
+3. Customize the Embedded Service Deployment
+    1. Navigate to Setup → Feature Settings → Service → Embedded Service → Embedded Service Deployments. Click View on the relevant Deployment.
+    2. In Chat Settings, Click Edit.
+    3. Under the section “Customize with Lightning Components”, click Edit.
+    4. Change the “Chat Messages (Text)” dropdown to __psChatBot__, and click Save.
+4. Create a Static Resource named PSChatBotPack_Images for all carousel images (Optional)
+    1. Create a zip file that only includes the images you need for your carousel component. DO NOT INCLUDE the base directory for your images.
+    2. Navigate to Setup → Custom Code → Static Resources. Click New.
+    3. Name: PSChatBotPack_Images
+    4. Upload your zip file
+    5. Select either private or public depending on your use case.
+    6. Click Save.
+
+5. Update Community pages in Community Builder
+    1. Navigate to Setup → Feature Settings → Communities → All Communities. Click Builder on the relevant Community.
+    2. Add js snippet to header
+        1. Click the Gear on the left hand panel (Settings). Choose Advanced, and then click Edit Head Markup.
+        2. Paste the code below in the head code
+        3. Click Save
+         
+```
+<style>
+    ul.slds-carousel__indicators{
+  display:flex;
+  margin:0.5rem 0px;
+}
+li.slds-carousel__indicator{
+  display:flex;
+  margin:0px 0.25rem;
+}
+</style>
+<script>
+window.addEventListener("message", receiveMessage, false);
+function receiveMessage(event) {
+    var payload = event.data;
+
+    if(payload && payload.type === "chasitor.sendMessage") {
+        embedded_svc.postMessage("chasitor.sendMessage", payload.message);
+    }
+};
+</script>
+```
+
+6. Apply the ChatStyle Static Resource to your embedded Chat in your Salesforce Experience Site (or hosting site).
+    1. Navigate to the home page of the community (or wherever the chat will take place).
+    2. Add/Edit the Embedded Service Chat Component on the community home page, and set to the relevant embedded service deployment .
+       a. Under the “External Styles” Section, put PSChatBotPack_CSS
+    3. Add a new standard community page (for utilizing the flow LWC)
+        a. Click the page dropdown, and click + New Page.
+        b. Select Standard Page, and choose Full width or Flexible Layout.
+        c. Give the page a name and URL of “flowcomponent”. Click Create.
+        d. Remove all headers/components/chat from the new page.
+        e. Add the __PSChatBotPack - Run Flow__ component to the page full width. Ensure input “FlowName” is set to {!flowName}
+    4. Publish the community.
+
+
+7. Give your bot user permission to relevant objects and classes (Optional). If using the demo bot packaged with the package, the following permissions will need to be added to the permission set: sfdc.chatbot.service.permset
+    1. Object Permissions
+        1. Case: READ (fields: Subject, Status, Priority)
+        2. Chat Transcript: READ (fields: Contact Name)
+    2. Apex Classes
+        1. PSChatBotPack_ApplyRegExToString
+        2. PSChatBotPack_GetFlowOutputValue
+8. Connect your bot to the relevant embedded service deployment.
+9. Activate the bot.
+
+
+
 
 
 
