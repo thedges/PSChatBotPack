@@ -1,4 +1,6 @@
 # PSChatBotPack
+THIS SOFTWARE IS COVERED BY [THIS DISCLAIMER](https://raw.githubusercontent.com/thedges/Disclaimer/master/disclaimer.txt).
+
 This repo provides various demo LWCs and Apex actions for Salesforce chatbot demos. Since a chatbot can only be configured for one "uber" LWC to interpret chat markup and display various LWCs, this repo is an aggregation of custom LWCs and other 3rd party github repos.
 
 # 3rd Party Sites Utilized for this Repo
@@ -8,12 +10,16 @@ This repo provides various demo LWCs and Apex actions for Salesforce chatbot dem
 # Installation
 1. Ensure that you have an existing Embedded Service Deployment configured for Salesforce Chat.
 2. Install this repo to your target demo org.
-3. Customize the Embedded Service Deployment
+<a href="https://githubsfdeploy.herokuapp.com">
+  <img alt="Deploy to Salesforce"
+       src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png">
+</a>
+4. Customize the Embedded Service Deployment
     1. Navigate to Setup → Feature Settings → Service → Embedded Service → Embedded Service Deployments. Click View on the relevant Deployment.
     2. In Chat Settings, Click Edit.
     3. Under the section “Customize with Lightning Components”, click Edit.
     4. Change the “Chat Messages (Text)” dropdown to __psChatBot__, and click Save.
-4. Create a Static Resource named PSChatBotPack_Images for all carousel images (Optional)
+5. Create a Static Resource named PSChatBotPack_Images for all carousel images (Optional)
     1. Create a zip file that only includes the images you need for your carousel component. DO NOT INCLUDE the base directory for your images.
     2. Navigate to Setup → Custom Code → Static Resources. Click New.
     3. Name: PSChatBotPack_Images
