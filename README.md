@@ -259,6 +259,7 @@ function receiveMessage(event) {
     2. Apex Classes
         1. PSChatBotPack_ApplyRegExToString
         2. PSChatBotPack_GetFlowOutputValue
+        3. PSChatBotPack_SetFileApex
 8. Connect your bot to the relevant embedded service deployment.
 9. Activate the bot.
 
