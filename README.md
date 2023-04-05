@@ -92,7 +92,7 @@ Note that if curly brackets are shown in the syntax below, that is to indicate a
 
 ## DatePicker
 
-<img src="/images/DatePicker.png" alt="DatePicker" height="500">
+<img src="/images/datepicker.png" alt="DatePicker" height="500">
 
 
 Chat Prefix Syntax: lwc:datepicker
@@ -100,6 +100,8 @@ Chat Prefix Syntax: lwc:datepicker
 Provide a selectable calendar control to the customer in a chat. When the user then clicks on a date, the date response will be sent back. If using with an Einstein Bot, use a question block with return type “System.Date”, as shown below:
 
 ## Record Tile
+
+<img src="/images/datepicker.png" alt="RecordTile" height="500">
 
 Chat Prefix Syntax: lwc:recordtile:{objectName}:{recordId}:{field1,field2,field3,....}
 
@@ -115,6 +117,8 @@ Parameters
 
 ## HTML
 
+<img src="/images/html.png" alt="HTML" height="500">
+
 Chat Prefix Syntax: lwc:html:{htmlText}
 
 Present unescaped HTML markup in the chat.
@@ -126,6 +130,8 @@ Parameters
 
 
 ## Google Map
+
+<img src="/images/gmap.png" alt="Google Map" height="500">
 
 Chat Prefix Syntax: lwc:gmap:{mapAPIkey}:{searchTerm}:{mapWidth}:{mapHeight}
 
@@ -142,6 +148,8 @@ Parameters
 
 ## File Upload
 
+<img src="/images/fileupload.png" alt="File Upload" height="500">
+
 Chat Prefix Syntax: lwc:fileupload:{relatedRecordId}
 
 Allow the customer to upload a file in the chat window, and have it attached to a designated record. Once the file is uploaded, a hidden response is provided automatically by the customer in the syntax: lwc:hide:{relatedRecordId} where relatedRecordId is again confirming the recordId that the file was attached to. Therefore, it is best to use the file upload component in a Question block if using a chatbot, to save the response to a slot. Also, see “lwc:hide” for more information about hiding text.
@@ -157,6 +165,8 @@ Parameters
 
 ## Flow
 
+<img src="/images/flow.png" alt="Flow" height="500">
+
 Chat Prefix Syntax: lwc:flow:{flowURL}:{height}
 
 Allow the customer to step through a screen flow. Once the flow is finished, a hidden response is provided automatically by the customer in the syntax: lwc:hide:{flowOutputParams} where flowOutputParams is JSON containing any output provided by the flow. Therefore, it is best to use the flow component in a Question block if using a chatbot, to save the output to a slot. Also, see “lwc:hide” for more information about hiding text. Ensure that you followed the community page steps above to have your flowcomponent page setup prior to using the flow component.
@@ -169,6 +179,8 @@ Parameters
 
 
 ## Navigate
+
+<img src="/images/navigate.png" alt="Navigate" height="500">
 
 Chat Prefix Syntax: lwc:navigate:{type}:{sessionId}:{path}
 
@@ -187,6 +199,8 @@ Parameters
 
 ## Carousel
 
+<img src="/images/carousel.png" alt="Carousel" height="500">
+
 Chat Prefix Syntax: lwc:carousel:{tile1Title;tile1Description;tile1ImagePath|tile2Title;tile2Description;tile2ImagePath|...}
 
 Display a revolving carousel of content tiles in the chat window, and allow the customer to select one. When the customer clicks on a tile, a hidden response is provided automatically by the customer in the syntax: lwc:hide:{tileTitle} where tileTile denotes the title of the tile that was selected. Therefore, it is best to use the carousel component in a Question block if using a chatbot, to save the selected tile response to a slot. Also, see “lwc:hide” for more information about hiding text.
@@ -204,6 +218,8 @@ Carousel tiles are provided as input parameters in a bar seperated “|” list 
 
 
 ## Survey
+
+<img src="/images/survey.png" alt="Survey" height="500">
 
 Chat Prefix Syntax: lwc:survey:{type}:{additionalparams}
 
