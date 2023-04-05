@@ -5,6 +5,7 @@ This repo provides various demo LWCs and Apex actions for Salesforce chatbot dem
 
 # 3rd Party Sites Utilized for this Repo
 * [Chat-Lightning-Web-Component-Pack](https://github.com/Colatabajonies/Chat-Lightning-Web-Component-Pack) - this is a repo created by Chris Gilmore for various LWCs to be used in chatbots. I've repackaged and even altered his originals in some cases. Details provided in [this Quip doc](https://salesforce.quip.com/WM7AA3tXRsaf).
+* [Einstein Bots UI Recipe](https://github.com/shunkosa/einstein-bots-ui-recipe)
 
 ---
 
