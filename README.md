@@ -17,7 +17,7 @@ Note that if curly brackets are shown in the syntax below, that is to indicate a
 
 ## Carousel
 
-<img src="/images/carousel.png" alt="Carousel" height="500">
+<img src="/images/carousel.png" alt="Carousel" style="max-height:500px">
 
 Chat Prefix Syntax: lwc:carousel:{tile1Title;tile1Description;tile1ImagePath|tile2Title;tile2Description;tile2ImagePath|...}
 
