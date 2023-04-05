@@ -45,16 +45,16 @@ Provide a selectable calendar control to the customer in a chat. When the user t
 
 <img src="/images/fileupload.png" alt="File Upload" style="max-height:500px">
 
-Chat Prefix Syntax: lwc:fileupload:{relatedRecordId}
+Chat Prefix Syntax: lwc:fileupload:{recordId}:{fileName}:{bField}:{commAccess}
 
 Allow the customer to upload a file in the chat window, and have it attached to a designated record. Once the file is uploaded, a hidden response is provided automatically by the customer in the syntax: lwc:hide:{relatedRecordId} where relatedRecordId is again confirming the recordId that the file was attached to. Therefore, it is best to use the file upload component in a Question block if using a chatbot, to save the response to a slot. Also, see “lwc:hide” for more information about hiding text.
 
 Parameters
 
-* mapAPIkey: Your Google map API key to use the Google Map Embed API.
-* searchTerm: The address or point of interest to show on the map.
-* mapWidth: The width of the map component (Optional).
-* mapHeight: The height of the map component (Optional).
+* recordId - the record id to attach the uploaded file to
+* fileName - the name of the file to set after it is uploaded (overrides name of file from source OS)
+* bField - the boolean field API name on the record to set to true once the file is uploaded
+* commAccess - make the file accessible from community/experience site
 
 ## Flow
 
@@ -121,7 +121,7 @@ Parameters
 
 <img src="/images/recordtile.png" alt="RecordTile" style="max-height:500px">
 
-Chat Prefix Syntax: lwc:recordtile:{objectName}:{recordId}:{field1,field2,field3,....}
+Chat Prefix Syntax: lwc:recordtile:{objectName}:{recordId}:{field1,field2,field3,....}:{title}:{iconName}
 
 Present a formatted “Compact View” of an object record in chat.
 
@@ -129,7 +129,9 @@ Parameters
 
 * objectName: The API name of the standard or custom object that will be displayed.
 * recordId: The Id of the record that will be displayed.
-* fields: A comma separated list of the field API names that will be displayed. The first field in the list will serve as the tile title.
+* fields: A comma separated list of the field API names that will be displayed. 
+* title - the label to show in card title
+* iconName - the SLDS icon name
 
 
 ## Survey
