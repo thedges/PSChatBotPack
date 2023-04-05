@@ -92,6 +92,8 @@ Note that if curly brackets are shown in the syntax below, that is to indicate a
 
 ## DatePicker
 
+![alt text](https://github.com/thedges/PSChatBotPack/blob/653165ac7ab1ca1d3b103ffb0a86accc777617d6/images/DatePicker.png, "Sample Image")
+
 Chat Prefix Syntax: lwc:datepicker
 
 Provide a selectable calendar control to the customer in a chat. When the user then clicks on a date, the date response will be sent back. If using with an Einstein Bot, use a question block with return type “System.Date”, as shown below:
