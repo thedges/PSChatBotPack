@@ -16,12 +16,12 @@ This repo provides various demo LWCs and Apex actions for Salesforce chatbot dem
        src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png">
 </a>
 
-4. Customize the Embedded Service Deployment
+3. Customize the Embedded Service Deployment
     1. Navigate to Setup → Feature Settings → Service → Embedded Service → Embedded Service Deployments. Click View on the relevant Deployment.
     2. In Chat Settings, Click Edit.
     3. Under the section “Customize with Lightning Components”, click Edit.
     4. Change the “Chat Messages (Text)” dropdown to __psChatBot__, and click Save.
-5. Create a Static Resource named PSChatBotPack_Images for all carousel images (Optional)
+4. Create a Static Resource named PSChatBotPack_Images for all carousel images (Optional)
     1. Create a zip file that only includes the images you need for your carousel component. DO NOT INCLUDE the base directory for your images.
     2. Navigate to Setup → Custom Code → Static Resources. Click New.
     3. Name: PSChatBotPack_Images
