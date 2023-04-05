@@ -131,7 +131,7 @@ Parameters
 * recordId: The Id of the record that will be displayed.
 * fields: A comma separated list of the field API names that will be displayed. 
 * title - the label to show in card title
-* iconName - the SLDS icon name
+* iconName - the [SLDS icon](https://www.lightningdesignsystem.com/icons/) name. The name is in format <section>:<icon_name>. So the "call" icon that is a yellow phone in the "standard" section would have a name "standard:call".
 
 
 ## Survey
