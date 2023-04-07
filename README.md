@@ -156,7 +156,7 @@ Parameters
    
 ## Youtube
 
-<img src="/images/youtube.png" alt="Youtube" style="max-height:500px">
+<img src="/images/youtube.png" alt="Youtube" style="max-height:500px"/>
 
 Chat Prefix Syntax: lwc:youtube:{youtube_content_id}
 
