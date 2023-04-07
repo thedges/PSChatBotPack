@@ -286,6 +286,7 @@ function receiveMessage(event) {
    3. Click the __Manage PSChatBotPackParams__ button
    4. Click __New__ button to create a new entry
    5. Provide Label value of "GoogleMapsAPIKey" like following and enter your Google Maps API Key in the Value field.  Your screen should look like following:
+   
       <img src="/images/googlemapapikey.png" alt="Google Maps Embed API Key" height="250">
 
    6. Save your entry.
