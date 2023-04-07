@@ -1,0 +1,9 @@
+lightning-output-field span.slds-form-element__label {
+    font-weight: bold !important;
+    font-size: 2rem;
+}
+
+.labelHeader {
+    color: #035FB2;
+    font-weight:bold
+}
