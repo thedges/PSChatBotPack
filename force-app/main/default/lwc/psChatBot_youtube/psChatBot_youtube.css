@@ -1,0 +1,22 @@
+.chatMessage {
+    font-size: 0.875em;
+    max-width: 70%;
+    padding: 10px;
+    white-space: pre-wrap;
+    text-align: left;
+}
+
+.agent {
+    margin-left: 40px;
+    border-radius: 10px 10px 10px 0;
+    float: left;
+}
+
+.youtube, .image, .url {
+    max-width: 100%;
+}
+
+.youtube iframe, .image img, .url img {
+    max-width: 100%;
+    border: 0;
+}

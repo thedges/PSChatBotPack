@@ -1,6 +1,6 @@
 import { LightningElement, api, track } from 'lwc';
 //import CLWCP_Assets from '@salesforce/resourceUrl/CLWCP_Assets';
-import PSChatBotPack from '@salesforce/resourceUrl/PSChatBotPack_Images';
+import PSChatBotPack_Images from '@salesforce/resourceUrl/PSChatBotPack_Images';
 
 export default class PsChatBot_carousel extends LightningElement {
     @api inputParams;

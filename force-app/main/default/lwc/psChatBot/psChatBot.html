@@ -49,6 +49,10 @@
         <c-ps-chat-bot_survey input-params={strMessage} onpostmessage={handlePostMessage}></c-ps-chat-bot_survey>
     </template>
 
+    <template if:true={youtube}>
+        <c-ps-chat-bot_youtube input-params={strMessage} onpostmessage={handlePostMessage}></c-ps-chat-bot_youtube>
+    </template>
+
     <!-- ADD ADDITIONAL LWCs HERE -->
 
 </template>

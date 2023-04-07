@@ -83,4 +83,22 @@ export default class PsChatBot_navigate extends NavigationMixin(LightningElement
      
         });
     }
+
+    navigateURL(recordId, url) {
+        this.hasdirected = sessionStorage.getItem(navId + '-' + url);
+        console.log('hasdirected', this.hasdirected);
+        //alert(recordId);
+        if(this.hasdirected){
+            console.log('already went here');
+            return;
+        }
+        sessionStorage.setItem(navId + '-' + recordId, true);
+        this[NavigationMixin.Navigate]({
+            type: 'standard__webPage',
+            attributes: {
+                url: url
+            }
+     
+        });
+    }
 }

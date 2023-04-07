@@ -22,6 +22,7 @@ export default class PsChatBot extends BaseChatMessage {
     @track flow = false;
     @track navigate = false;
     @track survey = false;
+    @track youtube = false;
 
     connectedCallback() 
     {
@@ -75,6 +76,10 @@ export default class PsChatBot extends BaseChatMessage {
             {
                 this.survey = true;
             }
+            else if (this.userType == 'agent' && this.messageContent.value.startsWith('lwc:youtube'))
+            {
+                this.youtube = true;
+            }
             
             //Add an elseif to show ur component....
 
@@ -96,6 +101,14 @@ export default class PsChatBot extends BaseChatMessage {
     isSupportedUserType(userType) 
     {
         return SUPPORTED_USER_TYPES.some((supportedUserType) => supportedUserType === userType);
+    }
+
+    extractOriginalUrl(generatedString) {
+        const matched = generatedString.match(/<a href.+>(.*?)<\/a>/);
+        if (matched.length > 1) {
+            return matched[1];
+        }
+        return generatedString;
     }
 
     handlePostMessage(event) 
