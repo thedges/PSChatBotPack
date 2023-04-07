@@ -8,6 +8,11 @@ This repo provides various demo LWCs and Apex actions for Salesforce chatbot dem
 * [Einstein Bots UI Recipe](https://github.com/shunkosa/einstein-bots-ui-recipe)
 
 ---
+# Sample Bot
+
+Refer to the bot titled "PSChatBotPack - Demo Bot" to get samples of how to use these components.
+
+---
 
 # Usage
 
