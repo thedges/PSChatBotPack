@@ -5,6 +5,9 @@ This repo provides various demo LWCs and Apex actions for Salesforce chatbot dem
 
 # 3rd Party Sites Utilized for this Repo
 * [Chat-Lightning-Web-Component-Pack](https://github.com/Colatabajonies/Chat-Lightning-Web-Component-Pack) - this is a repo created by Chris Gilmore for various LWCs to be used in chatbots. I've repackaged and even altered his originals in some cases. Details provided in [this Quip doc](https://salesforce.quip.com/WM7AA3tXRsaf).
+* [Einstein Bots UI Recipe](https://github.com/shunkosa/einstein-bots-ui-recipe)
+
+---
 
 # Usage
 
@@ -15,7 +18,7 @@ Note that if curly brackets are shown in the syntax below, that is to indicate a
 
 ## Carousel
 
-<img src="/images/carousel.png" alt="Carousel" height="500">
+<img src="/images/carousel.png" alt="Carousel" style="max-height:500px">
 
 Chat Prefix Syntax: lwc:carousel:{tile1Title;tile1Description;tile1ImagePath|tile2Title;tile2Description;tile2ImagePath|...}
 
@@ -32,7 +35,7 @@ Carousel tiles are provided as input parameters in a bar seperated “|” list 
 
 ## DatePicker
 
-<img src="/images/datepicker.png" alt="DatePicker" height="500">
+<img src="/images/datepicker.png" alt="DatePicker" style="max-height:500px">
 
 
 Chat Prefix Syntax: lwc:datepicker
@@ -41,22 +44,22 @@ Provide a selectable calendar control to the customer in a chat. When the user t
 
 ## File Upload
 
-<img src="/images/fileupload.png" alt="File Upload" height="500">
+<img src="/images/fileupload.png" alt="File Upload" style="max-height:500px">
 
-Chat Prefix Syntax: lwc:fileupload:{relatedRecordId}
+Chat Prefix Syntax: lwc:fileupload:{recordId}:{fileName}:{bField}:{commAccess}
 
 Allow the customer to upload a file in the chat window, and have it attached to a designated record. Once the file is uploaded, a hidden response is provided automatically by the customer in the syntax: lwc:hide:{relatedRecordId} where relatedRecordId is again confirming the recordId that the file was attached to. Therefore, it is best to use the file upload component in a Question block if using a chatbot, to save the response to a slot. Also, see “lwc:hide” for more information about hiding text.
 
 Parameters
 
-* mapAPIkey: Your Google map API key to use the Google Map Embed API.
-* searchTerm: The address or point of interest to show on the map.
-* mapWidth: The width of the map component (Optional).
-* mapHeight: The height of the map component (Optional).
+* recordId - the record id to attach the uploaded file to
+* fileName - the name of the file to set after it is uploaded (overrides name of file from source OS)
+* bField - the boolean field API name on the record to set to true once the file is uploaded
+* commAccess - make the file accessible from community/experience site
 
 ## Flow
 
-<img src="/images/flow.png" alt="Flow" height="500">
+<img src="/images/flow.png" alt="Flow" style="max-height:500px">
 
 Chat Prefix Syntax: lwc:flow:{flowURL}:{height}
 
@@ -70,7 +73,7 @@ Parameters
 
 ## Google Map
 
-<img src="/images/gmap.png" alt="Google Map" height="500">
+<img src="/images/gmap.png" alt="Google Map" style="max-height:500px">
 
 Chat Prefix Syntax: lwc:gmap:{mapAPIkey}:{searchTerm}:{mapWidth}:{mapHeight}
 
@@ -86,7 +89,7 @@ Parameters
 
 ## HTML
 
-<img src="/images/html.png" alt="HTML" height="500">
+<img src="/images/html.png" alt="HTML" style="max-height:500px">
 
 Chat Prefix Syntax: lwc:html:{htmlText}
 
@@ -99,7 +102,7 @@ Parameters
 
 ## Navigate
 
-<img src="/images/navigate.png" alt="Navigate" height="500">
+<img src="/images/navigate.png" alt="Navigate" style="max-height:500px">
 
 Chat Prefix Syntax: lwc:navigate:{type}:{sessionId}:{path}
 
@@ -117,9 +120,9 @@ Parameters
 
 ## Record Tile
 
-<img src="/images/recordtile.png" alt="RecordTile" height="500">
+<img src="/images/recordtile.png" alt="RecordTile" style="max-height:500px">
 
-Chat Prefix Syntax: lwc:recordtile:{objectName}:{recordId}:{field1,field2,field3,....}
+Chat Prefix Syntax: lwc:recordtile:{objectName}:{recordId}:{field1,field2,field3,....}:{title}:{iconName}
 
 Present a formatted “Compact View” of an object record in chat.
 
@@ -127,12 +130,14 @@ Parameters
 
 * objectName: The API name of the standard or custom object that will be displayed.
 * recordId: The Id of the record that will be displayed.
-* fields: A comma separated list of the field API names that will be displayed. The first field in the list will serve as the tile title.
+* fields: A comma separated list of the field API names that will be displayed. 
+* title - the label to show in card title
+* iconName - the [SLDS icon](https://www.lightningdesignsystem.com/icons/) name. The name is in format <section>.<icon_name>. So the "call" icon that is a yellow phone in the "standard" section would have a name "standard.call".
 
 
 ## Survey
 
-<img src="/images/survey.png" alt="Survey" height="500">
+<img src="/images/survey.png" alt="Survey" style="max-height:500px">
 
 Chat Prefix Syntax: lwc:survey:{type}:{additionalparams}
 
@@ -155,7 +160,7 @@ Parameters
 If you’d like to hide either agent or customer text in a chat window, you can prefix any chat message with lwc:hide: to not display this message in the chat window. This is mostly used when developing additional lightning components that post back responses to the chat when the customer clicks/selects something in the custom UI. For example, they are used in the response message in the File Upload and Carousel component.
 
 
-
+---
 
 # Troubleshooting
 
@@ -181,6 +186,7 @@ When hardcoding a Salesforce record ID into the File Upload component do not inc
 
 While this package can be installed in any org and used as is, it was intended as a foundation for customization. Due to the nature of the components, we’re unable to host the unmanaged package on the AppExchange. If you’d like to customize any of the components, you' will need to install using this Github package instead. 
 
+---
 
 # Installation
 1. Ensure that you have an existing Embedded Service Deployment configured for Salesforce Chat.
@@ -254,6 +260,7 @@ function receiveMessage(event) {
     2. Apex Classes
         1. PSChatBotPack_ApplyRegExToString
         2. PSChatBotPack_GetFlowOutputValue
+        3. PSChatBotPack_SetFileApex
 8. Connect your bot to the relevant embedded service deployment.
 9. Activate the bot.
 
