@@ -18,7 +18,7 @@ Note that if curly brackets are shown in the syntax below, that is to indicate a
 
 ## Carousel
 
-<img src="/images/carousel.png" alt="Carousel" style="max-height:500px">
+<img src="/images/carousel.png" alt="Carousel" height="500">
 
 Chat Prefix Syntax: lwc:carousel:{tile1Title;tile1Description;tile1ImagePath|tile2Title;tile2Description;tile2ImagePath|...}
 
@@ -35,7 +35,7 @@ Carousel tiles are provided as input parameters in a bar seperated “|” list 
 
 ## DatePicker
 
-<img src="/images/datepicker.png" alt="DatePicker" style="max-height:500px">
+<img src="/images/datepicker.png" alt="DatePicker" height="500">
 
 
 Chat Prefix Syntax: lwc:datepicker
@@ -44,7 +44,7 @@ Provide a selectable calendar control to the customer in a chat. When the user t
 
 ## File Upload
 
-<img src="/images/fileupload.png" alt="File Upload" style="max-height:500px">
+<img src="/images/fileupload.png" alt="File Upload" height="500">
 
 Chat Prefix Syntax: lwc:fileupload:{recordId}:{fileName}:{bField}:{commAccess}
 
@@ -59,7 +59,7 @@ Parameters
 
 ## Flow
 
-<img src="/images/flow.png" alt="Flow" style="max-height:500px">
+<img src="/images/flow.png" alt="Flow" height="500">
 
 Chat Prefix Syntax: lwc:flow:{flowURL}:{height}
 
@@ -89,7 +89,7 @@ Parameters
 
 ## HTML
 
-<img src="/images/html.png" alt="HTML" style="max-height:500px">
+<img src="/images/html.png" alt="HTML" height="500">
 
 Chat Prefix Syntax: lwc:html:{htmlText}
 
@@ -102,7 +102,7 @@ Parameters
 
 ## Navigate
 
-<img src="/images/navigate.png" alt="Navigate" style="max-height:500px">
+<img src="/images/navigate.png" alt="Navigate" height="500">
 
 Chat Prefix Syntax: lwc:navigate:{type}:{sessionId}:{path}
 
@@ -120,7 +120,7 @@ Parameters
 
 ## Record Tile
 
-<img src="/images/recordtile.png" alt="RecordTile" style="max-height:500px">
+<img src="/images/recordtile.png" alt="RecordTile" height="500">
 
 Chat Prefix Syntax: lwc:recordtile:{objectName}:{recordId}:{field1,field2,field3,....}:{title}:{iconName}
 
@@ -137,7 +137,7 @@ Parameters
 
 ## Survey
 
-<img src="/images/survey.png" alt="Survey" style="max-height:500px">
+<img src="/images/survey.png" alt="Survey" height="500">
 
 Chat Prefix Syntax: lwc:survey:{type}:{additionalparams}
 
