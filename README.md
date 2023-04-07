@@ -153,6 +153,18 @@ Parameters
         * Example: lwc:survey:nps
     * When type = checkbox, semi-colon list of values
         * Example: lwc:survey:checkbox:Sales Cloud;Service Cloud;Marketing Cloud; IoT;Quip;Heroku;Tableau
+   
+## Youtube
+
+<img src="/images/youtube.png" alt="Youtube" style="max-height:500px">
+
+Chat Prefix Syntax: lwc:youtube:{youtube_content_id}
+
+Display a youtube video. Video can be maxized to view full screen.
+
+Parameters
+
+* youtube_content_id: the Youtube content id (https://www.youtube.com/watch?v=<content_id>)
 
 
 # Hide
