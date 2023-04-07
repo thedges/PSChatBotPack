@@ -273,8 +273,20 @@ function receiveMessage(event) {
         1. PSChatBotPack_ApplyRegExToString
         2. PSChatBotPack_GetFlowOutputValue
         3. PSChatBotPack_SetFileApex
-8. Connect your bot to the relevant embedded service deployment.
-9. Activate the bot.
+        4. PSChatBotPack_GetParams
+   
+8. If you are using Google maps, you need to get a Google Maps Embedded API Key and add to a custom metadata field.
+   1. Go to __Setup > Custom Metadata Types__
+   2. Click on the __PSChatBotPackParam__ metadata type
+   3. Click the __Manage PSChatBotPackParams__ button
+   4. Click __New__ button to create a new entry
+   5. Provide Label value of "GoogleMapsAPIKey" like following and enter your Google Maps API Key in the Value field.  Your screen should look like following:
+      <img src="/images/googlemapapikey.png" alt="Google Maps Embed API Key" height="300">
+
+   6. Save your entry.
+   
+9. Connect your bot to the relevant embedded service deployment.
+10. Activate the bot.
 
 
 
