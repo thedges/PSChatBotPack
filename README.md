@@ -104,6 +104,18 @@ Parameters
 
 * htmlText: The HTML to be displayed.
 
+## Knowledge Article Search
+
+<img src="/images/knowledge.png" alt="Knowledge" height="500">
+
+Chat Prefix Syntax: lwc:ka:{knowledge-list-serialized}
+
+Present unescaped HTML markup in the chat.
+
+Parameters
+
+* knowledge-list-serialized: This is JSON serialized string from the invoking the 'Search Knowledge Articles (PSChatBotPack)' Apex action that is implemented in the PSChatBotPack_SearchKnowledgeArticles Apex class. Look at the sample Bot for the 'Search Knowledge' dialog.
+
 
 ## Navigate
 
@@ -279,6 +291,7 @@ function receiveMessage(event) {
         2. PSChatBotPack_GetFlowOutputValue
         3. PSChatBotPack_SetFileApex
         4. PSChatBotPack_GetParams
+        5. PSChatBotPack_SearchKnowledgeArticles
    
 8. If you are using Google maps, you need to get a Google Maps Embedded API Key and add to a custom metadata field.
    1. Go to __Setup > Custom Metadata Types__
