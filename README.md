@@ -110,7 +110,7 @@ Parameters
 
 Chat Prefix Syntax: lwc:ka:{knowledge-list-serialized}
 
-Present unescaped HTML markup in the chat.
+Seach for articles and display in a list.
 
 Parameters
 
