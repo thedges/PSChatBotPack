@@ -8,6 +8,11 @@ This repo provides various demo LWCs and Apex actions for Salesforce chatbot dem
 * [Einstein Bots UI Recipe](https://github.com/shunkosa/einstein-bots-ui-recipe)
 
 ---
+# Sample Bot
+
+Refer to the bot titled "PSChatBotPack - Demo Bot" to get samples of how to use these components.
+
+---
 
 # Usage
 
@@ -281,7 +286,8 @@ function receiveMessage(event) {
    3. Click the __Manage PSChatBotPackParams__ button
    4. Click __New__ button to create a new entry
    5. Provide Label value of "GoogleMapsAPIKey" like following and enter your Google Maps API Key in the Value field.  Your screen should look like following:
-      <img src="/images/googlemapapikey.png" alt="Google Maps Embed API Key" height="300">
+   
+      <img src="/images/googlemapapikey.png" alt="Google Maps Embed API Key" height="250">
 
    6. Save your entry.
    
