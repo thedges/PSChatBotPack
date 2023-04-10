@@ -1,0 +1,36 @@
+<template>
+    <article class="slds-text-align_left slds-p-left_x-small">
+        <div class={articleHeaderStyle}>
+            <span
+                if:true={val.subtitle}
+                class="subtitle slds-p-left_x-small slds-text-heading_x-small slds-m-top_xx-small"
+                >{val.subtitle}</span
+            >
+            <a
+                if:true={val.title}
+                href="#"
+                onclick={openKnowledgeArticle}
+                rel="noopener noreferrer"
+                class={articleStyle}
+                >{val.title}</a
+            >
+            <img class="image" if:true={val.image} src={val.image} />
+            <div class="date slds-p-left_x-small" if:true={val.lastUpdated}>
+                <span>{label.lastUpdated} </span>
+                <lightning-formatted-date-time
+                    value={val.lastUpdated}
+                    month="long"
+                    day="numeric"
+                    year="numeric"
+                >
+                </lightning-formatted-date-time>
+            </div>
+            <lightning-formatted-rich-text
+                value={val.summary}
+                class="slds-line-clamp_small summary slds-p-left_x-small"
+                if:true={val.summary}
+            >
+            </lightning-formatted-rich-text>
+        </div>
+    </article>
+</template>

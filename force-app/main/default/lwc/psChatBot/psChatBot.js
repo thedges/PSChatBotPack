@@ -23,6 +23,7 @@ export default class PsChatBot extends BaseChatMessage {
     @track navigate = false;
     @track survey = false;
     @track youtube = false;
+    @track knowledge = false;
 
     connectedCallback() 
     {
@@ -79,6 +80,10 @@ export default class PsChatBot extends BaseChatMessage {
             else if (this.userType == 'agent' && this.messageContent.value.startsWith('lwc:youtube'))
             {
                 this.youtube = true;
+            }
+            else if (this.userType == 'agent' && this.messageContent.value.startsWith('lwc:ka'))
+            {
+                this.knowledge = true;
             }
             
             //Add an elseif to show ur component....

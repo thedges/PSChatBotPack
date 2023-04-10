@@ -1,0 +1,69 @@
+<template>
+    <template iterator:it={articles}>
+        <div if:true={it.first} key={it.value.id}>
+            <div if:false={it.last} key={it.value.id}>
+                <c-ps-chat-bot_knowledge-article-card
+                    title={it.value.title}
+                    subtitle={label.knowledgeArticleSubtitle}
+                    last-updated={it.value.lastUpdated}
+                    summary={it.value.summary}
+                    link={it.value.link}
+                    image={it.value.image}
+                    record-id={it.value.id}
+                    url-name={it.value.urlName}
+                ></c-ps-chat-bot_knowledge-article-card>
+            </div>
+        </div>
+
+        <div if:true={it.first} key={it.value.id}>
+            <div if:true={it.last} key={it.value.id}>
+                <c-ps-chat-bot_knowledge-article-card
+                    title={it.value.title}
+                    subtitle={label.knowledgeArticleSubtitle}
+                    last-updated={it.value.lastUpdated}
+                    summary={it.value.summary}
+                    link={it.value.link}
+                    image={it.value.image}
+                    show-footer="true"
+                    record-id={it.value.id}
+                    url-name={it.value.urlName}
+                ></c-ps-chat-bot_knowledge-article-card>
+            </div>
+        </div>
+
+        <div if:false={it.first} key={it.value.id}>
+            <div if:false={it.last} key={it.value.id}>
+                <c-ps-chat-bot_knowledge-article-card
+                    title={it.value.title}
+                    articlefromlist="true"
+                    last-updated={it.value.lastUpdated}
+                    link={it.value.link}
+                    record-id={it.value.id}
+                    url-name={it.value.urlName}
+                ></c-ps-chat-bot_knowledge-article-card>
+            </div>
+        </div>
+
+        <div if:true={it.last} key={it.value.id}>
+            <div if:false={it.first}>
+                <c-ps-chat-bot_knowledge-article-card
+                    title={it.value.title}
+                    articlefromlist="true"
+                    last-updated={it.value.lastUpdated}
+                    link={it.value.link}
+                    show-footer="true"
+                    record-id={it.value.id}
+                    url-name={it.value.urlName}
+                ></c-ps-chat-bot_knowledge-article-card>
+            </div>
+        </div>
+    </template>
+
+    <lightning-card if:true={hasNoArticles}>
+        <div class="slds-grid slds-var-p-horizontal_medium slds-var-p-bottom_large">
+            <div class="slds-size_1-of-1">
+                <span class="footer-text"><a href="#">{label.noArticlesFound}</a></span>
+            </div>
+        </div>
+    </lightning-card>
+</template>

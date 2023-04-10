@@ -1,29 +1,23 @@
 global with sharing class PSChatBotPack_GetParams {
-    global static void test()
-    {
-        String val = getParam('GoogleMapsAPIKey');
-        System.debug('value=' + val);
-        val = getParam('BadLabel');
-        System.debug('value=' + val);
-
-    }
-
-    //@InvocableMethod(label='Get Config Param (PSChatBotPack)')
-    global static String getParam(String label)
+    @InvocableMethod(label='Get Config Param (PSChatBotPack)')
+    global static List<String>  getParam(List<GetParamRequest> requests)
     {
         String retVal = null;
         try {
-            PSChatBotPackParam__mdt param = PSChatBotPackParam__mdt.getInstance(label);
-            retVal = param.value__c;
+            if (requests.size() > 0)
+            {
+              PSChatBotPackParam__mdt param = PSChatBotPackParam__mdt.getInstance(requests[0].label);
+              retVal = param.value__c;
+            }
         } catch (Exception e) {
             // do nothing
         }
 
-        return retVal;
+        return new List<String>{ retVal };
 
     }
 
-    global class getParamRequest {
+    global class GetParamRequest {
         @InvocableVariable(required=true)
         global String label;
       }
