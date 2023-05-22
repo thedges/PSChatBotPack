@@ -110,7 +110,7 @@ Parameters
 
 Chat Prefix Syntax: lwc:ka:{knowledge-list-serialized}:{priority}:{truncate}
 
-Seach for articles and display in a list.
+Seach for articles and display in a list. This component supports showing the "rich text" knowledge article version (i.e. Answer__c field) or the chat answer plain text version (i.e. Chat_Answer__c field). You can specific the priority in the configuration parameters if you want to try and show Chat Answer version of the "rich text" Answer version.
 
 Parameters
 
