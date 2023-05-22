@@ -106,7 +106,7 @@ Parameters
 
 ## Knowledge Article Search
 
-<img src="/images/knowledge.png" alt="Knowledge" height="500">
+<img src="/images/knowledge2.png" alt="Knowledge" height="500">
 
 Chat Prefix Syntax: lwc:ka:{knowledge-list-serialized}:{priority}:{truncate}
 
