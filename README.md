@@ -250,13 +250,48 @@ While this package can be installed in any org and used as is, it was intended a
          
 ```
 <style>
-    ul.slds-carousel__indicators{
+ul.slds-carousel__indicators{
   display:flex;
   margin:0.5rem 0px;
 }
+   
 li.slds-carousel__indicator{
   display:flex;
   margin:0px 0.25rem;
+}
+   
+.ka-summary ul {
+  margin-block-end: 10.5px !important;
+  margin-block-start: 0px !important;
+  margin-bottom: 10.5px !important;
+  margin-inline-end: 0px !important;
+  margin-inline-start: 21px !important;
+  margin-left: 21px !important;
+  margin-right: 0px !important;
+  margin-bottom: 0px !important;
+  padding-bottom: 0px !important;
+  padding-inline-start: 0px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  padding-top: 0px !important;
+}
+    
+.ka-summary ul > li {
+    display: list-item;
+    list-style-image: none !important;
+    list-style-position: outside !important;
+    list-style-type: disc !important;
+  }
+    
+.ka-summary ol > li {
+    display: list-item;
+    list-style-image: none !important;
+    list-style-position: outside !important;
+    list-style-type: decimal !important;
+  }
+    
+.ka-summary ul::marker {
+   content: none;
 }
 </style>
 <script>
