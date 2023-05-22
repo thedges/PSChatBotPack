@@ -10,15 +10,15 @@ export default class PsChatBot_gmap extends LightningElement {
 
     connectedCallback() 
     {
-        if (this.inputParams.split(':').length == 6)
+        if (this.inputParams.split(':').length === 4)
         {
-            this.mapWidth = this.inputParams.split(':')[4];
-            this.mapHeight = this.inputParams.split(':')[5];
+            this.mapWidth = this.inputParams.split(':')[2];
+            this.mapHeight = this.inputParams.split(':')[3];
         }
-        else if (this.inputParams.split(':').length > 3)
+        else if (this.inputParams.split(':').length > 1)
         {
             this.showMap = true;
-            this.mapURL = 'https://www.google.com/maps/embed/v1/place?key=' + this.inputParams.split(':')[2] + '&q=' + this.inputParams.split(':')[3];
+            this.mapURL = 'https://www.google.com/maps/embed/v1/place?key=' + this.inputParams.split(':')[0] + '&q=' + this.inputParams.split(':')[1];
         }
     }
 

@@ -8,7 +8,7 @@ export default class PsChatBot_html extends LightningElement {
     {
         //this.template.querySelector('div').innerHTML = this.inputParams.replace('lwc:html:', '');
         //alert(this.inputParams);
-        this.innerHtml = this.inputParams.replace('lwc:html:', '').replace(/<a\shref=[\s\S]+target='_blank'>/g, '').replace(/<\/a>/g, '').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#x2F;/g, "/") + '<br />';
+        this.innerHtml = this.inputParams.replace(/<a\shref=[\s\S]+target='_blank'>/g, '').replace(/<\/a>/g, '').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#x2F;/g, "/") + '<br />';
         //alert(this.innerHtml);
     }
 

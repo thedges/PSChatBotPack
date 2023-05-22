@@ -6,7 +6,8 @@ export default class PsChatBot_youtube extends LightningElement {
 
     connectedCallback()
     {
-        var contentValue = this.inputParams.split(':')[2];
+        //var contentValue = this.inputParams.split(':')[0];
+        var contentValue = this.inputParams;
         this.content = 'https://www.youtube.com/embed/' + contentValue;
     }
     

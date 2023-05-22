@@ -23,8 +23,9 @@ export default class PsChatBot_recordform extends LightningElement {
         console.log('inputParams = ' + this.inputParams);
         var params = this.inputParams.split(':');
         console.log('V3 param length = ' + params.length);
-        this.objName = params[2];
-        this.recordId = params[3];
+        
+        this.objName = params[0];
+        this.recordId = params[1];
         this.labelName = this.objName;
         if (this.objName.includes("__c"))
         {
@@ -35,21 +36,21 @@ export default class PsChatBot_recordform extends LightningElement {
             this.iconName = 'standard:' + this.objName.toLowerCase();
         }
         
-        this.firstField = params[4].split(',')[0];
+        this.firstField = params[2].split(',')[0];
         
         if (params[4].split(',').length > 1)
         {
-            this.fields = params[4].split(',').map(item => item.trim());
+            this.fields = params[2].split(',').map(item => item.trim());
             this.fields.shift();
         }  
-        if (params.length >= 6)
+        if (params.length >= 4)
         {
-           this.labelName = params[5];
+           this.labelName = params[3];
            console.log('labelName = ' + this.labelName);
         }
-        if (params.length >= 7)
+        if (params.length >= 5)
         {
-            this.iconName = params[6].replace(".", ":");
+            this.iconName = params[4].replace(".", ":");
             console.log('iconName = ' + this.iconName);
         }
         var elems = this.template.querySelectorAll('.slds-form-element__label');

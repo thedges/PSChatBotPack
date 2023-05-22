@@ -1,4 +1,5 @@
 import { LightningElement, api } from 'lwc';
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import setFile from '@salesforce/apex/PSChatBotPack_SetFileApex.setFileApex';
 
 
@@ -12,24 +13,24 @@ export default class PsChatBot_fileupload extends LightningElement {
     connectedCallback() 
     {
         var params = this.inputParams.split(':');        
-        this.myRecordId = this.inputParams.split(':')[2];
+        this.myRecordId = params[0];
         //alert(this.myRecordId);
 
-        if (params.length >= 4)
+        if (params.length >= 2)
         {
-           this.fileName = params[3];
+           this.fileName = params[1];
            console.log('fileName = ' + this.fileName);
         }
 
-        if (params.length >= 5)
+        if (params.length >= 3)
         {
-           this.bField = params[4];
+           this.bField = params[2];
            console.log('bField = ' + this.bField);
         }
 
-        if (params.length >= 6)
+        if (params.length >= 4)
         {
-           this.commAccess = params[5];
+           this.commAccess = params[3];
            console.log('commAccess = ' + this.commAccess);
         }
     }

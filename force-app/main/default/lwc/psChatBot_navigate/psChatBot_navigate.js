@@ -8,9 +8,9 @@ export default class PsChatBot_navigate extends NavigationMixin(LightningElement
 
     connectedCallback() 
     {
-        this.navType = this.inputParams.split(':')[2];
-        this.navId = this.inputParams.split(':')[3];
-        this.navData = this.inputParams.split(':')[4];
+        this.navType = this.inputParams.split(':')[0];
+        this.navId = this.inputParams.split(':')[1];
+        this.navData = this.inputParams.split(':')[2];
         if(this.navType.toLowerCase() == "clearcache")
         {
              sessionStorage.clear();

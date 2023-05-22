@@ -1,36 +1,92 @@
 <template>
-    <article class="slds-text-align_left slds-p-left_x-small">
-        <div class={articleHeaderStyle}>
+  <article class="slds-text-align_left slds-p-left_x-small">
+    <div class={articleHeaderStyle}>
+      <!--
             <span
                 if:true={val.subtitle}
                 class="subtitle slds-p-left_x-small slds-text-heading_x-small slds-m-top_xx-small"
                 >{val.subtitle}</span
             >
-            <a
-                if:true={val.title}
-                href="#"
-                onclick={openKnowledgeArticle}
-                rel="noopener noreferrer"
-                class={articleStyle}
-                >{val.title}</a
+            -->
+      <div style="display: flex; flex-direction: row; width: 100%">
+        <div style="flex-grow: 4">
+          <a
+            if:true={val.title}
+            href="#"
+            onclick={openKnowledgeArticle}
+            rel="noopener noreferrer"
+            class={articleStyle}
+            >{val.title}</a
+          >
+          <img class="image" if:true={val.image} src={val.image} />
+          <div class="date" if:true={val.lastUpdated}>
+            <span>{label.lastUpdated} </span>
+            <lightning-formatted-date-time
+              value={val.lastUpdated}
+              month="long"
+              day="numeric"
+              year="numeric"
             >
-            <img class="image" if:true={val.image} src={val.image} />
-            <div class="date slds-p-left_x-small" if:true={val.lastUpdated}>
-                <span>{label.lastUpdated} </span>
-                <lightning-formatted-date-time
-                    value={val.lastUpdated}
-                    month="long"
-                    day="numeric"
-                    year="numeric"
-                >
-                </lightning-formatted-date-time>
-            </div>
+            </lightning-formatted-date-time>
+          </div>
+        </div>
+        <div class="slds-p-left_xx-small" style="flex-grow: 1" align="right">
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              align-content: space-between;
+            "
+          >
+            <!--
+                <lightning-button-icon icon-name="standard:attach" alternative-text="Attach" title="Attach" size="small"  onclick={handleAttach}></lightning-button-icon>
+                -->
+            <lightning-button-icon
+              icon-name="utility:down"
+              alternative-text="Expand"
+              title="Expand"
+              size="small"
+              onclick={handleExpand}
+              if:true={collapse}
+            ></lightning-button-icon>
+            <lightning-button-icon
+              icon-name="utility:up"
+              alternative-text="Collapse"
+              title="Collapse"
+              size="small"
+              onclick={handleCollapse}
+              if:false={collapse}
+            ></lightning-button-icon>
+          </div>
+        </div>
+        </div>
+        <div if:false={collapse} class="slds-p-top_x-small">
+          <lightning-formatted-rich-text
+            value={val.content}
+            class={answerStyle}
+          >
+          </lightning-formatted-rich-text>
+
+          <div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%" class="slds-p-top_x-small slds-p-bottom_xx-small" if:true={rate}>
+            <!--
+            <lightning-button-icon icon-name="utility:like" alternative-text="Like" title="Attach" size="medium"  onclick={handleLike}></lightning-button-icon>
+            <lightning-button-icon icon-name="utility:dislike" alternative-text="Unlike" title="Attach" size="medium"  onclick={handleUnlike}></lightning-button-icon>
+            -->
+            <img src={thumbsUpURL} alt="Like" width="25" height="25" onclick={handleLike}>
+            <img src={thumbsDownURL} alt="Unlike" width="25" height="25" onclick={handleUnlike}>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!--
             <lightning-formatted-rich-text
                 value={val.summary}
-                class="slds-line-clamp_small summary slds-p-left_x-small"
-                if:true={val.summary}
+                class="slds-line-clamp_large summary slds-p-left_x-small"
+                if:false={collapse}
             >
             </lightning-formatted-rich-text>
-        </div>
-    </article>
+            -->
+  </article>
 </template>

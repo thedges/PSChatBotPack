@@ -37,30 +37,30 @@ export default class PsChatBot_survey extends LightningElement {
 
     connectedCallback() 
     {
-        if (this.inputParams.split(':')[2].toLowerCase() == 'star')
+        if (this.inputParams.split(':')[0].toLowerCase() == 'star')
         {
             this.showStars = true;
         }
-        else if (this.inputParams.split(':')[2].toLowerCase() == 'nps')
+        else if (this.inputParams.split(':')[0].toLowerCase() == 'nps')
         {
             this.showNPS = true;
             this.leftTitle = 'Not likely';
             this.rightTitle = 'Extremely likely';
         }
-        else if (this.inputParams.split(':')[2].toLowerCase() == 'checkbox')
+        else if (this.inputParams.split(':')[0].toLowerCase() == 'checkbox')
         {
             this.showCheckBox = true;
-            for (let i = 0; i < this.inputParams.split(':')[3].split(';').length; i++) 
+            for (let i = 0; i < this.inputParams.split(':')[1].split(';').length; i++) 
             {
-                var newCheck = { label: this.inputParams.split(':')[3].split(';')[i], value: this.inputParams.split(':')[3].split(';')[i]};
+                var newCheck = { label: this.inputParams.split(':')[1].split(';')[i], value: this.inputParams.split(':')[1].split(';')[i]};
                 this.checkOptions.push(newCheck);
             }
         }
 
-        if (this.inputParams.split(':').length == 5)
+        if (this.inputParams.split(':').length == 3)
         {
-            this.leftTitle = this.inputParams.split(':')[3];
-            this.rightTitle = this.inputParams.split(':')[4];
+            this.leftTitle = this.inputParams.split(':')[1];
+            this.rightTitle = this.inputParams.split(':')[2];
         }
     }
 

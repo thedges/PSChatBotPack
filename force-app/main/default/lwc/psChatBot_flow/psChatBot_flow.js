@@ -19,10 +19,10 @@ export default class PsChatBot_flow extends LightningElement {
     
     connectedCallback()
     {
-        this.conts = this.inputParams.split(':')[2];
-        if (this.inputParams.split(':').length > 3)
+        this.conts = this.inputParams.split(':')[0];
+        if (this.inputParams.split(':').length > 1)
         {
-            this.flowheight = this.inputParams.split(':')[3];
+            this.flowheight = this.inputParams.split(':')[1];
         }
         
         this.flowurl = unescape(this.conts).replace(/&amp;/g, '&');

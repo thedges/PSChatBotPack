@@ -7,6 +7,21 @@ const AGENT_USER_TYPE = 'agent';
 const CHASITOR_USER_TYPE = 'chasitor';
 const SUPPORTED_USER_TYPES = [AGENT_USER_TYPE, CHASITOR_USER_TYPE];
 
+const LWC_PREFIX = 'lwc:';
+const LWC_GMAP = 'lwc:gmap';
+const LWC_DATEPICKER = 'lwc:datepicker';
+const LWC_HTML = 'lwc:html';
+const LWC_FILEUPLOAD = 'lwc:fileupload';
+const LWC_RECORDTILE = 'lwc:recordtile';
+const LWC_CAROUSEL = 'lwc:carousel';
+const LWC_FLOW = 'lwc:flow';
+const LWC_NAVIGATE = 'lwc:navigate';
+const LWC_SURVEY = 'lwc:survey';
+const LWC_YOUTUBE = 'lwc:youtube';
+const LWC_KA = 'lwc:ka';
+const LWC_HIDE = 'lwc:hide';
+
+
 export default class PsChatBot extends BaseChatMessage {
     @track strMessage = '';
 
@@ -15,7 +30,6 @@ export default class PsChatBot extends BaseChatMessage {
     @track gmap = false;
     @track datepicker = false;
     @track html = false;
-    @track hyperlink = false;
     @track fileupload = false;
     @track recordtile = false;
     @track carousel = false;
@@ -25,86 +39,90 @@ export default class PsChatBot extends BaseChatMessage {
     @track youtube = false;
     @track knowledge = false;
 
-    connectedCallback() 
+    connectedCallback() {
+       //Set message string
+       this.strMessage = this.messageContent.value;
+       console.log('original msg = '+ this.messageContent.value);
+
+       if (this.isSupportedUserType(this.userType)) {
+           //if using a lwc, remove any emojis that may have been inserted by the bot (ie :D or :p )
+           if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_PREFIX)) {
+               this.strMessage = this.strMessage.replace(/😀/g, ':D').replace(/😛/g, ':p');
+           }
+
+           if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_GMAP)) {
+               this.strMessage = this.trimMsgPrefix(this.messageContent.value, LWC_GMAP);
+               this.gmap = true;
+           }
+           else if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_DATEPICKER)) {
+               this.strMessage = this.trimMsgPrefix(this.messageContent.value, LWC_DATEPICKER);
+               this.datepicker = true;
+           }
+           else if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_HTML)) {
+               this.strMessage = this.trimMsgPrefix(this.messageContent.value, LWC_HTML);
+               this.html = true;
+           }
+           else if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_FILEUPLOAD)) {
+            this.strMessage = this.trimMsgPrefix(this.messageContent.value, LWC_FILEUPLOAD);
+            this.fileupload = true;
+           }
+           else if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_RECORDTILE)) {
+               this.strMessage = this.trimMsgPrefix(this.messageContent.value, LWC_RECORDTILE);
+               this.recordtile = true;
+           }
+           else if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_CAROUSEL)) {
+               this.strMessage = this.trimMsgPrefix(this.messageContent.value, LWC_CAROUSEL);
+               this.carousel = true;
+           }
+           else if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_FLOW)) {
+               this.strMessage = this.trimMsgPrefix(this.messageContent.value, LWC_FLOW);
+               this.flow = true;
+           }
+           else if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_NAVIGATE)) {
+               this.strMessage = this.trimMsgPrefix(this.messageContent.value, LWC_NAVIGATE);
+               this.navigate = true;
+           }
+           else if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_SURVEY)) {
+               this.strMessage = this.trimMsgPrefix(this.messageContent.value, LWC_SURVEY);
+               this.survey = true;
+           }
+           else if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_YOUTUBE)) {
+               this.strMessage = this.trimMsgPrefix(this.messageContent.value, LWC_YOUTUBE);
+               this.youtube = true;
+           }
+           else if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_KA)) {
+               this.strMessage = this.trimMsgPrefix(this.messageContent.value, LWC_KA);
+               this.knowledge = true;
+           }
+
+           //Add an elseif to show ur component....
+
+
+           //ELSE SHOW BASE CHAT MESSAGE
+
+           else if (!this.messageContent.value.startsWith(LWC_HIDE)) {
+               this.isBaseTextVisible = true;
+               this.messageStyle = `${CHAT_CONTENT_CLASS} ${this.userType}`;
+           }
+
+       }
+       else {
+           throw new Error('Unsupported user type passed in: ${this.userType}');
+       }
+    }
+
+    trimMsgPrefix(msg, prefix)
     {
-        //Set message string
-        this.strMessage = this.messageContent.value;
-        if (this.isSupportedUserType(this.userType)) 
+        if (msg != null && prefix != null && msg.length > prefix.length)
         {
-            //if using a lwc, remove any emojis that may have been inserted by the bot (ie :D or :p )
-            if (this.userType == 'agent' && this.messageContent.value.startsWith('lwc'))
-            {
-                this.strMessage = this.strMessage.replace(/😀/g, ':D').replace(/😛/g, ':p');
-            }
-
-            if (this.userType == 'agent' && this.messageContent.value.startsWith('lwc:gmap'))
-            {
-                this.gmap = true;
-            }
-            else if (this.userType == 'agent' && this.messageContent.value.startsWith('lwc:datepicker'))
-            {
-                this.datepicker = true;
-            }
-            else if (this.userType == 'agent' && this.messageContent.value.startsWith('lwc:html'))
-            {
-                this.html = true;
-            }
-            else if (this.userType == 'agent' && this.messageContent.value.startsWith('lwc:hyperlink'))
-            {
-                this.hyperlink = true;
-            }
-            else if (this.userType == 'agent' && this.messageContent.value.startsWith('lwc:fileupload'))
-            {
-                this.fileupload = true;
-            }
-            else if (this.userType == 'agent' && this.messageContent.value.startsWith('lwc:recordtile'))
-            {
-                this.recordtile = true;
-            }
-            else if (this.userType == 'agent' && this.messageContent.value.startsWith('lwc:carousel'))
-            {
-                this.carousel = true;
-            }
-            else if (this.userType == 'agent' && this.messageContent.value.startsWith('lwc:flow'))
-            {
-                this.flow = true;
-            }
-            else if (this.userType == 'agent' && this.messageContent.value.startsWith('lwc:navigate'))
-            {
-                this.navigate = true;
-            }
-            else if (this.userType == 'agent' && this.messageContent.value.startsWith('lwc:survey'))
-            {
-                this.survey = true;
-            }
-            else if (this.userType == 'agent' && this.messageContent.value.startsWith('lwc:youtube'))
-            {
-                this.youtube = true;
-            }
-            else if (this.userType == 'agent' && this.messageContent.value.startsWith('lwc:ka'))
-            {
-                this.knowledge = true;
-            }
-            
-            //Add an elseif to show ur component....
-
-
-            //ELSE SHOW BASE CHAT MESSAGE
-            else if (!this.messageContent.value.startsWith('lwc:hide'))
-            {
-                this.isBaseTextVisible = true;
-                this.messageStyle = `${CHAT_CONTENT_CLASS} ${this.userType}`;
-            }
-        } 
-        else
-        {
-            throw new Error('Unsupported user type passed in: ${this.userType}');
+            return msg.substring(prefix.length + 1);
         }
+
+        return msg;
     }
 
 
-    isSupportedUserType(userType) 
-    {
+    isSupportedUserType(userType) {
         return SUPPORTED_USER_TYPES.some((supportedUserType) => supportedUserType === userType);
     }
 
@@ -116,8 +134,8 @@ export default class PsChatBot extends BaseChatMessage {
         return generatedString;
     }
 
-    handlePostMessage(event) 
-    {
+    handlePostMessage(event) {
+        console.log('handlePostMessage invoked...');
         const dateValue = event.detail;
         console.log('Handling Event with value: ' + dateValue);
         window.postMessage(
