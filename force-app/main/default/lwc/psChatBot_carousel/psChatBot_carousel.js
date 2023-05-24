@@ -11,10 +11,10 @@ export default class PsChatBot_carousel extends LightningElement {
         var i;
         for (i = 0; i < this.inputParams.split(':')[0].split('|').length; i++) 
         {
-            //console.log(PSChatBotPack);
+            console.log("inputParams=" + this.inputParams);
             //var newTile = { title: this.inputParams.split(':')[2].split('|')[i].split(';')[0], desc: this.inputParams.split(':')[2].split('|')[i].split(';')[1], src: CLWCP_Assets.replace('CLWCP__', '') + '/' + this.inputParams.split(':')[2].split('|')[i].split(';')[2]};
             var newTile = { title: this.inputParams.split(':')[0].split('|')[i].split(';')[0], desc: this.inputParams.split(':')[0].split('|')[i].split(';')[1], src: PSChatBotPack_Images + '/' + this.inputParams.split(':')[0].split('|')[i].split(';')[2]};
-            //alert(newTile.title);
+            console.log("tile=" + JSON.stringify(newTile));
             this.tiles.push(newTile);
         }
     }

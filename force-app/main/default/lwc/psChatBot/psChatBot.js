@@ -42,7 +42,7 @@ export default class PsChatBot extends BaseChatMessage {
     connectedCallback() {
        //Set message string
        this.strMessage = this.messageContent.value;
-       console.log('original msg = '+ this.messageContent.value);
+       console.log('original msg = '+ this.strMessage);
 
        if (this.isSupportedUserType(this.userType)) {
            //if using a lwc, remove any emojis that may have been inserted by the bot (ie :D or :p )

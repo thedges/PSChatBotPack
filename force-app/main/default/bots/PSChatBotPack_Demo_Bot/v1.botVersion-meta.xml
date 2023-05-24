@@ -302,6 +302,9 @@ Select a Date:</message>
                 <botNavigationLinks>
                     <targetBotDialog>Youtube</targetBotDialog>
                 </botNavigationLinks>
+                <botNavigationLinks>
+                    <targetBotDialog>Search_Knowledge</targetBotDialog>
+                </botNavigationLinks>
                 <type>Redirect</type>
             </botNavigation>
             <stepIdentifier>00bf3dab-7737-41f9-83af-cb4e9cb884d3</stepIdentifier>
@@ -873,9 +876,9 @@ Select a Date:</message>
                         <targetType>ConversationVariable</targetType>
                     </botVariableOperands>
                     <type>Unset</type>
-                    <variableOperationIdentifier>82f9cab9-8aed-4867-bbc6-8c61514b6190</variableOperationIdentifier>
+                    <variableOperationIdentifier>b90cdffc-a9e5-45b0-a1a9-a930d0883010</variableOperationIdentifier>
                 </botVariableOperation>
-                <stepIdentifier>96e6b415-c2ea-4df1-ac3c-44447bebdade</stepIdentifier>
+                <stepIdentifier>4c30e1e3-45e7-4d80-a3a1-91062ec5d18a</stepIdentifier>
                 <type>VariableOperation</type>
             </botSteps>
             <stepIdentifier>235b99e0-8f2d-45d5-be82-bdacc0b8f76f</stepIdentifier>
@@ -940,7 +943,7 @@ Select a Date:</message>
                     </invocationMappings>
                 </botInvocation>
                 <type>Set</type>
-                <variableOperationIdentifier>48034fc6-6551-4d93-be80-fe80f153f760</variableOperationIdentifier>
+                <variableOperationIdentifier>96767d7c-03c2-443e-93e9-cf71335afce7</variableOperationIdentifier>
             </botVariableOperation>
             <stepIdentifier>f6807933-e1a3-47d0-8abe-db09d2871de5</stepIdentifier>
             <type>VariableOperation</type>
@@ -951,33 +954,93 @@ Select a Date:</message>
                     <invocationActionName>PSChatBotPack_GetFlowOutput</invocationActionName>
                     <invocationActionType>apex</invocationActionType>
                     <invocationMappings>
+                        <parameterName>varName</parameterName>
+                        <type>Input</type>
+                        <value>FirstName</value>
+                    </invocationMappings>
+                    <invocationMappings>
                         <parameterName>inputJSON</parameterName>
                         <type>Input</type>
                         <variableName>flowresponse</variableName>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
-                        <parameterName>varName</parameterName>
-                        <type>Input</type>
-                        <value>null</value>
-                    </invocationMappings>
-                    <invocationMappings>
                         <parameterName>output</parameterName>
                         <type>Output</type>
-                        <variableName>flowresponse</variableName>
+                        <variableName>flowFirstName</variableName>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                 </botInvocation>
                 <type>Set</type>
-                <variableOperationIdentifier>7cca8a3c-fcad-4f00-89a5-df3c2301b951</variableOperationIdentifier>
+                <variableOperationIdentifier>c898a9e0-eefe-472b-9b74-ca36d152c5ee</variableOperationIdentifier>
             </botVariableOperation>
             <stepIdentifier>3162c0a8-c2e5-4fc6-b9ef-8ce185306d0c</stepIdentifier>
             <type>VariableOperation</type>
         </botSteps>
         <botSteps>
+            <botVariableOperation>
+                <botInvocation>
+                    <invocationActionName>PSChatBotPack_GetFlowOutput</invocationActionName>
+                    <invocationActionType>apex</invocationActionType>
+                    <invocationMappings>
+                        <parameterName>varName</parameterName>
+                        <type>Input</type>
+                        <value>LastName</value>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>inputJSON</parameterName>
+                        <type>Input</type>
+                        <variableName>flowresponse</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>output</parameterName>
+                        <type>Output</type>
+                        <variableName>flowLastName</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                </botInvocation>
+                <type>Set</type>
+                <variableOperationIdentifier>2d68d54a-2b27-46e3-82fd-89aaf1c125f5</variableOperationIdentifier>
+            </botVariableOperation>
+            <stepIdentifier>5f7bbf6c-b2aa-48e0-bc51-1224d9f18f0a</stepIdentifier>
+            <type>VariableOperation</type>
+        </botSteps>
+        <botSteps>
+            <botVariableOperation>
+                <botInvocation>
+                    <invocationActionName>PSChatBotPack_GetFlowOutput</invocationActionName>
+                    <invocationActionType>apex</invocationActionType>
+                    <invocationMappings>
+                        <parameterName>varName</parameterName>
+                        <type>Input</type>
+                        <value>dtDOB</value>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>inputJSON</parameterName>
+                        <type>Input</type>
+                        <variableName>flowresponse</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>output</parameterName>
+                        <type>Output</type>
+                        <variableName>flowDOB</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                </botInvocation>
+                <type>Set</type>
+                <variableOperationIdentifier>7088b997-0fce-4ddf-af7d-9000746c1b72</variableOperationIdentifier>
+            </botVariableOperation>
+            <stepIdentifier>e54b4f16-fdb0-4763-9f74-2a7951976674</stepIdentifier>
+            <type>VariableOperation</type>
+        </botSteps>
+        <botSteps>
             <botMessages>
                 <message>Output variables from flow:
-{!flowresponse}</message>
+FirstName: {!flowFirstName}
+LastName: {!flowLastName}
+DOB: {!flowDOB}</message>
                 <messageIdentifier>28fbda50-2073-4a6e-a608-8725787fef7b</messageIdentifier>
             </botMessages>
             <stepIdentifier>bd01cdcc-7b94-4364-9f18-e10314ea88ee</stepIdentifier>
@@ -1265,10 +1328,329 @@ Select a Date:</message>
         <label>Youtube</label>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
+    <botDialogs>
+        <botSteps>
+            <botSteps>
+                <botVariableOperation>
+                    <botVariableOperands>
+                        <targetName>articleSearchStr</targetName>
+                        <targetType>ConversationVariable</targetType>
+                    </botVariableOperands>
+                    <type>Unset</type>
+                    <variableOperationIdentifier>7d9f8994-4776-4444-9e19-108a5514cda3</variableOperationIdentifier>
+                </botVariableOperation>
+                <stepIdentifier>cdba0e23-bacb-40e0-bac2-373319e7df54</stepIdentifier>
+                <type>VariableOperation</type>
+            </botSteps>
+            <botSteps>
+                <botVariableOperation>
+                    <botVariableOperands>
+                        <targetName>articleResponseStr</targetName>
+                        <targetType>ConversationVariable</targetType>
+                    </botVariableOperands>
+                    <type>Unset</type>
+                    <variableOperationIdentifier>62ed4563-da5f-4d32-8d83-31f3353d5d0f</variableOperationIdentifier>
+                </botVariableOperation>
+                <stepIdentifier>8d2106c5-7e07-4f22-bf43-2bcf9fe5522a</stepIdentifier>
+                <type>VariableOperation</type>
+            </botSteps>
+            <botSteps>
+                <botVariableOperation>
+                    <botVariableOperands>
+                        <targetName>articleListSerialized</targetName>
+                        <targetType>ConversationVariable</targetType>
+                    </botVariableOperands>
+                    <type>Unset</type>
+                    <variableOperationIdentifier>3c122ace-e4a5-499e-b574-b76cb5e88972</variableOperationIdentifier>
+                </botVariableOperation>
+                <stepIdentifier>57fd9351-334f-4af9-b2df-de7df2d77680</stepIdentifier>
+                <type>VariableOperation</type>
+            </botSteps>
+            <stepIdentifier>5d7a4614-7142-4225-adec-9eb062bc1019</stepIdentifier>
+            <type>Group</type>
+        </botSteps>
+        <botSteps>
+            <botSteps>
+                <botVariableOperation>
+                    <botVariableOperands>
+                        <targetName>selArticleId</targetName>
+                        <targetType>ConversationVariable</targetType>
+                    </botVariableOperands>
+                    <type>Unset</type>
+                    <variableOperationIdentifier>1d9f1cf3-09fe-4ca3-a870-aa5899944e45</variableOperationIdentifier>
+                </botVariableOperation>
+                <stepIdentifier>5a7cd30b-90b8-4406-9251-80c0b9f1a7ee</stepIdentifier>
+                <type>VariableOperation</type>
+            </botSteps>
+            <botSteps>
+                <botVariableOperation>
+                    <botVariableOperands>
+                        <targetName>selArticleTitle</targetName>
+                        <targetType>ConversationVariable</targetType>
+                    </botVariableOperands>
+                    <type>Unset</type>
+                    <variableOperationIdentifier>d13adcbf-51c3-463a-8543-28e09e627eee</variableOperationIdentifier>
+                </botVariableOperation>
+                <stepIdentifier>25448163-1e58-4bb3-8504-534284241965</stepIdentifier>
+                <type>VariableOperation</type>
+            </botSteps>
+            <botSteps>
+                <botVariableOperation>
+                    <botVariableOperands>
+                        <targetName>selArticleAction</targetName>
+                        <targetType>ConversationVariable</targetType>
+                    </botVariableOperands>
+                    <type>Unset</type>
+                    <variableOperationIdentifier>9530022c-f1a2-41ee-9f21-cee5716cd10f</variableOperationIdentifier>
+                </botVariableOperation>
+                <stepIdentifier>72cf01b7-308b-413c-915e-fcf08a1f59ea</stepIdentifier>
+                <type>VariableOperation</type>
+            </botSteps>
+            <stepIdentifier>0929ecab-35ef-483f-af65-8dfe4660bff6</stepIdentifier>
+            <type>Group</type>
+        </botSteps>
+        <botSteps>
+            <botVariableOperation>
+                <askCollectIfSet>false</askCollectIfSet>
+                <botMessages>
+                    <message>In a few words, please describe what you want to learn more about.</message>
+                    <messageIdentifier>688a10a9-d75a-da93-f792-97aca2b986a9</messageIdentifier>
+                </botMessages>
+                <botVariableOperands>
+                    <disableAutoFill>true</disableAutoFill>
+                    <sourceName>_Text</sourceName>
+                    <sourceType>StandardMlSlotClass</sourceType>
+                    <targetName>articleSearchStr</targetName>
+                    <targetType>ConversationVariable</targetType>
+                </botVariableOperands>
+                <optionalCollect>false</optionalCollect>
+                <quickReplyWidgetType>Buttons</quickReplyWidgetType>
+                <type>Collect</type>
+                <variableOperationIdentifier>669fe04b-3acb-0d5f-faee-b37e25317850</variableOperationIdentifier>
+            </botVariableOperation>
+            <stepIdentifier>2f57c89b-8079-4e19-b67e-171b59013095</stepIdentifier>
+            <type>VariableOperation</type>
+        </botSteps>
+        <botSteps>
+            <botVariableOperation>
+                <botInvocation>
+                    <invocationActionName>PSChatBotPack_SearchKnowledgeArticles</invocationActionName>
+                    <invocationActionType>apex</invocationActionType>
+                    <invocationMappings>
+                        <parameterName>searchString</parameterName>
+                        <type>Input</type>
+                        <variableName>articleSearchStr</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>output</parameterName>
+                        <type>Output</type>
+                        <variableName>articleListSerialized</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                </botInvocation>
+                <type>Set</type>
+                <variableOperationIdentifier>606ccb67-9b0c-4146-b42a-947770652d35</variableOperationIdentifier>
+            </botVariableOperation>
+            <stepIdentifier>2b3d3977-f480-42fb-ba32-318a7baf39d2</stepIdentifier>
+            <type>VariableOperation</type>
+        </botSteps>
+        <botSteps>
+            <botVariableOperation>
+                <askCollectIfSet>false</askCollectIfSet>
+                <botMessages>
+                    <message>lwc:ka:{!articleListSerialized}:CHAT:false:true:true</message>
+                    <messageIdentifier>6f40041c-f718-4487-0199-0ad759d4df39</messageIdentifier>
+                </botMessages>
+                <botVariableOperands>
+                    <disableAutoFill>true</disableAutoFill>
+                    <sourceName>_Text</sourceName>
+                    <sourceType>StandardMlSlotClass</sourceType>
+                    <targetName>articleResponseStr</targetName>
+                    <targetType>ConversationVariable</targetType>
+                </botVariableOperands>
+                <optionalCollect>false</optionalCollect>
+                <quickReplyWidgetType>Buttons</quickReplyWidgetType>
+                <type>Collect</type>
+                <variableOperationIdentifier>3dfb9d5f-2661-94cb-303d-5b2282e13e17</variableOperationIdentifier>
+            </botVariableOperation>
+            <stepIdentifier>9270a044-678a-4cbd-b85e-bf2f5cd8b506</stepIdentifier>
+            <type>VariableOperation</type>
+        </botSteps>
+        <botSteps>
+            <botVariableOperation>
+                <botInvocation>
+                    <invocationActionName>PSChatBotPack_ApplyRegEx</invocationActionName>
+                    <invocationActionType>apex</invocationActionType>
+                    <invocationMappings>
+                        <parameterName>replaceString</parameterName>
+                        <type>Input</type>
+                        <value>null</value>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>pattern</parameterName>
+                        <type>Input</type>
+                        <value>lwc:hide:</value>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>inputString</parameterName>
+                        <type>Input</type>
+                        <variableName>articleResponseStr</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>output</parameterName>
+                        <type>Output</type>
+                        <variableName>articleResponseStr</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                </botInvocation>
+                <type>Set</type>
+                <variableOperationIdentifier>014f071f-d085-4bb5-97f3-5851e45353ff</variableOperationIdentifier>
+            </botVariableOperation>
+            <stepIdentifier>ff94a2ba-18b1-4108-bcf1-255c6f12418a</stepIdentifier>
+            <type>VariableOperation</type>
+        </botSteps>
+        <botSteps>
+            <botVariableOperation>
+                <botInvocation>
+                    <invocationActionName>PSChatBotPack_GetJsonParam</invocationActionName>
+                    <invocationActionType>apex</invocationActionType>
+                    <invocationMappings>
+                        <parameterName>fieldName</parameterName>
+                        <type>Input</type>
+                        <value>id</value>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>fieldType</parameterName>
+                        <type>Input</type>
+                        <value>Id</value>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>jsonString</parameterName>
+                        <type>Input</type>
+                        <variableName>articleResponseStr</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>idValue</parameterName>
+                        <type>Output</type>
+                        <variableName>selArticleId</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                </botInvocation>
+                <type>Set</type>
+                <variableOperationIdentifier>be721176-ee3c-472c-bfad-dd156f4c63c1</variableOperationIdentifier>
+            </botVariableOperation>
+            <stepIdentifier>46433efa-e8ed-4c9e-b601-acf30e2cf196</stepIdentifier>
+            <type>VariableOperation</type>
+        </botSteps>
+        <botSteps>
+            <botVariableOperation>
+                <botInvocation>
+                    <invocationActionName>PSChatBotPack_GetJsonParam</invocationActionName>
+                    <invocationActionType>apex</invocationActionType>
+                    <invocationMappings>
+                        <parameterName>fieldName</parameterName>
+                        <type>Input</type>
+                        <value>title</value>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>jsonString</parameterName>
+                        <type>Input</type>
+                        <variableName>articleResponseStr</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>fieldType</parameterName>
+                        <type>Input</type>
+                        <value>String</value>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>stringValue</parameterName>
+                        <type>Output</type>
+                        <variableName>selArticleTitle</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                </botInvocation>
+                <type>Set</type>
+                <variableOperationIdentifier>29394145-4ed4-41ac-97dc-395b199fe117</variableOperationIdentifier>
+            </botVariableOperation>
+            <stepIdentifier>dc8804e2-928d-45ee-9e80-9bba0f5e772a</stepIdentifier>
+            <type>VariableOperation</type>
+        </botSteps>
+        <botSteps>
+            <botVariableOperation>
+                <botInvocation>
+                    <invocationActionName>PSChatBotPack_GetJsonParam</invocationActionName>
+                    <invocationActionType>apex</invocationActionType>
+                    <invocationMappings>
+                        <parameterName>fieldName</parameterName>
+                        <type>Input</type>
+                        <value>action</value>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>jsonString</parameterName>
+                        <type>Input</type>
+                        <variableName>articleResponseStr</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>fieldType</parameterName>
+                        <type>Input</type>
+                        <value>String</value>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>stringValue</parameterName>
+                        <type>Output</type>
+                        <variableName>selArticleAction</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                </botInvocation>
+                <type>Set</type>
+                <variableOperationIdentifier>f3972d08-5aaf-4c5b-99b6-8e259628c155</variableOperationIdentifier>
+            </botVariableOperation>
+            <stepIdentifier>a81a76f8-8160-43e2-8dce-7633da57e3bf</stepIdentifier>
+            <type>VariableOperation</type>
+        </botSteps>
+        <botSteps>
+            <botMessages>
+                <message>Action: {!selArticleAction}
+Title: {!selArticleTitle}
+ID: {!selArticleId}</message>
+                <messageIdentifier>3d8322a2-32e2-f358-d408-9afa463b0f25</messageIdentifier>
+            </botMessages>
+            <stepIdentifier>d6c49613-a351-4654-87a1-11dfca886a4a</stepIdentifier>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <stepIdentifier>e8b220a4-6cfc-4c1a-ad47-7e2e01487205</stepIdentifier>
+            <type>Wait</type>
+        </botSteps>
+        <developerName>Search_Knowledge</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
+        <label>Search Knowledge</label>
+        <showInFooterMenu>false</showInFooterMenu>
+    </botDialogs>
     <conversationSystemDialogs>
         <dialog>No_Agent_Available</dialog>
         <type>TransferFailed</type>
     </conversationSystemDialogs>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <developerName>articleListSerialized</developerName>
+        <label>articleListSerialized</label>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <developerName>articleResponseStr</developerName>
+        <label>articleResponseStr</label>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <developerName>articleSearchStr</developerName>
+        <label>articleSearchStr</label>
+    </conversationVariables>
     <conversationVariables>
         <dataType>Text</dataType>
         <developerName>carouselselect</developerName>
@@ -1301,6 +1683,21 @@ Select a Date:</message>
     </conversationVariables>
     <conversationVariables>
         <dataType>Text</dataType>
+        <developerName>flowDOB</developerName>
+        <label>flowDOB</label>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <developerName>flowFirstName</developerName>
+        <label>flowFirstName</label>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <developerName>flowLastName</developerName>
+        <label>flowLastName</label>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
         <developerName>flowresponse</developerName>
         <label>flowresponse</label>
     </conversationVariables>
@@ -1318,6 +1715,21 @@ Select a Date:</message>
         <dataType>Text</dataType>
         <developerName>mapsearch</developerName>
         <label>mapsearch</label>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <developerName>selArticleAction</developerName>
+        <label>selArticleAction</label>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Id</dataType>
+        <developerName>selArticleId</developerName>
+        <label>selArticleId</label>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <developerName>selArticleTitle</developerName>
+        <label>selArticleTitle</label>
     </conversationVariables>
     <conversationVariables>
         <dataType>Number</dataType>

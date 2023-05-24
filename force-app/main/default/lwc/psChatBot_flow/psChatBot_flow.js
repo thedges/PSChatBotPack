@@ -11,7 +11,7 @@ export default class PsChatBot_flow extends LightningElement {
     {
         if (event.data && event.data.type === 'flow.finished' && !this.blReplied)
         {
-            //alert('data:' + event.data.message);
+            console.log('flow_data:' + event.data.message);
             this.blReplied = true;
             this.dispatchEvent(new CustomEvent('postmessage',{detail: event.data.message}));
         }
