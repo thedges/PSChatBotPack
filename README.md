@@ -222,19 +222,19 @@ While this package can be installed in any org and used as is, it was intended a
 # Installation
 1. Ensure that you have an existing Embedded Service Deployment configured for Salesforce Chat.
 2. Enable Bots in __Setup > Einstein > Einstein Platform > Einstein Bots__
-2. Install this repo to your target demo org.
+3. Install this repo to your target demo org.
 
 <a href="https://githubsfdeploy.herokuapp.com?owner=thedges&repo=PSChatBotPack&ref=main">
   <img alt="Deploy to Salesforce"
        src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png">
 </a>
 
-3. Customize the Embedded Service Deployment
+4. Customize the Embedded Service Deployment
     1. Navigate to Setup → Feature Settings → Service → Embedded Service → Embedded Service Deployments. Click View on the relevant Deployment.
     2. In Chat Settings, Click Edit.
     3. Under the section “Customize with Lightning Components”, click Edit.
     4. Change the “Chat Messages (Text)” dropdown to __psChatBot__, and click Save.
-4. Create a Static Resource named PSChatBotPack_Images for all carousel images (Optional)
+5. Create a Static Resource named PSChatBotPack_Images for all carousel images (Optional)
     1. Create a zip file that only includes the images you need for your carousel component. DO NOT INCLUDE the base directory for your images.
     2. Navigate to Setup → Custom Code → Static Resources. Click New.
     3. Name: PSChatBotPack_Images
@@ -242,7 +242,7 @@ While this package can be installed in any org and used as is, it was intended a
     5. Select either private or public depending on your use case.
     6. Click Save.
 
-5. Update Community pages in Community Builder
+6. Update Community pages in Community Builder
     1. Navigate to Setup → Feature Settings → Communities → All Communities. Click Builder on the relevant Community.
     2. Add js snippet to header
         1. Click the Gear on the left hand panel (Settings). Choose Advanced, and then click Edit Head Markup.
@@ -307,7 +307,7 @@ function receiveMessage(event) {
 </script>
 ```
 
-6. Apply the ChatStyle Static Resource to your embedded Chat in your Salesforce Experience Site (or hosting site).
+7. Apply the ChatStyle Static Resource to your embedded Chat in your Salesforce Experience Site (or hosting site).
     1. Navigate to the home page of the community (or wherever the chat will take place).
     2. Add/Edit the Embedded Service Chat Component on the community home page, and set to the relevant embedded service deployment .
        a. Under the “External Styles” Section, put PSChatBotPack_CSS
@@ -320,7 +320,7 @@ function receiveMessage(event) {
     4. Publish the community.
 
 
-7. Give your bot user permission to relevant objects and classes (Optional). If using the demo bot packaged with the package, the following permissions will need to be added to the permission set: sfdc.chatbot.service.permset
+8. Give your bot user permission to relevant objects and classes (Optional). If using the demo bot packaged with the package, the following permissions will need to be added to the permission set: sfdc.chatbot.service.permset
     1. Object Permissions
         1. Case: READ (fields: Subject, Status, Priority)
         2. Chat Transcript: READ (fields: Contact Name)
@@ -331,7 +331,7 @@ function receiveMessage(event) {
         4. PSChatBotPack_GetParams
         5. PSChatBotPack_SearchKnowledgeArticles
    
-8. If you are using Google maps, you need to get a Google Maps Embedded API Key and add to a custom metadata field.
+9. If you are using Google maps, you need to get a Google Maps Embedded API Key and add to a custom metadata field.
    1. Go to __Setup > Custom Metadata Types__
    2. Click on the __PSChatBotPackParam__ metadata type
    3. Click the __Manage PSChatBotPackParams__ button
@@ -342,8 +342,8 @@ function receiveMessage(event) {
 
    6. Save your entry.
    
-9. Connect your bot to the relevant embedded service deployment.
-10. Activate the bot.
+10. Connect your bot to the relevant embedded service deployment.
+11. Activate the bot.
 
 
 
