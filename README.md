@@ -221,6 +221,7 @@ While this package can be installed in any org and used as is, it was intended a
 
 # Installation
 1. Ensure that you have an existing Embedded Service Deployment configured for Salesforce Chat.
+2. Enable Bots in __Setup > Einstein > Einstein Platform > Einstein Bots__
 2. Install this repo to your target demo org.
 
 <a href="https://githubsfdeploy.herokuapp.com?owner=thedges&repo=PSChatBotPack&ref=main">
