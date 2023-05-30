@@ -14,7 +14,7 @@
         </mlIntents>
         <name>PSChatBotPack_Demo_Bot</name>
     </botMlDomain>
-    <botUser>thedges@gpsido20230404.demo</botUser>
+    <botUser>storm.d35974e06086fd@salesforce.com</botUser>
     <contextVariables>
         <contextVariableMappings>
             <SObjectType>LiveChatTranscript</SObjectType>
