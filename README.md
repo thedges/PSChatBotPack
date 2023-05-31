@@ -326,10 +326,12 @@ function receiveMessage(event) {
         2. Chat Transcript: READ (fields: Contact Name)
     2. Apex Classes
         1. PSChatBotPack_ApplyRegExToString
-        2. PSChatBotPack_GetFlowOutputValue
+        2. PSChatBotPack_GetFlowOutput
         3. PSChatBotPack_SetFileApex
         4. PSChatBotPack_GetParams
         5. PSChatBotPack_SearchKnowledgeArticles
+        6. PSChatBotPack_GetJsonParam
+        7. PSChatBotPack_ArticleVote
    
 9. If you are using Google maps, you need to get a Google Maps Embedded API Key and add to a custom metadata field.
    1. Go to __Setup > Custom Metadata Types__
