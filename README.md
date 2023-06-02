@@ -59,8 +59,8 @@ Parameters
 
 * recordId - the record id to attach the uploaded file to
 * fileName - the name of the file to set after it is uploaded (overrides name of file from source OS)
-* bField - the boolean field API name on the record to set to true once the file is uploaded
-* commAccess - make the file accessible from community/experience site
+* bField - the boolean field API name on the record to set to true once the file is uploaded (optional)
+* commAccess - make the file accessible from community/experience site (use: true or false)
 
 ## Flow
 
