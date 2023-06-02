@@ -234,12 +234,13 @@ While this package can be installed in any org and used as is, it was intended a
     2. In Chat Settings, Click Edit.
     3. Under the section “Customize with Lightning Components”, click Edit.
     4. Change the “Chat Messages (Text)” dropdown to __psChatBot__, and click Save.
-5. Create a Static Resource named PSChatBotPack_Images for all carousel images (Optional)
-    1. Create a zip file that only includes the images you need for your carousel component. DO NOT INCLUDE the base directory for your images.
-    2. Navigate to Setup → Custom Code → Static Resources. Click New.
-    3. Name: PSChatBotPack_Images
-    4. Upload your zip file
-    5. Select either private or public depending on your use case.
+   
+5. For the Carousel component, there is a static resource with the example images (flame and heart). To add more images for a carousel, do the following:
+    1. Download the static resource named "PSChatBotPack_Images".
+    2. Unzip the file on your computer.
+    3. Add new image files to the directory.
+    4. Zip up the files back to a zip file.  DO NOT INCLUDE the base directory for your images.
+    5. Edit the "PSChatBotPack_Images" static resource and upload the new zip file.
     6. Click Save.
 
 6. Update Community pages in Community Builder
