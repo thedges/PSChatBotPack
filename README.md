@@ -316,10 +316,11 @@ function receiveMessage(event) {
        2. Select Standard Page, and choose Full width or Flexible Layout.
        3. Give the page a name and URL of “flowcomponent”. Click Create.
        4. We now need to remove all components on the page including header/footer/chat/etc....  
-          1. With the page loaded in Digitial Experience designer, click the gear icon at top.
-          2. At the bottom. selec the 'Overridge the defautl theme layout for this page'
-          3. Select 'EmployeeService' as the theme layout
-       5. Add the __PSChatBotPack - Run Flow__ component to the page full width. Ensure input “FlowName” is set to {!flowName}
+          1. With the page loaded in Digitial Experience designer, click the gear icon at top to edit the page properties
+          2. At the bottom of properties page, select the 'Override the defautl theme layout for this page' checkbox
+          3. Select 'EmployeeService' as the theme layout.
+          4. You should now have a blank page with 3 empty drop sections: Content Header, Content, and Content Footer
+       5. Add the __PSChatBotPack - Run Flow__ component to the Content drop section. Ensure input “FlowName” is set to {!flowName}
     4. Publish the community.
 
 
