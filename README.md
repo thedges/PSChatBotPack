@@ -313,16 +313,22 @@ function receiveMessage(event) {
        1. Navigate to the home page of the community (or wherever the chat will take place).
        2. Add/Edit the Embedded Service Chat Component on the community home page, and set to the relevant embedded service deployment .
           1. Under the “External Styles” Section, put PSChatBotPack_CSS
-    2. Add a new standard community page (for utilizing the flow LWC in the chatbot)
-       1. Click the page dropdown, and click + New Page.
-       2. Select Standard Page, and choose Full width or Flexible Layout.
-       3. Give the page a name and URL of “flowcomponent”. Click Create.
-       4. We now need to remove all components on the page including header/footer/chat/etc....  
-          1. With the page loaded in Digitial Experience designer, click the gear icon at top to edit the page properties
-          2. At the bottom of properties page, select the 'Override the defautl theme layout for this page' checkbox
-          3. Select 'EmployeeService' as the theme layout.
-          4. You should now have a blank page with 3 empty drop sections: Content Header, Content, and Content Footer
-       5. Add the __PSChatBotPack - Run Flow__ component to the Content drop section. Ensure input “FlowName” is set to {!flowName}
+    2. If you are using the Flow chatbot component, complete this section:
+       1. First we need to create a new Theme Layout to host the flow component for the chatboat
+          1. From __Setup > Digital Experiences > All Sites__ click the Builder link to edit your community
+          2. Click on __Settings > Theme__
+          3. Clik the "Configure" tab
+          4. Click the __New Theme Layout__ buton
+          5. Enter a name of "Blank Page" and select "psBlankPage" for the Theme Layout Component. Click Save.
+       2. Next we need to create a community page using the new "Blank Page" theme layout
+          1. Click the page dropdown, and click + New Page.
+          2. Select Standard Page, and choose Full width or Flexible Layout.
+          3. Give the page a name and URL of “flowcomponent”. Click Create.
+          4. With the page loaded in Digitial Experience builder, click the gear icon at top to edit the page properties
+          5. At the bottom of properties page, select the 'Override the default theme layout for this page' checkbox
+          6. Select 'Blank Page' as the theme layout.
+          7. You should now have a blank page with 3 empty drop sections: Content Header, Content, and Content Footer
+       3. Add the __PSChatBotPack - Run Flow__ component to the Content drop section. Ensure input “FlowName” is set to {!flowName}
     3. Publish the community.
 
 
