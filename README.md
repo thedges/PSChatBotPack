@@ -325,7 +325,8 @@ function receiveMessage(event) {
     3. Publish the community.
 
 
-8. Give your bot user permission to relevant objects and classes (Optional). If using the demo bot packaged with the package, the following permissions will need to be added to the permission set: sfdc.chatbot.service.permset
+8. Give your bot user permission to relevant objects and classes. A permission set named "PSChatBotPack" should exist that is configured with the below permissions. Utilize this permset to assign to your bot user of if using the Basic Bot User, make sure to update the "sfdc.chatbot.service.permset" to include the following permissions:
+   
     1. Object Permissions
         1. Case: READ (fields: Subject, Status, Priority)
         2. Chat Transcript: READ (fields: Contact Name)
