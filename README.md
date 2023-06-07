@@ -3,6 +3,8 @@ THIS SOFTWARE IS COVERED BY [THIS DISCLAIMER](https://raw.githubusercontent.com/
 
 This repo provides various demo LWCs and Apex actions for Salesforce chatbot demos. Since a chatbot can only be configured for one "uber" LWC to interpret chat markup and display various LWCs, this repo is an aggregation of custom LWCs and other 3rd party github repos. Jump straight to [installation steps](https://github.com/thedges/PSChatBotPack#installation) if you are familiar with this repo.
 
+__WARNING!:__ These LWC components do not render or work correctly in the bot preview mode. You will need to test/debug in an actual Experience Site.
+
 # 3rd Party Sites Utilized for this Repo
 * [Chat-Lightning-Web-Component-Pack](https://github.com/Colatabajonies/Chat-Lightning-Web-Component-Pack) - this is a repo created by Chris Gilmore for various LWCs to be used in chatbots. I've repackaged and even altered his originals in some cases. Details provided in [this Quip doc](https://salesforce.quip.com/WM7AA3tXRsaf).
 * [Einstein Bots UI Recipe](https://github.com/shunkosa/einstein-bots-ui-recipe)
