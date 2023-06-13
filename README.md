@@ -297,6 +297,24 @@ li.slds-carousel__indicator{
 .ka-summary ul::marker {
    content: none;
 }
+   
+.chat-carousel ul
+{
+  display:flex !important;
+  margin:0.5rem 0px !important;
+}
+
+.chat-carousel li
+{
+  display:flex !important;
+  margin:0px 0.25rem !important;
+}
+
+.slds-radio_faux
+{
+  padding-right: 8px !important;
+  padding-left: 8px !important;
+}
 </style>
 <script>
 window.addEventListener("message", receiveMessage, false);
@@ -311,11 +329,7 @@ function receiveMessage(event) {
 ```
 
 7. Update Community to include chatbot
-    1. Apply the ChatStyle Static Resource to your embedded Chat in your Salesforce Experience Site (or hosting site).
-       1. Navigate to the home page of the community (or wherever the chat will take place).
-       2. Add/Edit the Embedded Service Chat Component on the community home page, and set to the relevant embedded service deployment .
-          1. Under the “External Styles” Section, put PSChatBotPack_CSS
-    2. If you are using the Flow chatbot component, complete this section:
+    1. If you are using the Flow chatbot component, complete this section:
        1. First we need to create a new Theme Layout to host the flow component for the chatboat
           1. From __Setup > Digital Experiences > All Sites__ click the Builder link to edit your community
           2. Click on __Settings > Theme__
@@ -331,7 +345,7 @@ function receiveMessage(event) {
           6. Select 'Blank Page' as the theme layout.
           7. You should now have a blank page with 3 empty drop sections: Content Header, Content, and Content Footer
        3. Add the __PSChatBotPack - Run Flow__ component to the Content drop section. Ensure input “FlowName” is set to {!flowName}
-    3. Publish the community.
+    2. Publish the community.
 
 
 8. Give your bot user permission to relevant objects and classes. A permission set named "PSChatBotPack" should exist that is configured with the below permissions. Utilize this permset to assign to your bot user of if using the Basic Bot User, make sure to update the "sfdc.chatbot.service.permset" to include the following permissions:
