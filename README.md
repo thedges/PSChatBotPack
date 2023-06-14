@@ -77,6 +77,22 @@ Parameters
 * flowURL: the API name of your flow, with URL params to set input (ie “myFlowName&param1=val1&param2=val2)
 * height: the height in pixels that you want the iFrame to be
 
+## Geo Map
+
+<img src="/images/geomap.png" alt="Google Map" style="max-height:500px">
+
+Chat Prefix Syntax: lwc:geomap:{height}:{zoom-level}:{start-lat}:{start-lng}:{auto-center}:{address-autocomplete}
+
+Provide an embedded map that allows one to select a location by dropping pin/crosshair on desired location or using nearby address lookup.
+
+Parameters
+
+* height: The height in pixels of the map window in the chat UI. Default is 300.
+* zoom-level: Map zoom level. Suggest a range of 8 (far) to 18 (close). Default is 13. 
+* start-lat: The start latitude value.
+* start-lng: The start longitude value.
+* auto-center: Auto-center on your GPS location when the map loads. Values are 'true' or 'false'. If you want to start in a specific location for a demo, set this value to 'false' and make sure to have a {start-lat} and {start-lng} value defined.
+* address-autocomplete: Show address autocomplete/suggest box above the map. Values are 'true' or 'false'. 
 
 ## Google Map
 
