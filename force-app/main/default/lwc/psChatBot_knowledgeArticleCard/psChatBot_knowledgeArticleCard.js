@@ -120,7 +120,10 @@ export default class PsChatBot_knowledgeArticleCard extends LightningElement {
     }
 
     openKnowledgeArticle = (event) => {
+        console.log('openKnowledgeArticle invoked...');
         event.preventDefault();
+
+        console.log('url=' + this.urlName);
 
         const targetOrigin = window.location.origin;
 

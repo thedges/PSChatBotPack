@@ -19,6 +19,7 @@ const LWC_NAVIGATE = 'lwc:navigate';
 const LWC_SURVEY = 'lwc:survey';
 const LWC_YOUTUBE = 'lwc:youtube';
 const LWC_KA = 'lwc:ka';
+const LWC_GEOMAP = 'lwc:geomap';
 const LWC_HIDE = 'lwc:hide';
 
 
@@ -38,83 +39,86 @@ export default class PsChatBot extends BaseChatMessage {
     @track survey = false;
     @track youtube = false;
     @track knowledge = false;
+    @track geomap = false;
 
     connectedCallback() {
-       //Set message string
-       this.strMessage = this.messageContent.value;
-       console.log('original msg = '+ this.strMessage);
+        //Set message string
+        this.strMessage = this.messageContent.value;
+        console.log('original msg = ' + this.strMessage);
 
-       if (this.isSupportedUserType(this.userType)) {
-           //if using a lwc, remove any emojis that may have been inserted by the bot (ie :D or :p )
-           if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_PREFIX)) {
-               this.strMessage = this.strMessage.replace(/😀/g, ':D').replace(/😛/g, ':p');
-           }
+        if (this.isSupportedUserType(this.userType)) {
+            //if using a lwc, remove any emojis that may have been inserted by the bot (ie :D or :p )
+            if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_PREFIX)) {
+                this.strMessage = this.strMessage.replace(/😀/g, ':D').replace(/😛/g, ':p');
+            }
 
-           if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_GMAP)) {
-               this.strMessage = this.trimMsgPrefix(this.messageContent.value, LWC_GMAP);
-               this.gmap = true;
-           }
-           else if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_DATEPICKER)) {
-               this.strMessage = this.trimMsgPrefix(this.messageContent.value, LWC_DATEPICKER);
-               this.datepicker = true;
-           }
-           else if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_HTML)) {
-               this.strMessage = this.trimMsgPrefix(this.messageContent.value, LWC_HTML);
-               this.html = true;
-           }
-           else if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_FILEUPLOAD)) {
-            this.strMessage = this.trimMsgPrefix(this.messageContent.value, LWC_FILEUPLOAD);
-            this.fileupload = true;
-           }
-           else if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_RECORDTILE)) {
-               this.strMessage = this.trimMsgPrefix(this.messageContent.value, LWC_RECORDTILE);
-               this.recordtile = true;
-           }
-           else if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_CAROUSEL)) {
-               this.strMessage = this.trimMsgPrefix(this.messageContent.value, LWC_CAROUSEL);
-               this.carousel = true;
-           }
-           else if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_FLOW)) {
-               this.strMessage = this.trimMsgPrefix(this.messageContent.value, LWC_FLOW);
-               this.flow = true;
-           }
-           else if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_NAVIGATE)) {
-               this.strMessage = this.trimMsgPrefix(this.messageContent.value, LWC_NAVIGATE);
-               this.navigate = true;
-           }
-           else if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_SURVEY)) {
-               this.strMessage = this.trimMsgPrefix(this.messageContent.value, LWC_SURVEY);
-               this.survey = true;
-           }
-           else if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_YOUTUBE)) {
-               this.strMessage = this.trimMsgPrefix(this.messageContent.value, LWC_YOUTUBE);
-               this.youtube = true;
-           }
-           else if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_KA)) {
-               this.strMessage = this.trimMsgPrefix(this.messageContent.value, LWC_KA);
-               this.knowledge = true;
-           }
+            if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_GMAP)) {
+                this.strMessage = this.trimMsgPrefix(this.messageContent.value, LWC_GMAP);
+                this.gmap = true;
+            }
+            else if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_DATEPICKER)) {
+                this.strMessage = this.trimMsgPrefix(this.messageContent.value, LWC_DATEPICKER);
+                this.datepicker = true;
+            }
+            else if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_HTML)) {
+                this.strMessage = this.trimMsgPrefix(this.messageContent.value, LWC_HTML);
+                this.html = true;
+            }
+            else if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_FILEUPLOAD)) {
+                this.strMessage = this.trimMsgPrefix(this.messageContent.value, LWC_FILEUPLOAD);
+                this.fileupload = true;
+            }
+            else if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_RECORDTILE)) {
+                this.strMessage = this.trimMsgPrefix(this.messageContent.value, LWC_RECORDTILE);
+                this.recordtile = true;
+            }
+            else if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_CAROUSEL)) {
+                this.strMessage = this.trimMsgPrefix(this.messageContent.value, LWC_CAROUSEL);
+                this.carousel = true;
+            }
+            else if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_FLOW)) {
+                this.strMessage = this.trimMsgPrefix(this.messageContent.value, LWC_FLOW);
+                this.flow = true;
+            }
+            else if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_NAVIGATE)) {
+                this.strMessage = this.trimMsgPrefix(this.messageContent.value, LWC_NAVIGATE);
+                this.navigate = true;
+            }
+            else if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_SURVEY)) {
+                this.strMessage = this.trimMsgPrefix(this.messageContent.value, LWC_SURVEY);
+                this.survey = true;
+            }
+            else if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_YOUTUBE)) {
+                this.strMessage = this.trimMsgPrefix(this.messageContent.value, LWC_YOUTUBE);
+                this.youtube = true;
+            }
+            else if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_KA)) {
+                this.strMessage = this.trimMsgPrefix(this.messageContent.value, LWC_KA);
+                this.knowledge = true;
+            }
+            else if (this.userType == 'agent' && this.messageContent.value.startsWith(LWC_GEOMAP)) {
+                this.strMessage = this.trimMsgPrefix(this.messageContent.value, LWC_GEOMAP);
+                this.geomap = true;
+            }
 
-           //Add an elseif to show ur component....
+            //Add an elseif to show ur component....
 
 
-           //ELSE SHOW BASE CHAT MESSAGE
+            //ELSE SHOW BASE CHAT MESSAGE
 
-           else if (!this.messageContent.value.startsWith(LWC_HIDE)) {
-               this.isBaseTextVisible = true;
-               this.messageStyle = `${CHAT_CONTENT_CLASS} ${this.userType}`;
-           }
+            else if (!this.messageContent.value.startsWith(LWC_HIDE)) {
+                this.isBaseTextVisible = true;
+                this.messageStyle = `${CHAT_CONTENT_CLASS} ${this.userType}`;
+            }
 
-       }
-       else {
-           throw new Error('Unsupported user type passed in: ${this.userType}');
-       }
+        }
+        else {
+            throw new Error('Unsupported user type passed in: ${this.userType}');
+        }
     }
 
-    trimMsgPrefix(msg, prefix)
-    {
-        if (msg != null && prefix != null && msg.length > prefix.length)
-        {
+    trimMsgPrefix(msg, prefix) {
+        if (msg != null && prefix != null && msg.length > prefix.length) {
             return msg.substring(prefix.length + 1);
         }
 

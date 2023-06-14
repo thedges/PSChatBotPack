@@ -38,7 +38,7 @@ export default class PsChatBot_recordform extends LightningElement {
         
         this.firstField = params[2].split(',')[0];
         
-        if (params[4].split(',').length > 1)
+        if (params[2].split(',').length > 1)
         {
             this.fields = params[2].split(',').map(item => item.trim());
             this.fields.shift();

@@ -1,0 +1,17 @@
+<template>
+  <template if:true={showMap}>
+    <div style="background-color: white">
+      <c-ps2-base-map
+        height={height}
+        label=""
+        zoom-level={zoomLevel}
+        enable-reverse-geocode={enableReverseGeocode}
+        enable-center-on-location={enableCenterOnLocation}
+        enable-address-autocomplete={enableAddressAutocomplete}
+        start-latitude={startLatitude}
+        start-longitude={startLongitude}
+        onsetcrosshair={setCrosshair}
+      ></c-ps2-base-map>
+    </div>
+  </template>
+</template>

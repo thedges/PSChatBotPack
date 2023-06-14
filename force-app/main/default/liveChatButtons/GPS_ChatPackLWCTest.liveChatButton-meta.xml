@@ -3,7 +3,7 @@
     <deployments/>
     <enableQueue>false</enableQueue>
     <isActive>true</isActive>
-    <label>ChatTestGroup</label>
+    <label>GPS ChatPackLWCTest</label>
     <optionsCustomRoutingIsEnabled>false</optionsCustomRoutingIsEnabled>
     <optionsHasChasitorIdleTimeout>false</optionsHasChasitorIdleTimeout>
     <optionsHasInviteAfterAccept>false</optionsHasInviteAfterAccept>

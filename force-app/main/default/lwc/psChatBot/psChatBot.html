@@ -57,6 +57,10 @@
         <c-ps-chat-bot_knowledge-article-list input-params={strMessage} onpostmessage={handlePostMessage}></c-ps-chat-bot_knowledge-article-list>
     </template>
 
+    <template if:true={geomap}>
+        <c-ps-chat-bot_geomap input-params={strMessage} onpostmessage={handlePostMessage}></c-ps-chat-bot_geomap>
+    </template>
+
 
     <!-- ADD ADDITIONAL LWCs HERE -->
 

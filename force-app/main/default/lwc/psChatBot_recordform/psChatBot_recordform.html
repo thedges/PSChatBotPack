@@ -1,5 +1,6 @@
 <template>
     <lightning-record-view-form
+            density="Compact"
             record-id={recordId}
             object-api-name={objName}>
         <div class="slds-box">
@@ -15,6 +16,12 @@
                 
             </td></tr></table>
         </div>
+        <div class="slds-box slds-theme_default">
+            <template for:each={fields} for:item="cfield">
+                <lightning-output-field field-name={cfield} key={cfield}></lightning-output-field>
+            </template>
+        </div>
+        <!--
         <div class="slds-p-top_small">
             <ul>
                 <template for:each={fields} for:item="cfield">
@@ -24,6 +31,7 @@
                 </template>
             </ul>
         </div>
+        -->
         </div>
     </lightning-record-view-form><br />
 </template>

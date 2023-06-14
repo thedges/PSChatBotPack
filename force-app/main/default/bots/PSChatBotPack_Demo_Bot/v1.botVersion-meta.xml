@@ -225,13 +225,19 @@ Select a Date:</message>
         <botSteps>
             <botVariableOperation>
                 <botInvocation>
-                    <invocationActionName>CLWCP__Get_Chat_Session</invocationActionName>
+                    <invocationActionName>PSChatBotPack_Get_Chat_Session</invocationActionName>
                     <invocationActionType>flow</invocationActionType>
                     <invocationMappings>
                         <parameterName>strRoutableId</parameterName>
                         <type>Input</type>
                         <variableName>RoutableId</variableName>
                         <variableType>ContextVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>outContactID</parameterName>
+                        <type>Output</type>
+                        <variableName>ContactID</variableName>
+                        <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
                         <parameterName>objChatTranscript</parameterName>
@@ -241,7 +247,7 @@ Select a Date:</message>
                     </invocationMappings>
                 </botInvocation>
                 <type>Set</type>
-                <variableOperationIdentifier>2352d37b-038f-421c-a7ec-81d8f28216e9</variableOperationIdentifier>
+                <variableOperationIdentifier>609a90df-27ac-4aae-9bcf-9835fc815889</variableOperationIdentifier>
             </botVariableOperation>
             <stepIdentifier>c94b98c9-52ee-4f8a-b4af-4cb55db18be6</stepIdentifier>
             <type>VariableOperation</type>
@@ -304,6 +310,9 @@ Select a Date:</message>
                 </botNavigationLinks>
                 <botNavigationLinks>
                     <targetBotDialog>Search_Knowledge</targetBotDialog>
+                </botNavigationLinks>
+                <botNavigationLinks>
+                    <targetBotDialog>Geomap</targetBotDialog>
                 </botNavigationLinks>
                 <type>Redirect</type>
             </botNavigation>
@@ -425,12 +434,107 @@ Select a Date:</message>
                         <targetType>ConversationVariable</targetType>
                     </botVariableOperands>
                     <type>Unset</type>
-                    <variableOperationIdentifier>e91599b2-cde9-423e-8745-afeb008cf956</variableOperationIdentifier>
+                    <variableOperationIdentifier>76736074-42f0-4425-8346-563522535c06</variableOperationIdentifier>
                 </botVariableOperation>
-                <stepIdentifier>6693c4d6-48a4-45fe-83da-a7d6cf2a982d</stepIdentifier>
+                <stepIdentifier>010c415b-efca-432d-a37c-2ef2bdb7c6f7</stepIdentifier>
+                <type>VariableOperation</type>
+            </botSteps>
+            <botSteps>
+                <botVariableOperation>
+                    <botVariableOperands>
+                        <targetName>Case</targetName>
+                        <targetType>ConversationVariable</targetType>
+                    </botVariableOperands>
+                    <type>Unset</type>
+                    <variableOperationIdentifier>72dd1ea7-7841-4508-8763-fd166047a8fa</variableOperationIdentifier>
+                </botVariableOperation>
+                <stepIdentifier>04e98483-040b-450e-87e8-07d26dd46afc</stepIdentifier>
                 <type>VariableOperation</type>
             </botSteps>
             <stepIdentifier>f8859f52-bd9d-490f-8429-e5755a28910a</stepIdentifier>
+            <type>Group</type>
+        </botSteps>
+        <botSteps>
+            <botVariableOperation>
+                <botInvocation>
+                    <invocationActionName>PSChatBotPack_Get_Cases</invocationActionName>
+                    <invocationActionType>flow</invocationActionType>
+                    <invocationMappings>
+                        <parameterName>inContactID</parameterName>
+                        <type>Input</type>
+                        <variableName>ContactID</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>numCases</parameterName>
+                        <type>Output</type>
+                        <variableName>numCases</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>objCases</parameterName>
+                        <type>Output</type>
+                        <variableName>listCases</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                </botInvocation>
+                <type>Set</type>
+                <variableOperationIdentifier>48807b2b-98a7-4458-95c5-a75c89af8734</variableOperationIdentifier>
+            </botVariableOperation>
+            <stepIdentifier>e6b7787a-75ef-44b3-bf74-2b5245177307</stepIdentifier>
+            <type>VariableOperation</type>
+        </botSteps>
+        <botSteps>
+            <botVariableOperation>
+                <askCollectIfSet>true</askCollectIfSet>
+                <autoSelectIfSingleChoice>false</autoSelectIfSingleChoice>
+                <botMessages>
+                    <message>Select an open Case to attach file:</message>
+                    <messageIdentifier>7bef53eb-76ba-a5b1-0525-19040dbd5f57</messageIdentifier>
+                </botMessages>
+                <botVariableOperands>
+                    <disableAutoFill>true</disableAutoFill>
+                    <sourceName>_Object</sourceName>
+                    <sourceType>StandardMlSlotClass</sourceType>
+                    <targetName>Case</targetName>
+                    <targetType>ConversationVariable</targetType>
+                </botVariableOperands>
+                <invalidInputBotNavigation>
+                    <botNavigationLinks>
+                        <targetBotDialog>Error</targetBotDialog>
+                    </botNavigationLinks>
+                    <type>Redirect</type>
+                </invalidInputBotNavigation>
+                <optionalCollect>false</optionalCollect>
+                <quickReplyOptionTemplate>{!Subject}</quickReplyOptionTemplate>
+                <quickReplyType>Dynamic</quickReplyType>
+                <quickReplyWidgetType>Buttons</quickReplyWidgetType>
+                <sourceVariableName>listCases</sourceVariableName>
+                <sourceVariableType>ConversationVariable</sourceVariableType>
+                <type>Collect</type>
+                <variableOperationIdentifier>3871cebf-952a-6fdf-c8e4-a11893aa75a4</variableOperationIdentifier>
+            </botVariableOperation>
+            <stepIdentifier>ffad1a5e-5ef2-4433-bb87-57dfc4a49530</stepIdentifier>
+            <type>VariableOperation</type>
+        </botSteps>
+        <botSteps>
+            <botStepConditions>
+                <leftOperandName>numCases</leftOperandName>
+                <leftOperandType>ConversationVariable</leftOperandType>
+                <operatorType>Equals</operatorType>
+                <rightOperandValue>0</rightOperandValue>
+            </botStepConditions>
+            <botSteps>
+                <botNavigation>
+                    <botNavigationLinks>
+                        <targetBotDialog>No_Cases_Found</targetBotDialog>
+                    </botNavigationLinks>
+                    <type>Redirect</type>
+                </botNavigation>
+                <stepIdentifier>8f391e52-2dc1-45a6-9b0c-65d459765470</stepIdentifier>
+                <type>Navigation</type>
+            </botSteps>
+            <stepIdentifier>b2277a0d-e693-4cb7-b85f-6e332d7e90fd</stepIdentifier>
             <type>Group</type>
         </botSteps>
         <botSteps>
@@ -445,7 +549,7 @@ Select a Date:</message>
             <botVariableOperation>
                 <askCollectIfSet>false</askCollectIfSet>
                 <botMessages>
-                    <message>lwc:fileupload:5003x00002MXEOUAA5:Test::true</message>
+                    <message>lwc:fileupload:{!Case.Id}:Test::true</message>
                     <messageIdentifier>287a38a3-9e65-4b3f-88c6-83ba3b65051f</messageIdentifier>
                 </botMessages>
                 <botQuickReplyOptions>
@@ -501,7 +605,7 @@ Select a Date:</message>
                     </invocationMappings>
                 </botInvocation>
                 <type>Set</type>
-                <variableOperationIdentifier>08941415-113e-40b5-a2e6-74f6ee2e0076</variableOperationIdentifier>
+                <variableOperationIdentifier>da453b9c-4aea-456a-97d1-e6fa6d60b912</variableOperationIdentifier>
             </botVariableOperation>
             <stepIdentifier>5c9591af-3d86-4371-b864-dc6517beee27</stepIdentifier>
             <type>VariableOperation</type>
@@ -570,9 +674,9 @@ Select a Date:</message>
                         <targetType>ConversationVariable</targetType>
                     </botVariableOperands>
                     <type>Unset</type>
-                    <variableOperationIdentifier>17606903-65c3-4be3-82fc-050a4108229b</variableOperationIdentifier>
+                    <variableOperationIdentifier>56c622e7-3211-46ce-b3a3-29f80574f93f</variableOperationIdentifier>
                 </botVariableOperation>
-                <stepIdentifier>f42741a1-1069-4006-ac9b-0708ff5c17ea</stepIdentifier>
+                <stepIdentifier>82f021c3-9cec-461a-94e9-162551aef8af</stepIdentifier>
                 <type>VariableOperation</type>
             </botSteps>
             <stepIdentifier>7dc9c026-f8e4-43cb-aae6-ce7395ebc611</stepIdentifier>
@@ -580,16 +684,58 @@ Select a Date:</message>
         </botSteps>
         <botSteps>
             <botVariableOperation>
-                <askCollectIfSet>false</askCollectIfSet>
-                <autoSelectIfSingleChoice>false</autoSelectIfSingleChoice>
                 <botInvocation>
-                    <invocationActionName>CLWCP__Get_Cases</invocationActionName>
+                    <invocationActionName>PSChatBotPack_Get_Cases</invocationActionName>
                     <invocationActionType>flow</invocationActionType>
+                    <invocationMappings>
+                        <parameterName>inContactID</parameterName>
+                        <type>Input</type>
+                        <variableName>ContactID</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>numCases</parameterName>
+                        <type>Output</type>
+                        <variableName>numCases</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
                     <invocationMappings>
                         <parameterName>objCases</parameterName>
                         <type>Output</type>
+                        <variableName>listCases</variableName>
+                        <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                 </botInvocation>
+                <type>Set</type>
+                <variableOperationIdentifier>75eee13c-49b8-4237-a12c-81685f66869f</variableOperationIdentifier>
+            </botVariableOperation>
+            <stepIdentifier>fe12367c-057c-4d80-b605-c27bf74dd70e</stepIdentifier>
+            <type>VariableOperation</type>
+        </botSteps>
+        <botSteps>
+            <botStepConditions>
+                <leftOperandName>numCases</leftOperandName>
+                <leftOperandType>ConversationVariable</leftOperandType>
+                <operatorType>Equals</operatorType>
+                <rightOperandValue>0</rightOperandValue>
+            </botStepConditions>
+            <botSteps>
+                <botNavigation>
+                    <botNavigationLinks>
+                        <targetBotDialog>No_Cases_Found</targetBotDialog>
+                    </botNavigationLinks>
+                    <type>Redirect</type>
+                </botNavigation>
+                <stepIdentifier>04abe160-61e4-4f6b-b039-9f6115bc5dc0</stepIdentifier>
+                <type>Navigation</type>
+            </botSteps>
+            <stepIdentifier>87546302-c7b4-49f9-91e6-b864b9bad577</stepIdentifier>
+            <type>Group</type>
+        </botSteps>
+        <botSteps>
+            <botVariableOperation>
+                <askCollectIfSet>false</askCollectIfSet>
+                <autoSelectIfSingleChoice>false</autoSelectIfSingleChoice>
                 <botMessages>
                     <message>Select an open Case to Display:</message>
                     <messageIdentifier>1690302c-d87b-4402-8d80-9e4f3487a284</messageIdentifier>
@@ -611,6 +757,8 @@ Select a Date:</message>
                 <quickReplyOptionTemplate>{!Subject}</quickReplyOptionTemplate>
                 <quickReplyType>Dynamic</quickReplyType>
                 <quickReplyWidgetType>Buttons</quickReplyWidgetType>
+                <sourceVariableName>listCases</sourceVariableName>
+                <sourceVariableType>ConversationVariable</sourceVariableType>
                 <type>Collect</type>
                 <variableOperationIdentifier>1394b437-ac60-4b74-8b7e-7a1ebf05e2a5</variableOperationIdentifier>
             </botVariableOperation>
@@ -619,7 +767,7 @@ Select a Date:</message>
         </botSteps>
         <botSteps>
             <botMessages>
-                <message>lwc:recordtile:Case:{!Case.Id}:Subject,CLWCP__ContactName__c,Status,Priority:Some Title:standard.address</message>
+                <message>lwc:recordtile:Case:{!Case.Id}:Subject,Status,Priority:Some Title:standard.address</message>
                 <messageIdentifier>270f4275-8c78-4343-8f8a-5a6e0fe9320f</messageIdentifier>
             </botMessages>
             <stepIdentifier>3e09a9a8-e7e6-4857-8390-ba8857812778</stepIdentifier>
@@ -1337,21 +1485,9 @@ DOB: {!flowDOB}</message>
                         <targetType>ConversationVariable</targetType>
                     </botVariableOperands>
                     <type>Unset</type>
-                    <variableOperationIdentifier>7d9f8994-4776-4444-9e19-108a5514cda3</variableOperationIdentifier>
+                    <variableOperationIdentifier>34534006-fcc7-461e-992f-672700f570e1</variableOperationIdentifier>
                 </botVariableOperation>
-                <stepIdentifier>cdba0e23-bacb-40e0-bac2-373319e7df54</stepIdentifier>
-                <type>VariableOperation</type>
-            </botSteps>
-            <botSteps>
-                <botVariableOperation>
-                    <botVariableOperands>
-                        <targetName>articleResponseStr</targetName>
-                        <targetType>ConversationVariable</targetType>
-                    </botVariableOperands>
-                    <type>Unset</type>
-                    <variableOperationIdentifier>62ed4563-da5f-4d32-8d83-31f3353d5d0f</variableOperationIdentifier>
-                </botVariableOperation>
-                <stepIdentifier>8d2106c5-7e07-4f22-bf43-2bcf9fe5522a</stepIdentifier>
+                <stepIdentifier>83fa6c82-c144-490a-b5bc-d66747801e37</stepIdentifier>
                 <type>VariableOperation</type>
             </botSteps>
             <botSteps>
@@ -1361,52 +1497,12 @@ DOB: {!flowDOB}</message>
                         <targetType>ConversationVariable</targetType>
                     </botVariableOperands>
                     <type>Unset</type>
-                    <variableOperationIdentifier>3c122ace-e4a5-499e-b574-b76cb5e88972</variableOperationIdentifier>
+                    <variableOperationIdentifier>f5da2862-ed63-49be-8a5e-6903cd6882b2</variableOperationIdentifier>
                 </botVariableOperation>
-                <stepIdentifier>57fd9351-334f-4af9-b2df-de7df2d77680</stepIdentifier>
+                <stepIdentifier>70f74835-86a1-4aa0-ada6-54be50d6e47a</stepIdentifier>
                 <type>VariableOperation</type>
             </botSteps>
             <stepIdentifier>5d7a4614-7142-4225-adec-9eb062bc1019</stepIdentifier>
-            <type>Group</type>
-        </botSteps>
-        <botSteps>
-            <botSteps>
-                <botVariableOperation>
-                    <botVariableOperands>
-                        <targetName>selArticleId</targetName>
-                        <targetType>ConversationVariable</targetType>
-                    </botVariableOperands>
-                    <type>Unset</type>
-                    <variableOperationIdentifier>1d9f1cf3-09fe-4ca3-a870-aa5899944e45</variableOperationIdentifier>
-                </botVariableOperation>
-                <stepIdentifier>5a7cd30b-90b8-4406-9251-80c0b9f1a7ee</stepIdentifier>
-                <type>VariableOperation</type>
-            </botSteps>
-            <botSteps>
-                <botVariableOperation>
-                    <botVariableOperands>
-                        <targetName>selArticleTitle</targetName>
-                        <targetType>ConversationVariable</targetType>
-                    </botVariableOperands>
-                    <type>Unset</type>
-                    <variableOperationIdentifier>d13adcbf-51c3-463a-8543-28e09e627eee</variableOperationIdentifier>
-                </botVariableOperation>
-                <stepIdentifier>25448163-1e58-4bb3-8504-534284241965</stepIdentifier>
-                <type>VariableOperation</type>
-            </botSteps>
-            <botSteps>
-                <botVariableOperation>
-                    <botVariableOperands>
-                        <targetName>selArticleAction</targetName>
-                        <targetType>ConversationVariable</targetType>
-                    </botVariableOperands>
-                    <type>Unset</type>
-                    <variableOperationIdentifier>9530022c-f1a2-41ee-9f21-cee5716cd10f</variableOperationIdentifier>
-                </botVariableOperation>
-                <stepIdentifier>72cf01b7-308b-413c-915e-fcf08a1f59ea</stepIdentifier>
-                <type>VariableOperation</type>
-            </botSteps>
-            <stepIdentifier>0929ecab-35ef-483f-af65-8dfe4660bff6</stepIdentifier>
             <type>Group</type>
         </botSteps>
         <botSteps>
@@ -1450,31 +1546,65 @@ DOB: {!flowDOB}</message>
                     </invocationMappings>
                 </botInvocation>
                 <type>Set</type>
-                <variableOperationIdentifier>606ccb67-9b0c-4146-b42a-947770652d35</variableOperationIdentifier>
+                <variableOperationIdentifier>0176a0be-73ed-4803-b4fb-e803f84f6862</variableOperationIdentifier>
             </botVariableOperation>
             <stepIdentifier>2b3d3977-f480-42fb-ba32-318a7baf39d2</stepIdentifier>
             <type>VariableOperation</type>
         </botSteps>
         <botSteps>
+            <botMessages>
+                <message>lwc:ka:{!articleListSerialized}:CHAT:false:true:true</message>
+                <messageIdentifier>50778896-62ff-d897-caf5-55de84f7d853</messageIdentifier>
+            </botMessages>
+            <stepIdentifier>4c98bf54-9f9b-4e9a-9235-f3b0e14684a5</stepIdentifier>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <stepIdentifier>e8b220a4-6cfc-4c1a-ad47-7e2e01487205</stepIdentifier>
+            <type>Wait</type>
+        </botSteps>
+        <developerName>Search_Knowledge</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
+        <label>Search Knowledge</label>
+        <showInFooterMenu>false</showInFooterMenu>
+    </botDialogs>
+    <botDialogs>
+        <botSteps>
+            <botSteps>
+                <botVariableOperation>
+                    <botVariableOperands>
+                        <targetName>geomapresponse</targetName>
+                        <targetType>ConversationVariable</targetType>
+                    </botVariableOperands>
+                    <type>Unset</type>
+                    <variableOperationIdentifier>92596576-8ad0-4528-81fd-7cb8fa16ed55</variableOperationIdentifier>
+                </botVariableOperation>
+                <stepIdentifier>0928fd85-0b01-4241-8781-cd6aca0d779c</stepIdentifier>
+                <type>VariableOperation</type>
+            </botSteps>
+            <stepIdentifier>b4cfd3e7-7c71-48ac-9d08-07bd64f4dead</stepIdentifier>
+            <type>Group</type>
+        </botSteps>
+        <botSteps>
             <botVariableOperation>
-                <askCollectIfSet>false</askCollectIfSet>
+                <askCollectIfSet>true</askCollectIfSet>
                 <botMessages>
-                    <message>lwc:ka:{!articleListSerialized}:CHAT:false:true:true</message>
-                    <messageIdentifier>6f40041c-f718-4487-0199-0ad759d4df39</messageIdentifier>
+                    <message>lwc:geomap:300:8:37.77507:-122.42314:true:true</message>
+                    <messageIdentifier>f67e018f-f513-0ea4-1652-792b32841e79</messageIdentifier>
                 </botMessages>
                 <botVariableOperands>
                     <disableAutoFill>true</disableAutoFill>
                     <sourceName>_Text</sourceName>
                     <sourceType>StandardMlSlotClass</sourceType>
-                    <targetName>articleResponseStr</targetName>
+                    <targetName>geomapresponse</targetName>
                     <targetType>ConversationVariable</targetType>
                 </botVariableOperands>
                 <optionalCollect>false</optionalCollect>
                 <quickReplyWidgetType>Buttons</quickReplyWidgetType>
                 <type>Collect</type>
-                <variableOperationIdentifier>3dfb9d5f-2661-94cb-303d-5b2282e13e17</variableOperationIdentifier>
+                <variableOperationIdentifier>c50fee80-0009-2211-8eac-692fd78bc1eb</variableOperationIdentifier>
             </botVariableOperation>
-            <stepIdentifier>9270a044-678a-4cbd-b85e-bf2f5cd8b506</stepIdentifier>
+            <stepIdentifier>87662604-8c96-4e9c-9809-d4eede86e8db</stepIdentifier>
             <type>VariableOperation</type>
         </botSteps>
         <botSteps>
@@ -1488,27 +1618,27 @@ DOB: {!flowDOB}</message>
                         <value>null</value>
                     </invocationMappings>
                     <invocationMappings>
+                        <parameterName>inputString</parameterName>
+                        <type>Input</type>
+                        <variableName>geomapresponse</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
                         <parameterName>pattern</parameterName>
                         <type>Input</type>
                         <value>lwc:hide:</value>
                     </invocationMappings>
                     <invocationMappings>
-                        <parameterName>inputString</parameterName>
-                        <type>Input</type>
-                        <variableName>articleResponseStr</variableName>
-                        <variableType>ConversationVariable</variableType>
-                    </invocationMappings>
-                    <invocationMappings>
                         <parameterName>output</parameterName>
                         <type>Output</type>
-                        <variableName>articleResponseStr</variableName>
+                        <variableName>geomapresponse</variableName>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                 </botInvocation>
                 <type>Set</type>
-                <variableOperationIdentifier>014f071f-d085-4bb5-97f3-5851e45353ff</variableOperationIdentifier>
+                <variableOperationIdentifier>3ff01494-a286-4308-b3e7-5e26b8e5ab5e</variableOperationIdentifier>
             </botVariableOperation>
-            <stepIdentifier>ff94a2ba-18b1-4108-bcf1-255c6f12418a</stepIdentifier>
+            <stepIdentifier>92f7a984-b7e5-4e8d-a1d3-21e40bf1ea79</stepIdentifier>
             <type>VariableOperation</type>
         </botSteps>
         <botSteps>
@@ -1519,64 +1649,25 @@ DOB: {!flowDOB}</message>
                     <invocationMappings>
                         <parameterName>fieldName</parameterName>
                         <type>Input</type>
-                        <value>id</value>
-                    </invocationMappings>
-                    <invocationMappings>
-                        <parameterName>fieldType</parameterName>
-                        <type>Input</type>
-                        <value>Id</value>
+                        <value>fullAddress</value>
                     </invocationMappings>
                     <invocationMappings>
                         <parameterName>jsonString</parameterName>
                         <type>Input</type>
-                        <variableName>articleResponseStr</variableName>
+                        <variableName>geomapresponse</variableName>
                         <variableType>ConversationVariable</variableType>
-                    </invocationMappings>
-                    <invocationMappings>
-                        <parameterName>idValue</parameterName>
-                        <type>Output</type>
-                        <variableName>selArticleId</variableName>
-                        <variableType>ConversationVariable</variableType>
-                    </invocationMappings>
-                </botInvocation>
-                <type>Set</type>
-                <variableOperationIdentifier>be721176-ee3c-472c-bfad-dd156f4c63c1</variableOperationIdentifier>
-            </botVariableOperation>
-            <stepIdentifier>46433efa-e8ed-4c9e-b601-acf30e2cf196</stepIdentifier>
-            <type>VariableOperation</type>
-        </botSteps>
-        <botSteps>
-            <botVariableOperation>
-                <botInvocation>
-                    <invocationActionName>PSChatBotPack_GetJsonParam</invocationActionName>
-                    <invocationActionType>apex</invocationActionType>
-                    <invocationMappings>
-                        <parameterName>fieldName</parameterName>
-                        <type>Input</type>
-                        <value>title</value>
-                    </invocationMappings>
-                    <invocationMappings>
-                        <parameterName>jsonString</parameterName>
-                        <type>Input</type>
-                        <variableName>articleResponseStr</variableName>
-                        <variableType>ConversationVariable</variableType>
-                    </invocationMappings>
-                    <invocationMappings>
-                        <parameterName>fieldType</parameterName>
-                        <type>Input</type>
-                        <value>String</value>
                     </invocationMappings>
                     <invocationMappings>
                         <parameterName>stringValue</parameterName>
                         <type>Output</type>
-                        <variableName>selArticleTitle</variableName>
+                        <variableName>geo_fulladdress</variableName>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                 </botInvocation>
                 <type>Set</type>
-                <variableOperationIdentifier>29394145-4ed4-41ac-97dc-395b199fe117</variableOperationIdentifier>
+                <variableOperationIdentifier>e96bba1c-90d4-48c1-a5b8-0071f8264b63</variableOperationIdentifier>
             </botVariableOperation>
-            <stepIdentifier>dc8804e2-928d-45ee-9e80-9bba0f5e772a</stepIdentifier>
+            <stepIdentifier>1951ec97-4ff1-4d96-a063-dcd0902387c1</stepIdentifier>
             <type>VariableOperation</type>
         </botSteps>
         <botSteps>
@@ -1587,49 +1678,251 @@ DOB: {!flowDOB}</message>
                     <invocationMappings>
                         <parameterName>fieldName</parameterName>
                         <type>Input</type>
-                        <value>action</value>
+                        <value>street</value>
                     </invocationMappings>
                     <invocationMappings>
                         <parameterName>jsonString</parameterName>
                         <type>Input</type>
-                        <variableName>articleResponseStr</variableName>
+                        <variableName>geomapresponse</variableName>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                     <invocationMappings>
                         <parameterName>fieldType</parameterName>
                         <type>Input</type>
-                        <value>String</value>
+                        <value>Text</value>
                     </invocationMappings>
                     <invocationMappings>
                         <parameterName>stringValue</parameterName>
                         <type>Output</type>
-                        <variableName>selArticleAction</variableName>
+                        <variableName>geo_street</variableName>
                         <variableType>ConversationVariable</variableType>
                     </invocationMappings>
                 </botInvocation>
                 <type>Set</type>
-                <variableOperationIdentifier>f3972d08-5aaf-4c5b-99b6-8e259628c155</variableOperationIdentifier>
+                <variableOperationIdentifier>b255d7db-5557-4004-9026-621d277a1b0a</variableOperationIdentifier>
             </botVariableOperation>
-            <stepIdentifier>a81a76f8-8160-43e2-8dce-7633da57e3bf</stepIdentifier>
+            <stepIdentifier>17a39d0a-180c-409b-96ef-bd12e869d88a</stepIdentifier>
+            <type>VariableOperation</type>
+        </botSteps>
+        <botSteps>
+            <botVariableOperation>
+                <botInvocation>
+                    <invocationActionName>PSChatBotPack_GetJsonParam</invocationActionName>
+                    <invocationActionType>apex</invocationActionType>
+                    <invocationMappings>
+                        <parameterName>fieldName</parameterName>
+                        <type>Input</type>
+                        <value>city</value>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>jsonString</parameterName>
+                        <type>Input</type>
+                        <variableName>geomapresponse</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>fieldType</parameterName>
+                        <type>Input</type>
+                        <value>Text</value>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>stringValue</parameterName>
+                        <type>Output</type>
+                        <variableName>geo_city</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                </botInvocation>
+                <type>Set</type>
+                <variableOperationIdentifier>45d91181-8b0b-4bcb-94ca-9edb8d5804b4</variableOperationIdentifier>
+            </botVariableOperation>
+            <stepIdentifier>a99a422f-f1ad-42ce-8527-0d3cfe26bd4b</stepIdentifier>
+            <type>VariableOperation</type>
+        </botSteps>
+        <botSteps>
+            <botVariableOperation>
+                <botInvocation>
+                    <invocationActionName>PSChatBotPack_GetJsonParam</invocationActionName>
+                    <invocationActionType>apex</invocationActionType>
+                    <invocationMappings>
+                        <parameterName>fieldName</parameterName>
+                        <type>Input</type>
+                        <value>state</value>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>jsonString</parameterName>
+                        <type>Input</type>
+                        <variableName>geomapresponse</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>fieldType</parameterName>
+                        <type>Input</type>
+                        <value>Text</value>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>stringValue</parameterName>
+                        <type>Output</type>
+                        <variableName>geo_state</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                </botInvocation>
+                <type>Set</type>
+                <variableOperationIdentifier>e120cb77-3a17-4f02-81f9-f7e910191530</variableOperationIdentifier>
+            </botVariableOperation>
+            <stepIdentifier>b3d2f832-b4df-4c22-9248-fdd499ba0376</stepIdentifier>
+            <type>VariableOperation</type>
+        </botSteps>
+        <botSteps>
+            <botVariableOperation>
+                <botInvocation>
+                    <invocationActionName>PSChatBotPack_GetJsonParam</invocationActionName>
+                    <invocationActionType>apex</invocationActionType>
+                    <invocationMappings>
+                        <parameterName>fieldName</parameterName>
+                        <type>Input</type>
+                        <value>postal</value>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>jsonString</parameterName>
+                        <type>Input</type>
+                        <variableName>geomapresponse</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>fieldType</parameterName>
+                        <type>Input</type>
+                        <value>Text</value>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>stringValue</parameterName>
+                        <type>Output</type>
+                        <variableName>geo_postal</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                </botInvocation>
+                <type>Set</type>
+                <variableOperationIdentifier>ac66a36b-c08c-4293-8dae-0bc857966abe</variableOperationIdentifier>
+            </botVariableOperation>
+            <stepIdentifier>cacb8f1d-b05c-4aa3-94f9-4997f1e70e56</stepIdentifier>
+            <type>VariableOperation</type>
+        </botSteps>
+        <botSteps>
+            <botVariableOperation>
+                <botInvocation>
+                    <invocationActionName>PSChatBotPack_GetJsonParam</invocationActionName>
+                    <invocationActionType>apex</invocationActionType>
+                    <invocationMappings>
+                        <parameterName>fieldName</parameterName>
+                        <type>Input</type>
+                        <value>latitude</value>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>jsonString</parameterName>
+                        <type>Input</type>
+                        <variableName>geomapresponse</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>fieldType</parameterName>
+                        <type>Input</type>
+                        <value>Double</value>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>doubleValue</parameterName>
+                        <type>Output</type>
+                        <variableName>geo_latitude</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                </botInvocation>
+                <type>Set</type>
+                <variableOperationIdentifier>2aacda96-0bb7-47c9-9242-59d231b134cf</variableOperationIdentifier>
+            </botVariableOperation>
+            <stepIdentifier>e92392ef-afa6-4c00-87af-735a524bbc33</stepIdentifier>
+            <type>VariableOperation</type>
+        </botSteps>
+        <botSteps>
+            <botVariableOperation>
+                <botInvocation>
+                    <invocationActionName>PSChatBotPack_GetJsonParam</invocationActionName>
+                    <invocationActionType>apex</invocationActionType>
+                    <invocationMappings>
+                        <parameterName>fieldName</parameterName>
+                        <type>Input</type>
+                        <value>longitude</value>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>jsonString</parameterName>
+                        <type>Input</type>
+                        <variableName>geomapresponse</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>fieldType</parameterName>
+                        <type>Input</type>
+                        <value>Double</value>
+                    </invocationMappings>
+                    <invocationMappings>
+                        <parameterName>doubleValue</parameterName>
+                        <type>Output</type>
+                        <variableName>geo_longitude</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
+                </botInvocation>
+                <type>Set</type>
+                <variableOperationIdentifier>6bf8734c-071b-41b1-9dfe-e5f9943c6184</variableOperationIdentifier>
+            </botVariableOperation>
+            <stepIdentifier>d3cff2c4-e403-485f-ac6c-0d468987e6e1</stepIdentifier>
             <type>VariableOperation</type>
         </botSteps>
         <botSteps>
             <botMessages>
-                <message>Action: {!selArticleAction}
-Title: {!selArticleTitle}
-ID: {!selArticleId}</message>
-                <messageIdentifier>3d8322a2-32e2-f358-d408-9afa463b0f25</messageIdentifier>
+                <message>Geomap details:
+
+FullAddress: {!geo_fulladdress}
+
+Street: {!geo_street}
+City: {!geo_city}
+State: {!geo_state}
+Postal: {!geo_postal}
+
+Latitude: {!geo_latitude}
+Longitude: {!geo_longitude}</message>
+                <messageIdentifier>03f31341-0f76-17f1-3006-c2f2b3724820</messageIdentifier>
             </botMessages>
-            <stepIdentifier>d6c49613-a351-4654-87a1-11dfca886a4a</stepIdentifier>
+            <stepIdentifier>48e49d64-972e-467b-9e55-133e3ec29c67</stepIdentifier>
             <type>Message</type>
         </botSteps>
         <botSteps>
-            <stepIdentifier>e8b220a4-6cfc-4c1a-ad47-7e2e01487205</stepIdentifier>
+            <stepIdentifier>59af9add-8184-4dd9-9254-fc92fef8b7e2</stepIdentifier>
             <type>Wait</type>
         </botSteps>
-        <developerName>Search_Knowledge</developerName>
+        <developerName>Geomap</developerName>
         <isPlaceholderDialog>false</isPlaceholderDialog>
-        <label>Search Knowledge</label>
+        <label>Geomap</label>
+        <showInFooterMenu>false</showInFooterMenu>
+    </botDialogs>
+    <botDialogs>
+        <botSteps>
+            <botMessages>
+                <message>There were no cases found for this user.</message>
+                <messageIdentifier>b12b7ede-b636-e4d7-822c-c94804f355a5</messageIdentifier>
+            </botMessages>
+            <stepIdentifier>00466905-9cd2-42c9-bdd4-11cfaa86ee7f</stepIdentifier>
+            <type>Message</type>
+        </botSteps>
+        <botSteps>
+            <botNavigation>
+                <botNavigationLinks>
+                    <targetBotDialog>Main_Menu</targetBotDialog>
+                </botNavigationLinks>
+                <type>Redirect</type>
+            </botNavigation>
+            <stepIdentifier>aaaf423e-7fbd-4caf-bd1d-d7980016a542</stepIdentifier>
+            <type>Navigation</type>
+        </botSteps>
+        <developerName>No_Cases_Found</developerName>
+        <isPlaceholderDialog>false</isPlaceholderDialog>
+        <label>No Cases Found</label>
         <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
     <conversationSystemDialogs>
@@ -1668,6 +1961,11 @@ ID: {!selArticleId}</message>
     </conversationVariables>
     <conversationVariables>
         <dataType>Text</dataType>
+        <developerName>ContactID</developerName>
+        <label>ContactID</label>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
         <developerName>currentLocation</developerName>
         <label>currentLocation</label>
     </conversationVariables>
@@ -1703,6 +2001,46 @@ ID: {!selArticleId}</message>
     </conversationVariables>
     <conversationVariables>
         <dataType>Text</dataType>
+        <developerName>geomapresponse</developerName>
+        <label>geomapresponse</label>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <developerName>geo_city</developerName>
+        <label>geo_city</label>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <developerName>geo_fulladdress</developerName>
+        <label>geo_fulladdress</label>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Number</dataType>
+        <developerName>geo_latitude</developerName>
+        <label>geo_latitude</label>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Number</dataType>
+        <developerName>geo_longitude</developerName>
+        <label>geo_longitude</label>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <developerName>geo_postal</developerName>
+        <label>geo_postal</label>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <developerName>geo_state</developerName>
+        <label>geo_state</label>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
+        <developerName>geo_street</developerName>
+        <label>geo_street</label>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Text</dataType>
         <developerName>googleMapAPIKey</developerName>
         <label>googleMapAPIKey</label>
     </conversationVariables>
@@ -1712,9 +2050,20 @@ ID: {!selArticleId}</message>
         <label>hyperlinkresponse</label>
     </conversationVariables>
     <conversationVariables>
+        <collectionType>List</collectionType>
+        <dataType>Object</dataType>
+        <developerName>listCases</developerName>
+        <label>listCases</label>
+    </conversationVariables>
+    <conversationVariables>
         <dataType>Text</dataType>
         <developerName>mapsearch</developerName>
         <label>mapsearch</label>
+    </conversationVariables>
+    <conversationVariables>
+        <dataType>Number</dataType>
+        <developerName>numCases</developerName>
+        <label>numCases</label>
     </conversationVariables>
     <conversationVariables>
         <dataType>Text</dataType>

@@ -46,6 +46,10 @@ global with sharing class PSChatBotPack_GetJsonParam {
                  {
                     resp.idValue = Id.valueOf(resp.stringValue);
                  }
+                 else if (requests[0].fieldType.toLowerCase() == 'string')
+                 {
+                    resp.idValue = resp.stringValue;
+                 }
                  else if (requests[0].fieldType.toLowerCase() == 'integer')
                  {
                     resp.integerValue = Integer.valueOf(resp.stringValue);
