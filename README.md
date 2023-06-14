@@ -3,6 +3,8 @@ THIS SOFTWARE IS COVERED BY [THIS DISCLAIMER](https://raw.githubusercontent.com/
 
 This repo provides various demo LWCs and Apex actions for Salesforce chatbot demos. Since a chatbot can only be configured for one "uber" LWC to interpret chat markup and display various LWCs, this repo is an aggregation of custom LWCs and other 3rd party github repos. Jump straight to [installation steps](https://github.com/thedges/PSChatBotPack#installation) if you are familiar with this repo.
 
+__WARNING!:__ These LWC components do not render or work correctly in the bot preview mode. You will need to test/debug in an actual Experience Site.
+
 # 3rd Party Sites Utilized for this Repo
 * [Chat-Lightning-Web-Component-Pack](https://github.com/Colatabajonies/Chat-Lightning-Web-Component-Pack) - this is a repo created by Chris Gilmore for various LWCs to be used in chatbots. I've repackaged and even altered his originals in some cases. Details provided in [this Quip doc](https://salesforce.quip.com/WM7AA3tXRsaf).
 * [Einstein Bots UI Recipe](https://github.com/shunkosa/einstein-bots-ui-recipe)
@@ -59,8 +61,8 @@ Parameters
 
 * recordId - the record id to attach the uploaded file to
 * fileName - the name of the file to set after it is uploaded (overrides name of file from source OS)
-* bField - the boolean field API name on the record to set to true once the file is uploaded
-* commAccess - make the file accessible from community/experience site
+* bField - the boolean field API name on the record to set to true once the file is uploaded (optional)
+* commAccess - make the file accessible from community/experience site (use: true or false)
 
 ## Flow
 
@@ -234,12 +236,13 @@ While this package can be installed in any org and used as is, it was intended a
     2. In Chat Settings, Click Edit.
     3. Under the section “Customize with Lightning Components”, click Edit.
     4. Change the “Chat Messages (Text)” dropdown to __psChatBot__, and click Save.
-5. Create a Static Resource named PSChatBotPack_Images for all carousel images (Optional)
-    1. Create a zip file that only includes the images you need for your carousel component. DO NOT INCLUDE the base directory for your images.
-    2. Navigate to Setup → Custom Code → Static Resources. Click New.
-    3. Name: PSChatBotPack_Images
-    4. Upload your zip file
-    5. Select either private or public depending on your use case.
+   
+5. For the Carousel component, there is a static resource with the example images (flame and heart). To add more images for a carousel, do the following:
+    1. Download the static resource named "PSChatBotPack_Images".
+    2. Unzip the file on your computer.
+    3. Add new image files to the directory.
+    4. Zip up the files back to a zip file.  DO NOT INCLUDE the base directory for your images.
+    5. Edit the "PSChatBotPack_Images" static resource and upload the new zip file.
     6. Click Save.
 
 6. Update Community pages in Community Builder
@@ -294,6 +297,24 @@ li.slds-carousel__indicator{
 .ka-summary ul::marker {
    content: none;
 }
+   
+.chat-carousel ul
+{
+  display:flex !important;
+  margin:0.5rem 0px !important;
+}
+
+.chat-carousel li
+{
+  display:flex !important;
+  margin:0px 0.25rem !important;
+}
+
+.slds-radio_faux
+{
+  padding-right: 8px !important;
+  padding-left: 8px !important;
+}
 </style>
 <script>
 window.addEventListener("message", receiveMessage, false);
@@ -307,20 +328,28 @@ function receiveMessage(event) {
 </script>
 ```
 
-7. Apply the ChatStyle Static Resource to your embedded Chat in your Salesforce Experience Site (or hosting site).
-    1. Navigate to the home page of the community (or wherever the chat will take place).
-    2. Add/Edit the Embedded Service Chat Component on the community home page, and set to the relevant embedded service deployment .
-       a. Under the “External Styles” Section, put PSChatBotPack_CSS
-    3. Add a new standard community page (for utilizing the flow LWC)
-        a. Click the page dropdown, and click + New Page.
-        b. Select Standard Page, and choose Full width or Flexible Layout.
-        c. Give the page a name and URL of “flowcomponent”. Click Create.
-        d. Remove all headers/components/chat from the new page.
-        e. Add the __PSChatBotPack - Run Flow__ component to the page full width. Ensure input “FlowName” is set to {!flowName}
-    4. Publish the community.
+7. Update Community to include chatbot
+    1. If you are using the Flow chatbot component, complete this section:
+       1. First we need to create a new Theme Layout to host the flow component for the chatboat
+          1. From __Setup > Digital Experiences > All Sites__ click the Builder link to edit your community
+          2. Click on __Settings > Theme__
+          3. Clik the "Configure" tab
+          4. Click the __New Theme Layout__ buton
+          5. Enter a name of "Blank Page" and select "psBlankPage" for the Theme Layout Component. Click Save.
+       2. Next we need to create a community page using the new "Blank Page" theme layout
+          1. Click the page dropdown, and click + New Page.
+          2. Select Standard Page, and choose Full width or Flexible Layout.
+          3. Give the page a name and URL of “flowcomponent”. Click Create.
+          4. With the page loaded in Digitial Experience builder, click the gear icon at top to edit the page properties
+          5. At the bottom of properties page, select the 'Override the default theme layout for this page' checkbox
+          6. Select 'Blank Page' as the theme layout.
+          7. You should now have a blank page with 3 empty drop sections: Content Header, Content, and Content Footer
+       3. Add the __PSChatBotPack - Run Flow__ component to the Content drop section. Ensure input “FlowName” is set to {!flowName}
+    2. Publish the community.
 
 
-8. Give your bot user permission to relevant objects and classes (Optional). If using the demo bot packaged with the package, the following permissions will need to be added to the permission set: sfdc.chatbot.service.permset
+8. Give your bot user permission to relevant objects and classes. A permission set named "PSChatBotPack" should exist that is configured with the below permissions. Utilize this permset to assign to your bot user of if using the Basic Bot User, make sure to update the "sfdc.chatbot.service.permset" to include the following permissions:
+   
     1. Object Permissions
         1. Case: READ (fields: Subject, Status, Priority)
         2. Chat Transcript: READ (fields: Contact Name)
