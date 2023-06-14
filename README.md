@@ -276,13 +276,16 @@ ul.slds-carousel__indicators{
   display:flex;
   margin:0.5rem 0px;
 }
-   
 li.slds-carousel__indicator{
   display:flex;
   margin:0px 0.25rem;
 }
-   
+    
 .ka-summary ul {
+  displayX: list-item !important;
+  list-style-imageX: none !important;
+  list-style-positionX: outside !important;
+  list-style-typeX: disc !important;
   margin-block-end: 10.5px !important;
   margin-block-start: 0px !important;
   margin-bottom: 10.5px !important;
@@ -315,12 +318,13 @@ li.slds-carousel__indicator{
 .ka-summary ul::marker {
    content: none;
 }
-   
+    
 .chat-carousel ul
 {
   display:flex !important;
   margin:0.5rem 0px !important;
 }
+
 
 .chat-carousel li
 {
@@ -333,14 +337,23 @@ li.slds-carousel__indicator{
   padding-right: 8px !important;
   padding-left: 8px !important;
 }
+    
 </style>
 <script>
 window.addEventListener("message", receiveMessage, false);
 function receiveMessage(event) {
+    console.log('event.data = ' + JSON.stringify(event.data));
+    console.log('event.origin = ' + event.origin);
     var payload = event.data;
+    console.log('received payload type = ' + payload.type);
 
     if(payload && payload.type === "chasitor.sendMessage") {
+        console.log('received payload message = ' + payload.message);
         embedded_svc.postMessage("chasitor.sendMessage", payload.message);
+    }
+    else if (payload && payload.namespace === 'pschatbotpack' && payload.command === 'open-knowledge-article')
+    {
+      $A.get("e.force:navigateToURL").setParams({"url":  payload.detail.communityPath + '/article/' + payload.detail.urlName}).fire();
     }
 };
 </script>
