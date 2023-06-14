@@ -14,9 +14,10 @@ export default class PsChatBot_geomap extends LightningElement {
 
     connectedCallback() {
         console.log('inputParams=' + this.inputParams);
+        var items = null;
 
         try {
-            var items = this.inputParams.split(':');
+            items = this.inputParams.split(':');
 
             if (items.length === 6) {
                 this.height = items[0];

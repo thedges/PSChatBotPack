@@ -1,12 +1,14 @@
 import { LightningElement, api } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+import communityId from '@salesforce/community/Id';
+import communityPath from '@salesforce/community/basePath';
 import seeMoreArticles from '@salesforce/label/c.See_More_Articles';
 import lastUpdated from '@salesforce/label/c.Last_Updated';
 import IMAGES from '@salesforce/resourceUrl/PSChatBotPack_Images';
 import voteArticle from '@salesforce/apex/PSChatBotPack_ArticleVote.voteArticle';
 
 const COMMAND_OPEN_KNOWLEDGE_ARTICLE = 'open-knowledge-article';
-const EVENT_NAMESPACE = 'workdotcom';
+const EVENT_NAMESPACE = 'pschatbotpack';
 
 export default class PsChatBot_knowledgeArticleCard extends LightningElement {
     label = {
@@ -120,10 +122,7 @@ export default class PsChatBot_knowledgeArticleCard extends LightningElement {
     }
 
     openKnowledgeArticle = (event) => {
-        console.log('openKnowledgeArticle invoked...');
         event.preventDefault();
-
-        console.log('url=' + this.urlName);
 
         const targetOrigin = window.location.origin;
 
@@ -133,6 +132,8 @@ export default class PsChatBot_knowledgeArticleCard extends LightningElement {
                 command: COMMAND_OPEN_KNOWLEDGE_ARTICLE,
                 detail: {
                     urlName: this.urlName,
+                    communityId: communityId,
+                    communityPath: communityPath
                 },
             },
             targetOrigin
