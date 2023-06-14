@@ -238,6 +238,8 @@ While this package can be installed in any org and used as is, it was intended a
 ---
 
 # Installation
+1. Install pre-requisite repos:
+   1. [PS2MapComponents](https://github.com/thedges/PS2MapComponents)
 1. Ensure that you have an existing Embedded Service Deployment configured for Salesforce Chat.
 2. Enable Bots in __Setup > Einstein > Einstein Platform > Einstein Bots__
 3. Install this repo to your target demo org.
