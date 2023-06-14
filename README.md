@@ -240,22 +240,22 @@ While this package can be installed in any org and used as is, it was intended a
 # Installation
 1. Install pre-requisite repos:
    1. [PS2MapComponents](https://github.com/thedges/PS2MapComponents)
-1. Ensure that you have an existing Embedded Service Deployment configured for Salesforce Chat.
-2. Enable Bots in __Setup > Einstein > Einstein Platform > Einstein Bots__
-3. Install this repo to your target demo org.
+2. Ensure that you have an existing Embedded Service Deployment configured for Salesforce Chat.
+3. Enable Bots in __Setup > Einstein > Einstein Platform > Einstein Bots__
+4. Install this repo to your target demo org.
 
 <a href="https://githubsfdeploy.herokuapp.com?owner=thedges&repo=PSChatBotPack&ref=main">
   <img alt="Deploy to Salesforce"
        src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png">
 </a>
 
-4. Customize the Embedded Service Deployment
+5. Customize the Embedded Service Deployment
     1. Navigate to Setup → Feature Settings → Service → Embedded Service → Embedded Service Deployments. Click View on the relevant Deployment.
     2. In Chat Settings, Click Edit.
     3. Under the section “Customize with Lightning Components”, click Edit.
     4. Change the “Chat Messages (Text)” dropdown to __psChatBot__, and click Save.
    
-5. For the Carousel component, there is a static resource with the example images (flame and heart). To add more images for a carousel, do the following:
+6. For the Carousel component, there is a static resource with the example images (flame and heart). To add more images for a carousel, do the following:
     1. Download the static resource named "PSChatBotPack_Images".
     2. Unzip the file on your computer.
     3. Add new image files to the directory.
@@ -263,7 +263,7 @@ While this package can be installed in any org and used as is, it was intended a
     5. Edit the "PSChatBotPack_Images" static resource and upload the new zip file.
     6. Click Save.
 
-6. Update Community pages in Community Builder
+7. Update Community pages in Community Builder
     1. Navigate to Setup → Feature Settings → Communities → All Communities. Click Builder on the relevant Community.
     2. Add js snippet to header
         1. Click the Gear on the left hand panel (Settings). Choose Advanced, and then click Edit Head Markup.
@@ -346,7 +346,7 @@ function receiveMessage(event) {
 </script>
 ```
 
-7. Update Community to include chatbot
+8. Update Community to include chatbot
     1. If you are using the Flow chatbot component, complete this section:
        1. First we need to create a new Theme Layout to host the flow component for the chatboat
           1. From __Setup > Digital Experiences > All Sites__ click the Builder link to edit your community
@@ -366,7 +366,7 @@ function receiveMessage(event) {
     2. Publish the community.
 
 
-8. Give your bot user permission to relevant objects and classes. A permission set named "PSChatBotPack" should exist that is configured with the below permissions. Utilize this permset to assign to your bot user of if using the Basic Bot User, make sure to update the "sfdc.chatbot.service.permset" to include the following permissions:
+9. Give your bot user permission to relevant objects and classes. A permission set named "PSChatBotPack" should exist that is configured with the below permissions. Utilize this permset to assign to your bot user of if using the Basic Bot User, make sure to update the "sfdc.chatbot.service.permset" to include the following permissions:
    
     1. Object Permissions
         1. Case: READ (fields: Subject, Status, Priority)
@@ -380,7 +380,7 @@ function receiveMessage(event) {
         6. PSChatBotPack_GetJsonParam
         7. PSChatBotPack_ArticleVote
    
-9. If you are using Google maps, you need to get a Google Maps Embedded API Key and add to a custom metadata field.
+10. If you are using Google maps, you need to get a Google Maps Embedded API Key and add to a custom metadata field.
    1. Go to __Setup > Custom Metadata Types__
    2. Click on the __PSChatBotPackParam__ metadata type
    3. Click the __Manage PSChatBotPackParams__ button
@@ -391,8 +391,8 @@ function receiveMessage(event) {
 
    6. Save your entry.
    
-10. Connect your bot to the relevant embedded service deployment.
-11. Activate the bot.
+11. Connect your bot to the relevant embedded service deployment.
+12. Activate the bot.
 
 
 
