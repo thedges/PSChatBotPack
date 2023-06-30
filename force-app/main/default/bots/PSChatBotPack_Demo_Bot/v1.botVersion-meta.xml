@@ -154,7 +154,7 @@
         <developerName>Google_Map</developerName>
         <isPlaceholderDialog>false</isPlaceholderDialog>
         <label>Google Map</label>
-        <showInFooterMenu>true</showInFooterMenu>
+        <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
     <botDialogs>
         <botSteps>
@@ -219,7 +219,7 @@ Select a Date:</message>
         <developerName>Date_Picker</developerName>
         <isPlaceholderDialog>false</isPlaceholderDialog>
         <label>Date Picker</label>
-        <showInFooterMenu>true</showInFooterMenu>
+        <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
     <botDialogs>
         <botSteps>
@@ -411,14 +411,8 @@ Select a Date:</message>
             <type>Message</type>
         </botSteps>
         <botSteps>
-            <botNavigation>
-                <botNavigationLinks>
-                    <targetBotDialog>Main_Menu</targetBotDialog>
-                </botNavigationLinks>
-                <type>Redirect</type>
-            </botNavigation>
             <stepIdentifier>775c55fe-b60c-46ca-8c12-28f0763e487c</stepIdentifier>
-            <type>Navigation</type>
+            <type>Wait</type>
         </botSteps>
         <developerName>HTML</developerName>
         <isPlaceholderDialog>false</isPlaceholderDialog>
@@ -434,9 +428,9 @@ Select a Date:</message>
                         <targetType>ConversationVariable</targetType>
                     </botVariableOperands>
                     <type>Unset</type>
-                    <variableOperationIdentifier>76736074-42f0-4425-8346-563522535c06</variableOperationIdentifier>
+                    <variableOperationIdentifier>0b58eaad-dd02-4028-8d9a-133cd6e35804</variableOperationIdentifier>
                 </botVariableOperation>
-                <stepIdentifier>010c415b-efca-432d-a37c-2ef2bdb7c6f7</stepIdentifier>
+                <stepIdentifier>168c7098-0a64-4f4b-9380-3c2c2f663e6c</stepIdentifier>
                 <type>VariableOperation</type>
             </botSteps>
             <botSteps>
@@ -446,9 +440,9 @@ Select a Date:</message>
                         <targetType>ConversationVariable</targetType>
                     </botVariableOperands>
                     <type>Unset</type>
-                    <variableOperationIdentifier>72dd1ea7-7841-4508-8763-fd166047a8fa</variableOperationIdentifier>
+                    <variableOperationIdentifier>e3ecc9e4-3588-4eb4-b0ba-d5ad6a94e128</variableOperationIdentifier>
                 </botVariableOperation>
-                <stepIdentifier>04e98483-040b-450e-87e8-07d26dd46afc</stepIdentifier>
+                <stepIdentifier>89427ec1-20e9-4fc3-9a29-bde9a8f8a1e3</stepIdentifier>
                 <type>VariableOperation</type>
             </botSteps>
             <stepIdentifier>f8859f52-bd9d-490f-8429-e5755a28910a</stepIdentifier>
@@ -479,7 +473,7 @@ Select a Date:</message>
                     </invocationMappings>
                 </botInvocation>
                 <type>Set</type>
-                <variableOperationIdentifier>48807b2b-98a7-4458-95c5-a75c89af8734</variableOperationIdentifier>
+                <variableOperationIdentifier>4921490b-e967-4cab-9fea-9e6271f87594</variableOperationIdentifier>
             </botVariableOperation>
             <stepIdentifier>e6b7787a-75ef-44b3-bf74-2b5245177307</stepIdentifier>
             <type>VariableOperation</type>
@@ -531,7 +525,7 @@ Select a Date:</message>
                     </botNavigationLinks>
                     <type>Redirect</type>
                 </botNavigation>
-                <stepIdentifier>8f391e52-2dc1-45a6-9b0c-65d459765470</stepIdentifier>
+                <stepIdentifier>6126168b-163c-451a-8dd5-7795f6aec626</stepIdentifier>
                 <type>Navigation</type>
             </botSteps>
             <stepIdentifier>b2277a0d-e693-4cb7-b85f-6e332d7e90fd</stepIdentifier>
@@ -605,7 +599,7 @@ Select a Date:</message>
                     </invocationMappings>
                 </botInvocation>
                 <type>Set</type>
-                <variableOperationIdentifier>da453b9c-4aea-456a-97d1-e6fa6d60b912</variableOperationIdentifier>
+                <variableOperationIdentifier>1b172cfe-6af3-46d9-bbd3-4633056395f0</variableOperationIdentifier>
             </botVariableOperation>
             <stepIdentifier>5c9591af-3d86-4371-b864-dc6517beee27</stepIdentifier>
             <type>VariableOperation</type>
@@ -619,14 +613,8 @@ Select a Date:</message>
             <type>Message</type>
         </botSteps>
         <botSteps>
-            <botNavigation>
-                <botNavigationLinks>
-                    <targetBotDialog>Main_Menu</targetBotDialog>
-                </botNavigationLinks>
-                <type>Redirect</type>
-            </botNavigation>
             <stepIdentifier>3e1d7313-f294-45ca-aec7-734c47023e8d</stepIdentifier>
-            <type>Navigation</type>
+            <type>Wait</type>
         </botSteps>
         <developerName>File_Upload</developerName>
         <isPlaceholderDialog>false</isPlaceholderDialog>
@@ -674,9 +662,9 @@ Select a Date:</message>
                         <targetType>ConversationVariable</targetType>
                     </botVariableOperands>
                     <type>Unset</type>
-                    <variableOperationIdentifier>56c622e7-3211-46ce-b3a3-29f80574f93f</variableOperationIdentifier>
+                    <variableOperationIdentifier>30e0da96-18db-400b-b6e3-18e7c659aa26</variableOperationIdentifier>
                 </botVariableOperation>
-                <stepIdentifier>82f021c3-9cec-461a-94e9-162551aef8af</stepIdentifier>
+                <stepIdentifier>e0e48ae7-4fed-48e7-9cbf-e674d683017a</stepIdentifier>
                 <type>VariableOperation</type>
             </botSteps>
             <stepIdentifier>7dc9c026-f8e4-43cb-aae6-ce7395ebc611</stepIdentifier>
@@ -707,7 +695,7 @@ Select a Date:</message>
                     </invocationMappings>
                 </botInvocation>
                 <type>Set</type>
-                <variableOperationIdentifier>75eee13c-49b8-4237-a12c-81685f66869f</variableOperationIdentifier>
+                <variableOperationIdentifier>4ae08ab3-e941-4c5b-8745-53d04a868197</variableOperationIdentifier>
             </botVariableOperation>
             <stepIdentifier>fe12367c-057c-4d80-b605-c27bf74dd70e</stepIdentifier>
             <type>VariableOperation</type>
@@ -726,7 +714,7 @@ Select a Date:</message>
                     </botNavigationLinks>
                     <type>Redirect</type>
                 </botNavigation>
-                <stepIdentifier>04abe160-61e4-4f6b-b039-9f6115bc5dc0</stepIdentifier>
+                <stepIdentifier>6c14f1c1-80cb-4468-967f-ea93bb8c0378</stepIdentifier>
                 <type>Navigation</type>
             </botSteps>
             <stepIdentifier>87546302-c7b4-49f9-91e6-b864b9bad577</stepIdentifier>
@@ -774,20 +762,8 @@ Select a Date:</message>
             <type>Message</type>
         </botSteps>
         <botSteps>
-            <botNavigation>
-                <botNavigationLinks>
-                    <targetBotDialog>Close_Case</targetBotDialog>
-                </botNavigationLinks>
-                <botNavigationLinks>
-                    <targetBotDialog>Update_Case</targetBotDialog>
-                </botNavigationLinks>
-                <botNavigationLinks>
-                    <targetBotDialog>Main_Menu</targetBotDialog>
-                </botNavigationLinks>
-                <type>Redirect</type>
-            </botNavigation>
             <stepIdentifier>cd36576a-f93e-4acf-8445-f86cabce42fe</stepIdentifier>
-            <type>Navigation</type>
+            <type>Wait</type>
         </botSteps>
         <developerName>Record_Form</developerName>
         <isPlaceholderDialog>false</isPlaceholderDialog>
@@ -811,9 +787,9 @@ Select a Date:</message>
                         <targetType>ConversationVariable</targetType>
                     </botVariableOperands>
                     <type>Unset</type>
-                    <variableOperationIdentifier>ba403f0a-ca78-4948-a4cd-109d4a307415</variableOperationIdentifier>
+                    <variableOperationIdentifier>cd89aacb-0312-4930-a7df-25ee8b20e579</variableOperationIdentifier>
                 </botVariableOperation>
-                <stepIdentifier>a9a06854-ee57-4a78-b1f2-3d67d08a4dd8</stepIdentifier>
+                <stepIdentifier>c97bd964-c6a3-4991-97cb-fbfae240c97a</stepIdentifier>
                 <type>VariableOperation</type>
             </botSteps>
             <stepIdentifier>e3685fe1-5eda-49e7-83d3-8fc5ef4b8b52</stepIdentifier>
@@ -824,8 +800,14 @@ Select a Date:</message>
                 <askCollectIfSet>false</askCollectIfSet>
                 <autoSelectIfSingleChoice>false</autoSelectIfSingleChoice>
                 <botInvocation>
-                    <invocationActionName>CLWCP__Get_Cases</invocationActionName>
+                    <invocationActionName>PSChatBotPack_Get_Cases</invocationActionName>
                     <invocationActionType>flow</invocationActionType>
+                    <invocationMappings>
+                        <parameterName>inContactID</parameterName>
+                        <type>Input</type>
+                        <variableName>ContactID</variableName>
+                        <variableType>ConversationVariable</variableType>
+                    </invocationMappings>
                     <invocationMappings>
                         <parameterName>objCases</parameterName>
                         <type>Output</type>
@@ -867,14 +849,8 @@ Select a Date:</message>
             <type>Message</type>
         </botSteps>
         <botSteps>
-            <botNavigation>
-                <botNavigationLinks>
-                    <targetBotDialog>Main_Menu</targetBotDialog>
-                </botNavigationLinks>
-                <type>Redirect</type>
-            </botNavigation>
             <stepIdentifier>28f72e94-901e-4147-8cc8-62d8fa02ca66</stepIdentifier>
-            <type>Navigation</type>
+            <type>Wait</type>
         </botSteps>
         <developerName>Navigate_to_record</developerName>
         <isPlaceholderDialog>false</isPlaceholderDialog>
@@ -1201,7 +1177,7 @@ DOB: {!flowDOB}</message>
         <developerName>Flow</developerName>
         <isPlaceholderDialog>false</isPlaceholderDialog>
         <label>Flow</label>
-        <showInFooterMenu>true</showInFooterMenu>
+        <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
     <botDialogs>
         <botSteps>
@@ -1407,7 +1383,7 @@ DOB: {!flowDOB}</message>
         <developerName>Survey</developerName>
         <isPlaceholderDialog>false</isPlaceholderDialog>
         <label>Survey</label>
-        <showInFooterMenu>true</showInFooterMenu>
+        <showInFooterMenu>false</showInFooterMenu>
     </botDialogs>
     <botDialogs>
         <botSteps>
