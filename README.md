@@ -126,7 +126,7 @@ Parameters
 
 <img src="/images/knowledge2.png" alt="Knowledge" height="500">
 
-Chat Prefix Syntax: lwc:ka:{knowledge-list-serialized}:{priority}:{truncate}
+Chat Prefix Syntax: lwc:ka:{knowledge-list-serialized}:{priority}:{truncate}:{collapse}:{rate}
 
 Seach for articles and display in a list. This component supports showing the "rich text" knowledge article version (i.e. Answer__c field) or the chat answer plain text version (i.e. Chat_Answer__c field). You can specific the priority in the configuration parameters if you want to try and show Chat Answer version of the "rich text" Answer version.
 
@@ -135,6 +135,8 @@ Parameters
 * knowledge-list-serialized: This is JSON serialized string from the invoking the 'Search Knowledge Articles (PSChatBotPack)' Apex action that is implemented in the PSChatBotPack_SearchKnowledgeArticles Apex class. Look at the sample Bot for the 'Search Knowledge' dialog.
 * priority - first choice of what to show as knowledge content. Allowed values are CHAT (for Chat_Answer__c field) or ANSWER (for Answer__c field). 
 * truncate - boolean value (true/false) to truncate the content to 7 lines
+* collapse - boolean value (true/false) to first show knowledge articles in collapsed or expanded format
+* rate - boolean value (true/false) to show rating options of 'thumbs up' or 'thumbs down' at bottom of expanded knowledge article 
 
 
 ## Navigate
