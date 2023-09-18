@@ -130,6 +130,19 @@ Chat Prefix Syntax: lwc:ka:{knowledge-list-serialized}:{priority}:{truncate}:{co
 
 Seach for articles and display in a list. This component supports showing the "rich text" knowledge article version (i.e. Answer__c field) or the chat answer plain text version (i.e. Chat_Answer__c field). You can specific the priority in the configuration parameters if you want to try and show Chat Answer version of the "rich text" Answer version.
 
+Custom Medata Data
+
+To handle different knowledge article API names that can be configured in Salesforce, this component utilizes a Custom Metadata etnry to provide declarative configuration of the component. Follow these instructions to configure the correct settings:
+
+1. Go to __Setup > Custom Code > Custom Metadata Types__
+2. Find the item labeled "PSChatBotPackKA". Click on the "Manage Records" link next to the entry.
+3. There should be an entry with label "PSChatBotPackKA" already created. Click on that to drill in to the details. If this entry does not exist, create an entry that has label "PSChatBotPackKA" for both the Label and "PSChatBotPackKA Name" fields.
+4. You now provide API names for 4 fields:
+   * Object API Name - the API name of the Knowledge Article object
+   * Image Field API Name - the API name of the field that stores a URL string to an image for the knowledge article
+   * Answer Field API Name - the API name of the field that stores the full text answer for the knowledge article (this could be separate from the standard Summary field for knowledge articles)
+   * Chat Answer Field API Name - the API name of the field that stores an answer to be used specifically for chat interactions
+
 Parameters
 
 * knowledge-list-serialized: This is JSON serialized string from the invoking the 'Search Knowledge Articles (PSChatBotPack)' Apex action that is implemented in the PSChatBotPack_SearchKnowledgeArticles Apex class. Look at the sample Bot for the 'Search Knowledge' dialog.
