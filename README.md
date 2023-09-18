@@ -33,7 +33,8 @@ Display a revolving carousel of content tiles in the chat window, and allow the 
 
 Images displayed in the carousel MUST be pre-loaded in a static resource named “CLWCP_Assets”. This must be created ahead of time. See installation instructions.
 
-Parameters
+__Parameters__
+
 Carousel tiles are provided as input parameters in a bar seperated “|” list of items. Each property in a given tile is semi-colon “;” seperated. Carousel is limited to a max of 5 tiles. Each tile contains the following properties
 
 * tileTitle: The header text for the tile
@@ -57,7 +58,7 @@ Chat Prefix Syntax: lwc:fileupload:{recordId}:{fileName}:{bField}:{commAccess}
 
 Allow the customer to upload a file in the chat window, and have it attached to a designated record. Once the file is uploaded, a hidden response is provided automatically by the customer in the syntax: lwc:hide:{relatedRecordId} where relatedRecordId is again confirming the recordId that the file was attached to. Therefore, it is best to use the file upload component in a Question block if using a chatbot, to save the response to a slot. Also, see “lwc:hide” for more information about hiding text.
 
-Parameters
+__Parameters__
 
 * recordId - the record id to attach the uploaded file to
 * fileName - the name of the file to set after it is uploaded (overrides name of file from source OS)
@@ -72,7 +73,7 @@ Chat Prefix Syntax: lwc:flow:{flowURL}:{height}
 
 Allow the customer to step through a screen flow. Once the flow is finished, a hidden response is provided automatically by the customer in the syntax: lwc:hide:{flowOutputParams} where flowOutputParams is JSON containing any output provided by the flow. Therefore, it is best to use the flow component in a Question block if using a chatbot, to save the output to a slot. Also, see “lwc:hide” for more information about hiding text. Ensure that you followed the community page steps above to have your flowcomponent page setup prior to using the flow component.
 
-Parameters
+__Parameters__
 
 * flowURL: the API name of your flow, with URL params to set input (ie “myFlowName&param1=val1&param2=val2)
 * height: the height in pixels that you want the iFrame to be
@@ -85,7 +86,7 @@ Chat Prefix Syntax: lwc:geomap:{height}:{zoom-level}:{start-lat}:{start-lng}:{au
 
 Provide an embedded map that allows one to select a location by dropping pin/crosshair on desired location or using nearby address lookup.
 
-Parameters
+__Parameters__
 
 * height: The height in pixels of the map window in the chat UI. Default is 300.
 * zoom-level: Map zoom level. Suggest a range of 8 (far) to 18 (close). Default is 13. 
@@ -102,7 +103,7 @@ Chat Prefix Syntax: lwc:gmap:{mapAPIkey}:{searchTerm}:{mapWidth}:{mapHeight}
 
 Provide an embedded google map of a defined point of interest to the customer in a chat.
 
-Parameters
+__Parameters__
 
 * mapAPIkey: Your Google map API key to use the Google Map Embed API.
 * searchTerm: The address or point of interest to show on the map.
@@ -118,7 +119,7 @@ Chat Prefix Syntax: lwc:html:{htmlText}
 
 Present unescaped HTML markup in the chat.
 
-Parameters
+__Parameters__
 
 * htmlText: The HTML to be displayed.
 
@@ -130,7 +131,7 @@ Chat Prefix Syntax: lwc:ka:{knowledge-list-serialized}:{priority}:{truncate}:{co
 
 Seach for articles and display in a list. This component supports showing the "rich text" knowledge article version (i.e. Answer__c field) or the chat answer plain text version (i.e. Chat_Answer__c field). You can specific the priority in the configuration parameters if you want to try and show Chat Answer version of the "rich text" Answer version.
 
-Custom Medata Data
+__Custom Medata Data__
 
 To handle different knowledge article API names that can be configured in Salesforce, this component utilizes a Custom Metadata etnry to provide declarative configuration of the component. Follow these instructions to configure the correct settings:
 
@@ -143,7 +144,7 @@ To handle different knowledge article API names that can be configured in Salesf
    * Answer Field API Name - the API name of the field that stores the full text answer for the knowledge article (this could be separate from the standard Summary field for knowledge articles)
    * Chat Answer Field API Name - the API name of the field that stores an answer to be used specifically for chat interactions
 
-Parameters
+__Parameters__
 
 * knowledge-list-serialized: This is JSON serialized string from the invoking the 'Search Knowledge Articles (PSChatBotPack)' Apex action that is implemented in the PSChatBotPack_SearchKnowledgeArticles Apex class. Look at the sample Bot for the 'Search Knowledge' dialog.
 * priority - first choice of what to show as knowledge content. Allowed values are CHAT (for Chat_Answer__c field) or ANSWER (for Answer__c field). 
@@ -160,7 +161,7 @@ Chat Prefix Syntax: lwc:navigate:{type}:{sessionId}:{path}
 
 Allow the bot/agent to automatically redirect the customer’s browser page to a record, knowledge article, or community page.
 
-Parameters
+__Parameters__
 
 * type: valid values are article, record, or page.
 * sessionId: the chat transcript ID. This will prevent endless loops of navigating upon page reloads. A specific page, record, or article will only be navigated to once per chat session.
@@ -178,7 +179,7 @@ Chat Prefix Syntax: lwc:recordtile:{objectName}:{recordId}:{field1,field2,field3
 
 Present a formatted “Compact View” of an object record in chat.
 
-Parameters
+__Parameters__
 
 * objectName: The API name of the standard or custom object that will be displayed.
 * recordId: The Id of the record that will be displayed.
@@ -195,7 +196,7 @@ Chat Prefix Syntax: lwc:survey:{type}:{additionalparams}
 
 Display a survey question of a certain type, outlined below. When the user clicks on a star, number, or checkbox list, a hidden response is provided automatically by the customer in the syntax: lwc:hide:{value} where value denotes the number of stars, nps, or a separated list of selected values. Therefore, it is best to use the carousel component in a Question block if using a chatbot, to save the selected tile response to a slot. Also, see “lwc:hide” for more information about hiding text.
 
-Parameters
+__Parameters__
 
 * type: the type of question. Valid values are: star, nps, or checkbox
 * additionalparams: the additional params specific to the type
@@ -214,7 +215,7 @@ Chat Prefix Syntax: lwc:youtube:{youtube_content_id}
 
 Display a youtube video. Video can be maxized to view full screen.
 
-Parameters
+__Parameters__
 
 * youtube_content_id: the Youtube content id (https://www.youtube.com/watch?v=<content_id>)
 
