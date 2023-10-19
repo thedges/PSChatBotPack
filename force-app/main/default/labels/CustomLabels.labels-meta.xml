@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
     <labels>
+        <fullName>Last_Updated</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Last Updated</shortDescription>
+        <value>Last updated:</value>
+    </labels>
+    <labels>
         <fullName>Knowledge_Article_Card_Subtitle</fullName>
         <language>en_US</language>
         <protected>false</protected>
