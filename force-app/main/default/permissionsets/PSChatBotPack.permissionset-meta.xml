@@ -72,8 +72,4 @@
         <object>LiveChatVisitor</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
-    <recordTypeVisibilities>
-        <recordType>Case.Case</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
 </PermissionSet>
