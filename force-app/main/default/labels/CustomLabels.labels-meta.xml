@@ -21,4 +21,11 @@
         <shortDescription>No Articles Found</shortDescription>
         <value>No articles found</value>
     </labels>
+    <labels>
+        <fullName>See_More_Articles</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>See more articles</shortDescription>
+        <value>See more articles</value>
+    </labels>
 </CustomLabels>
