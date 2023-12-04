@@ -19,12 +19,15 @@ public with sharing class PSChatBotPack_SetFileApex {
               }
             }
   
-            List<ContentVersion> fileList = [SELECT Id, Title FROM ContentVersion WHERE ContentDocumentId = :fileId];
-           if (fileList != null && fileList.size() == 1)
-           {
-               fileList[0].Title = fileName;
+            if (fileName != null && fileName.trim().length() > 0)
+            {
+              List<ContentVersion> fileList = [SELECT Id, Title FROM ContentVersion WHERE ContentDocumentId = :fileId];
+              if (fileList != null && fileList.size() == 1)
+              {
+                fileList[0].Title = fileName;
+              }
+              update fileList;
            }
-           update fileList;
   
            // update the boolean field on object
            if (bField != null)
