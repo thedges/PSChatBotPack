@@ -45,7 +45,7 @@ global with sharing class PSChatBotPack_SearchKnowledgeArticles
                 //////////////////////////////
                 // build SOSL search string //
                 //////////////////////////////
-                String searchStr = 'FIND \'' + requests[0].searchString + '\' IN ALL FIELDS RETURNING ' + objectAPIName + '(Id, ArticleNumber, Title, Summary, UrlName, LastModifiedDate';
+                String searchStr = 'FIND {' + requests[0].searchString + '} IN ALL FIELDS RETURNING ' + objectAPIName + '(Id, ArticleNumber, Title, Summary, UrlName, LastModifiedDate';
                 if (imageFieldAPIName != null)
                 {
                     searchStr += ', ' + imageFieldAPIName;
